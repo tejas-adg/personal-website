@@ -1,19 +1,14 @@
-import ThemeSwitcher from "../islands/ThemeSwitcher.tsx";
+import Header from "../components/Header.tsx";
 
 export default function Home() {
   return (
-      <div class="min-h-screen bg-[#f1f5f9] dark:bg-[#22223b] transition-colors duration-300">
+      <div class="min-h-screen bg-background-light dark:bg-background-dark transition-colors duration-300">
         {/* HEADER */}
-        <header class="w-full flex items-center justify-between px-8 py-4">
-          <div class="text-2xl font-bold text-gray-700 dark:text-green-200 select-none">
-            Tejas A. M.
-          </div>
-          <ThemeSwitcher />
-        </header>
+        <Header />
 
         {/* MAIN CONTENT */}
         <main class="flex flex-col items-center justify-center flex-1">
-          <div class="w-full max-w-lg bg-white/80 dark:bg-[#181828]/80 rounded-2xl shadow-lg p-8 mt-16">
+          <div class="flex flex-col items-center justify-start w-full max-w-screen-lg bg-white/80 dark:bg-card-background-dark/80 rounded-2xl shadow-lg p-8 mt-16">
             <h1 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4 text-left">
               Welcome to my personal website
             </h1>
