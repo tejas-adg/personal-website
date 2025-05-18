@@ -6,7 +6,7 @@ export default function App({ Component }: PageProps) {
       <head>
         {/* Insert the script to set dark class before CSS loads */}
         <script>
-        {`
+          {`
           (function() {
             try {
               var dark = window.matchMedia('(prefers-color-scheme: dark)').matches;

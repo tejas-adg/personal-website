@@ -13,5 +13,5 @@ export default {
         "card-background-dark": "#181828",
       },
     },
-  }
+  },
 } satisfies Config;

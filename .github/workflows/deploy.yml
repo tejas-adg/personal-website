@@ -32,5 +32,3 @@ jobs:
           project: "tejas-personal-website"
           entrypoint: "main.ts"
           root: "."
-          
-          

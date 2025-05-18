@@ -1,24 +1,30 @@
 ### ubiquitous-octo-pancake is...
+
 # The front-end code of NeWO
 
 ## Fresh.js Framework Guide
 
 ### Basic Routing
+
 - Files in `/routes` directory automatically become pages/endpoints
 - Example: `/routes/about.tsx` → `https://beamcampus.com/about`
 
 ### Dynamic Routes
+
 - Use `[brackets]` for dynamic parameters
-- Single parameter: `/routes/greet/[name].tsx` → `https://beamcampus.com/greet/john`
+- Single parameter: `/routes/greet/[name].tsx` →
+  `https://beamcampus.com/greet/john`
 - Multiple parameters: `/routes/greet/[firstName]/[lastName].tsx`
 
 ### Layout System
 
 #### Global vs Local Layouts
+
 1. `_app.tsx` - Global layout that wraps EVERY page
 2. `_layout.tsx` - Local layout that only affects pages in its folder
 
 #### Directory Structure Example
+
 ```
 routes/
 ├── _app.tsx                 (Global layout - affects ALL pages)
@@ -34,12 +40,14 @@ routes/
 #### Layout Nesting
 
 For regular pages (like `/about`):
+
 ```
 _app.tsx
    └── about.tsx
 ```
 
 For blog pages (like `/blog/post/123`):
+
 ```
 _app.tsx
    └── blog/_layout.tsx
@@ -47,12 +55,14 @@ _app.tsx
 ```
 
 #### Benefits of Local Layouts
+
 - Different navigation menus for different sections
 - Section-specific styling
 - Shared components within specific areas
 - Consistent look within sections while maintaining global structure
 
 ### Special Files (prefixed with `_`)
+
 1. `_app.tsx` - Global layout wrapper
 2. `_layout.tsx` - Local layout for specific folders
 3. `_404.tsx` - Custom "not found" page
@@ -61,6 +71,7 @@ _app.tsx
 6. `_island.tsx` - Client-side interactive components
 
 ### API Routes
+
 - Create endpoints in `routes/api/`
 - Example: `/routes/api/joke.ts` → `https://beamcampus.com/api/joke`
 - Can return:
@@ -73,6 +84,7 @@ _app.tsx
   - curl or other HTTP clients
 
 ### URL Pattern Examples
+
 - `/` → `routes/index.tsx`
 - `/about` → `routes/about.tsx`
 - `/blog` → `routes/blog/index.tsx`
@@ -80,11 +92,13 @@ _app.tsx
 - `/api/data` → `routes/api/data.ts`
 
 ### Advanced Route Patterns
+
 1. Catch-all routes: `[...path].tsx`
 2. Optional parameters: `[[name]].tsx`
 3. Nested combinations: `/[category]/[...path].tsx`
 
 #### Optional Parameters Detail (`[[name]].tsx`)
+
 The double bracket syntax makes parameters optional. Here's how they differ:
 
 1. Regular Parameters (`[name].tsx`):
@@ -102,6 +116,7 @@ The double bracket syntax makes parameters optional. Here's how they differ:
 Example Implementation:
 
 ### Middleware System (_middleware.ts)
+
 Middleware files allow request/response modification at different levels:
 
 ```
@@ -116,6 +131,7 @@ routes/
 ```
 
 #### Middleware Features
+
 1. Pre-request handling
    - Logging
    - Authentication
@@ -126,6 +142,7 @@ routes/
    - Response transformation
 
 #### Example Usage
+
 ```typescript
 // Basic auth middleware
 export async function handler(req: Request, ctx: FreshContext) {
@@ -147,6 +164,7 @@ export async function handler(req: Request, ctx: FreshContext) {
 ### Authentication Options
 
 #### 1. Supabase Auth (Recommended)
+
 - Built-in Fresh integration
 - Easy setup
 - Features:
@@ -157,32 +175,36 @@ export async function handler(req: Request, ctx: FreshContext) {
 - Generous free tier
 
 #### 2. Auth.js
+
 - Multiple social providers
 - Session handling
 - Good documentation
 
 #### 3. Firebase Auth
+
 - Google integration
 - Real-time features
 - Comprehensive SDK
 
 #### 4. Custom JWT (with jose)
+
 - Lightweight solution
 - Full control
 - Good for simple auth needs
 
 #### Example: Supabase Auth Setup
+
 ```typescript
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from "@supabase/supabase-js";
 
 const supabase = createClient(
-  'YOUR_SUPABASE_URL',
-  'YOUR_SUPABASE_ANON_KEY'
-)
+  "YOUR_SUPABASE_URL",
+  "YOUR_SUPABASE_ANON_KEY",
+);
 
 // In middleware:
 export async function handler(req: Request, ctx: FreshContext) {
-  const { data: { session } } = await supabase.auth.getSession()
+  const { data: { session } } = await supabase.auth.getSession();
   if (!session && req.url.includes("/protected")) {
     return new Response("Unauthorized", { status: 401 });
   }
