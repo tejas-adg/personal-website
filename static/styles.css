@@ -1,3 +1,9 @@
+:root {
+  --shadow-soft: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-bottom: 0 6px 0 rgba(0,0,0,0.2);
+  --shadow-top: 0 -6px 0 rgba(0,0,0,0.2);
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -12,5 +18,47 @@
   }
   .btn-base {
     @apply px-4 py-2 rounded-lg font-semibold my-transition;
+  }
+
+  .btn-primary-slate-colors {
+    @apply bg-slate-200 hover:bg-slate-300 active:bg-slate-400 
+    dark:bg-slate-600 dark:hover:bg-slate-700 dark:active:bg-slate-800
+    text-slate-800 hover:text-slate-900 active:text-slate-950 border-transparent
+    dark:text-slate-200 dark:hover:text-slate-100 dark:active:text-slate-50
+  }
+
+  .btn-primary-slate-colors-inverted {
+    @apply dark:bg-slate-200 dark:hover:bg-slate-300 dark:active:bg-slate-400
+    bg-slate-600 hover:bg-slate-700 active:bg-slate-800 
+    dark:text-slate-800 dark:hover:text-slate-900 dark:active:text-slate-950 
+    text-slate-200 hover:text-slate-100 active:text-slate-50 border-transparent
+  }
+
+  .transparent-btn-slate-colors {
+    @apply bg-transparent hover:bg-slate-300 active:bg-slate-400
+    dark:hover:bg-slate-700 dark:active:bg-slate-800
+    dark:text-slate-200 hover:text-slate-700 active:text-slate-800
+    text-slate-600 dark:hover:text-slate-200 dark:active:text-slate-100
+  }
+  
+  .transparent-btn-slate-colors-inverted {
+    @apply bg-transparent dark:hover:bg-slate-200 dark:active:bg-slate-300
+    hover:bg-slate-600 active:bg-slate-700
+    dark:text-slate-200 dark:hover:text-slate-700 dark:active:text-slate-800
+    text-slate-600 hover:text-slate-200 active:text-slate-100
+  }
+
+  .btn-primary-stone-colors {
+    @apply bg-stone-200 hover:bg-stone-300 active:bg-stone-400 
+    text-stone-800 hover:text-stone-900 active:text-stone-950 border-transparent
+    dark:bg-stone-600 dark:hover:bg-stone-700 dark:active:bg-stone-800 
+    dark:text-stone-200 dark:hover:text-stone-100 dark:active:text-stone-50
+  }
+
+  .btn-primary-stone-colors-inverted {
+    @apply dark:bg-stone-200 dark:hover:bg-stone-300 dark:active:bg-stone-400 
+    dark:text-stone-800 dark:hover:text-stone-900 dark:active:text-stone-950 
+    bg-stone-600 hover:bg-stone-700 active:bg-stone-800 
+    text-stone-200 hover:text-stone-100 active:text-stone-50 border-transparent
   }
 }

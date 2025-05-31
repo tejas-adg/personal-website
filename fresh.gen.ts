@@ -4,30 +4,38 @@
 
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
+import * as $api_icon_resolver from "./routes/api/icon-resolver.ts";
 import * as $api_joke from "./routes/api/joke.ts";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
 import * as $test from "./routes/test.tsx";
+import * as $AStatus from "./islands/AStatus.tsx";
+import * as $AccessibilityToggle from "./islands/AccessibilityToggle.tsx";
 import * as $Counter from "./islands/Counter.tsx";
-import * as $Switch from "./islands/Switch.tsx";
+import * as $IconResolver from "./islands/IconResolver.tsx";
 import * as $ThemeSwitcher from "./islands/ThemeSwitcher.tsx";
+import * as $VerticalNavigation from "./islands/VerticalNavigation.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
-  routes: {
-    "./routes/_404.tsx": $_404,
-    "./routes/_app.tsx": $_app,
-    "./routes/api/joke.ts": $api_joke,
-    "./routes/greet/[name].tsx": $greet_name_,
-    "./routes/index.tsx": $index,
-    "./routes/test.tsx": $test,
-  },
-  islands: {
-    "./islands/Counter.tsx": $Counter,
-    "./islands/Switch.tsx": $Switch,
-    "./islands/ThemeSwitcher.tsx": $ThemeSwitcher,
-  },
-  baseUrl: import.meta.url,
+	routes: {
+		"./routes/_404.tsx": $_404,
+		"./routes/_app.tsx": $_app,
+		"./routes/api/icon-resolver.ts": $api_icon_resolver,
+		"./routes/api/joke.ts": $api_joke,
+		"./routes/greet/[name].tsx": $greet_name_,
+		"./routes/index.tsx": $index,
+		"./routes/test.tsx": $test,
+	},
+	islands: {
+		"./islands/AStatus.tsx": $AStatus,
+		"./islands/AccessibilityToggle.tsx": $AccessibilityToggle,
+		"./islands/Counter.tsx": $Counter,
+		"./islands/IconResolver.tsx": $IconResolver,
+		"./islands/ThemeSwitcher.tsx": $ThemeSwitcher,
+		"./islands/VerticalNavigation.tsx": $VerticalNavigation,
+	},
+	baseUrl: import.meta.url,
 } satisfies Manifest;
 
 export default manifest;

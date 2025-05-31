@@ -146,18 +146,18 @@ routes/
 ```typescript
 // Basic auth middleware
 export async function handler(req: Request, ctx: FreshContext) {
-  // Pre-request
-  if (req.url.includes("/admin")) {
-    const token = req.headers.get("authorization");
-    if (!token) return new Response("Unauthorized", { status: 401 });
-  }
+	// Pre-request
+	if (req.url.includes("/admin")) {
+		const token = req.headers.get("authorization");
+		if (!token) return new Response("Unauthorized", { status: 401 });
+	}
 
-  // Handle route
-  const resp = await ctx.next();
+	// Handle route
+	const resp = await ctx.next();
 
-  // Post-response
-  resp.headers.set("cache-control", "public, max-age=60");
-  return resp;
+	// Post-response
+	resp.headers.set("cache-control", "public, max-age=60");
+	return resp;
 }
 ```
 
@@ -198,16 +198,16 @@ export async function handler(req: Request, ctx: FreshContext) {
 import { createClient } from "@supabase/supabase-js";
 
 const supabase = createClient(
-  "YOUR_SUPABASE_URL",
-  "YOUR_SUPABASE_ANON_KEY",
+	"YOUR_SUPABASE_URL",
+	"YOUR_SUPABASE_ANON_KEY",
 );
 
 // In middleware:
 export async function handler(req: Request, ctx: FreshContext) {
-  const { data: { session } } = await supabase.auth.getSession();
-  if (!session && req.url.includes("/protected")) {
-    return new Response("Unauthorized", { status: 401 });
-  }
-  return ctx.next();
+	const { data: { session } } = await supabase.auth.getSession();
+	if (!session && req.url.includes("/protected")) {
+		return new Response("Unauthorized", { status: 401 });
+	}
+	return ctx.next();
 }
 ```
