@@ -33,14 +33,13 @@ export default function VerticalNavigation(
 					<a
 						href={href} // The navigation link
 						key={href} // Unique key for React/Preact rendering
-						// Tailwind classes: use [data-current] to style the active link
+						// Tailwind classes: use aria-[current] to style the active link
 						class={
 							// flex items-center: horizontal layout inside the link
 							// px-3 py-2: padding for each item
 							// rounded-lg: rounded edges
 							// transition-colors: smooth hover/active transitions
-							// [data-current]:...: apply bold and highlight to the current/active link only
-							// [data-ancestor]:...: (optional) could be used for parent section highlighting
+							// aria-[current]:...: apply bold and highlight to the current/active link only
 							`flex items-center px-3 py-2 rounded-lg transition-colors duration-150 select-none cursor-pointer font-normal 
                 hover:bg-slate-200 dark:hover:bg-slate-800/40
                 aria-[current]:font-bold aria-[current]:bg-slate-200 aria-[current]:dark:bg-slate-800/80`
