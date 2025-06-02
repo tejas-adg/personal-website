@@ -1,5 +1,7 @@
 // This is a simple, global signal (not reactivity library, just a shared variable).
-export let isTouchInput = false;
+import { signal } from "@preact/signals";
+
+export const isTouchInput = signal(false);
 
 // Guess based on screen width (opinionated: mobile is touch)
 function guessInitialInput(): boolean {
@@ -9,7 +11,7 @@ function guessInitialInput(): boolean {
 
 // Actual detection/refinement
 function updateInputMethod(next: boolean) {
-	isTouchInput = next;
+	isTouchInput.value = next;
 	// For testing/demo: Update any test label if present
 	const label = document.getElementById("input-method-label");
 	if (label) label.textContent = isTouchInput ? "Touch" : "Mouse";

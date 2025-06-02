@@ -8,7 +8,7 @@ export default function InputMethodStatus() {
 				<label>
 					Current Input Method:&nbsp;
 					<span id="input-method-label">
-						{isTouchInput ? "Touch" : "Mouse"}
+						{isTouchInput.value ? "Touch" : "Mouse"}
 					</span>
 				</label>
 			</div>

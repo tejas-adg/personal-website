@@ -1,4 +1,6 @@
 import { type PageProps } from "$fresh/server.ts";
+import { initInputDetector } from "../utils/InputMethodSignal.ts";
+if (typeof window !== "undefined") initInputDetector();
 
 export default function App({ Component }: PageProps) {
 	return (
