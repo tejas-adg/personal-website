@@ -13,6 +13,7 @@ import * as $AStatus from "./islands/AStatus.tsx";
 import * as $AccessibilityToggle from "./islands/AccessibilityToggle.tsx";
 import * as $Counter from "./islands/Counter.tsx";
 import * as $IconResolver from "./islands/IconResolver.tsx";
+import * as $InputDetectorInit from "./islands/InputDetectorInit.tsx";
 import * as $InputMethodStatus from "./islands/InputMethodStatus.tsx";
 import * as $ThemeSwitcher from "./islands/ThemeSwitcher.tsx";
 import * as $VerticalNavigation from "./islands/VerticalNavigation.tsx";
@@ -33,6 +34,7 @@ const manifest = {
 		"./islands/AccessibilityToggle.tsx": $AccessibilityToggle,
 		"./islands/Counter.tsx": $Counter,
 		"./islands/IconResolver.tsx": $IconResolver,
+		"./islands/InputDetectorInit.tsx": $InputDetectorInit,
 		"./islands/InputMethodStatus.tsx": $InputMethodStatus,
 		"./islands/ThemeSwitcher.tsx": $ThemeSwitcher,
 		"./islands/VerticalNavigation.tsx": $VerticalNavigation,

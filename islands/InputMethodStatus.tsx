@@ -1,14 +1,14 @@
-import { isTouchInput, inputCapabilities } from "../utils/InputMethodSignal.ts";
+import { isTouchInput, debugInfo } from "../utils/InputMethodSignal.ts";
 
 export default function InputMethodStatus() {
 	return (
-		<div class="p-6 space-y-4">
+		<div class="p-6 space-y-4 max-w-4xl">
 			<h1 class="text-2xl font-bold">Input Method Detector Test</h1>
 			
 			<div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
-				<h2 class="text-lg font-semibold mb-2">Primary Input Method</h2>
+				<h2 class="text-lg font-semibold mb-2">Current Detection Result</h2>
 				<div class="text-xl">
-					<span class="font-medium">Current Input Method: </span>
+					<span class="font-medium">Input Method: </span>
 					<span 
 						id="input-method-label"
 						class={`px-3 py-1 rounded-full text-white ${
@@ -20,60 +20,86 @@ export default function InputMethodStatus() {
 				</div>
 			</div>
 
-			<div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
-				<h2 class="text-lg font-semibold mb-2">Device Capabilities</h2>
-				<div id="input-details-label" class="space-y-2">
-					<div class="flex items-center gap-2">
-						<span class="font-medium">Can Hover:</span>
-						<span class={`px-2 py-1 rounded text-sm ${
-							inputCapabilities.value.hasHover ? 'bg-green-200 text-green-800' : 'bg-red-200 text-red-800'
-						}`}>
-							{inputCapabilities.value.hasHover ? 'Yes' : 'No'}
-						</span>
-					</div>
-					<div class="flex items-center gap-2">
-						<span class="font-medium">Coarse Pointer:</span>
-						<span class={`px-2 py-1 rounded text-sm ${
-							inputCapabilities.value.hasCoarsePointer ? 'bg-orange-200 text-orange-800' : 'bg-blue-200 text-blue-800'
-						}`}>
-							{inputCapabilities.value.hasCoarsePointer ? 'Yes' : 'No'}
-						</span>
-					</div>
-					<div class="flex items-center gap-2">
-						<span class="font-medium">Any Hover:</span>
-						<span class={`px-2 py-1 rounded text-sm ${
-							inputCapabilities.value.canHover ? 'bg-green-200 text-green-800' : 'bg-red-200 text-red-800'
-						}`}>
-							{inputCapabilities.value.canHover ? 'Yes' : 'No'}
-						</span>
-					</div>
+			<div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+				<h2 class="text-lg font-semibold mb-2">Debug Information</h2>
+				<div id="debug-info" class="space-y-1 text-sm font-mono">
+					<div><strong>Detection Method:</strong> {debugInfo.value.detectionMethod}</div>
+					<div><strong>Initial Guess:</strong> {debugInfo.value.initialGuess ? 'Touch' : 'Mouse'}</div>
+					<div><strong>Touch Event Fired:</strong> {debugInfo.value.events.touchDetected ? 'Yes' : 'No'}</div>
+					<div><strong>Mouse Event Fired:</strong> {debugInfo.value.events.mouseDetected ? 'Yes' : 'No'}</div>
+					<div><strong>Media Query - Hover:</strong> {debugInfo.value.mediaQueries.hover ? 'Yes' : 'No'}</div>
+					<div><strong>Media Query - Coarse Pointer:</strong> {debugInfo.value.mediaQueries.coarsePointer ? 'Yes' : 'No'}</div>
+					<div><strong>Has Touch Events:</strong> {typeof window !== 'undefined' && 'ontouchstart' in window ? 'Yes' : 'No'}</div>
+					<div><strong>User Agent:</strong> {typeof navigator !== 'undefined' ? navigator.userAgent.substring(0, 50) + '...' : 'Not available'}</div>
 				</div>
 			</div>
 
-			<div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
-				<h2 class="text-lg font-semibold mb-2">Testing Instructions</h2>
-				<ul class="space-y-2 text-sm">
-					<li>📱 <strong>On Mobile:</strong> Should show "Touch" with Can Hover: No, Coarse Pointer: Yes</li>
-					<li>🖥️ <strong>On Desktop:</strong> Should show "Mouse/Pointer" with Can Hover: Yes, Coarse Pointer: No</li>
-					<li>💻 <strong>On Laptop with Touchscreen:</strong> May show "Mouse/Pointer" initially, but touch the screen to see if it switches</li>
-					<li>🖱️ <strong>Hybrid Device:</strong> Try switching between mouse and touch to see real-time detection</li>
-				</ul>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+				<div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+					<h3 class="font-semibold mb-2 text-green-800 dark:text-green-200">✅ Try These Actions</h3>
+					<ul class="text-sm space-y-2">
+						<li><strong>On Phone:</strong> Just loading this page should detect touch</li>
+						<li><strong>On Desktop:</strong> Move your mouse cursor around</li>
+						<li><strong>Touchscreen Laptop:</strong> Touch anywhere on the screen</li>
+						<li><strong>Hybrid Device:</strong> Try both mouse and touch</li>
+					</ul>
+				</div>
+				
+				<div class="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg">
+					<h3 class="font-semibold mb-2 text-yellow-800 dark:text-yellow-200">🔍 What to Look For</h3>
+					<ul class="text-sm space-y-2">
+						<li><strong>Initial Guess:</strong> Should be Touch on mobile, Mouse on desktop</li>
+						<li><strong>Event Detection:</strong> Should fire when you interact</li>
+						<li><strong>User Agent:</strong> Should contain mobile indicators on phones</li>
+						<li><strong>Console:</strong> Check browser console for debug logs</li>
+					</ul>
+				</div>
 			</div>
 
-			<div class="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg">
-				<h2 class="text-lg font-semibold mb-2">What This Means for Navigation</h2>
-				<div class="text-sm space-y-1">
-					{isTouchInput.value ? (
-						<>
-							<p class="text-blue-700 dark:text-blue-300">✅ <strong>Touch Mode:</strong> Menu items will require tap to expand, then tap again to navigate</p>
-							<p class="text-gray-600 dark:text-gray-400">❌ <strong>Hover:</strong> Disabled - menus won't expand on hover</p>
-						</>
-					) : (
-						<>
-							<p class="text-green-700 dark:text-green-300">✅ <strong>Mouse Mode:</strong> Menu items will expand on hover, click to navigate</p>
-							<p class="text-gray-600 dark:text-gray-400">❌ <strong>Touch Expansion:</strong> Not needed - hover handles menu expansion</p>
-						</>
-					)}
+			<div class="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg">
+				<h2 class="text-lg font-semibold mb-2">Manual Test Buttons</h2>
+				<p class="text-sm mb-3">Click these buttons to manually trigger detection events for testing:</p>
+				<div class="space-x-2">
+					<button
+						type="button" 
+						class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+						onClick={() => {
+							// Manually dispatch a touch event
+							const event = new Event('touchstart');
+							globalThis.dispatchEvent(event);
+							console.log("Manual touch event dispatched");
+						}}
+					>
+						Simulate Touch Event
+					</button>
+					<button
+						type="button"
+						class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+						onMouseMove={(e) => {
+							console.log("Mouse move on button:", e.movementX, e.movementY);
+						}}
+					>
+						Hover for Mouse Event
+					</button>
+				</div>
+			</div>
+
+			<div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+				<h2 class="text-lg font-semibold mb-2">Troubleshooting</h2>
+				<div class="text-sm space-y-2">
+					<p><strong>If it's stuck on "Mouse/Pointer":</strong></p>
+					<ul class="list-disc ml-6 space-y-1">
+						<li>Check browser console for debug logs</li>
+						<li>Try touching the screen directly (not just scrolling)</li>
+						<li>Check if "Has Touch Events" shows "Yes" on your device</li>
+						<li>On mobile, the initial guess should be "Touch"</li>
+					</ul>
+					<p class="mt-3"><strong>If detection seems wrong:</strong></p>
+					<ul class="list-disc ml-6 space-y-1">
+						<li>Look at the User Agent string - should contain mobile keywords</li>
+						<li>Check Media Query results - these vary by browser/device</li>
+						<li>Try the manual test buttons above</li>
+					</ul>
 				</div>
 			</div>
 		</div>
