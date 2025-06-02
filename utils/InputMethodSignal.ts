@@ -67,7 +67,7 @@ function updateLabels() {
 			<div><strong>Media Query - Hover:</strong> ${debugInfo.value.mediaQueries.hover ? 'Yes' : 'No'}</div>
 			<div><strong>Media Query - Coarse Pointer:</strong> ${debugInfo.value.mediaQueries.coarsePointer ? 'Yes' : 'No'}</div>
 			<div><strong>Has Touch Events:</strong> ${'ontouchstart' in globalThis ? 'Yes' : 'No'}</div>
-			<div><strong>User Agent:</strong> ${navigator.userAgent.substring(0, 50)}...</div>
+			<div><strong>User Agent:</strong> ${navigator.userAgent}</div>
 		`;
 	}
 }

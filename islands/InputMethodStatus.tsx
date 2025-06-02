@@ -30,7 +30,7 @@ export default function InputMethodStatus() {
 					<div><strong>Media Query - Hover:</strong> {debugInfo.value.mediaQueries.hover ? 'Yes' : 'No'}</div>
 					<div><strong>Media Query - Coarse Pointer:</strong> {debugInfo.value.mediaQueries.coarsePointer ? 'Yes' : 'No'}</div>
 					<div><strong>Has Touch Events:</strong> {typeof window !== 'undefined' && 'ontouchstart' in window ? 'Yes' : 'No'}</div>
-					<div><strong>User Agent:</strong> {typeof navigator !== 'undefined' ? navigator.userAgent.substring(0, 50) + '...' : 'Not available'}</div>
+					<div><strong>User Agent:</strong> {typeof navigator !== 'undefined' ? navigator.userAgent : 'Not available'}</div>
 				</div>
 			</div>
 
