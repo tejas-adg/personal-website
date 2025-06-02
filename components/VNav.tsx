@@ -41,8 +41,8 @@ export default function VerticalNavigation(
 							// transition-colors: smooth hover/active transitions
 							// aria-[current]:...: apply bold and highlight to the current/active link only
 							`flex items-center px-3 py-2 rounded-lg transition-colors duration-150 select-none cursor-pointer font-normal 
-                hover:bg-slate-200 dark:hover:bg-slate-800/40
-                aria-[current]:font-bold aria-[current]:bg-slate-200 aria-[current]:dark:bg-slate-800/80`
+                hover:bg-slate-200/50 dark:hover:bg-slate-800/45
+                aria-[current]:font-bold aria-[current]:bg-slate-200 aria-[current]:dark:bg-slate-800/90`
 						}
 					>
 						{item.text}

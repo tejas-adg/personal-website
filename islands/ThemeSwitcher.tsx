@@ -17,7 +17,7 @@ export default function ThemeSwitcher() {
 		<Button
 			variant="primary"
 			shape="full"
-			shadow="none"
+			shadow="soft"
 			label={isDark.value ? "☀️ Light" : "🌙 Dark"}
 			aria-label="Toggle theme"
 			onClick={toggleTheme}

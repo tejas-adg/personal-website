@@ -81,7 +81,7 @@ export interface SwitchProps {
 export default function Switch({
 	labelLeft = "",
 	labelRight = "",
-	labelClass = "text-gray-700 dark:text-gray-300 text-base font-medium",
+	labelClass = "text-slate-800 dark:text-slate-100 text-base font-medium",
 	labelOn = "I",
 	labelOff = "O",
 	a11yOverride,
@@ -164,8 +164,8 @@ export default function Switch({
 				{/* The "knob" (the circle that slides left/right) */}
 				<span
 					class={`
-            rounded-full ${knobClass} shadow-md
-            w-6 h-6 transition-transform duration-300
+            rounded-full ${knobClass} shadow-sm dark:shadow-md
+            w-6 h-6 transition-transform duration-150
             ${checked ? "translate-x-11" : ""}
           `}
 				/>
