@@ -61,7 +61,7 @@ export default function InputMethodStatus() {
 				<p class="text-sm mb-3">Click these buttons to manually trigger detection events for testing:</p>
 				<div class="space-x-2">
 					<button
-						type="button" 
+						type="button"
 						class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
 						onClick={() => {
 							// Manually dispatch a touch event
@@ -72,7 +72,7 @@ export default function InputMethodStatus() {
 					>
 						Simulate Touch Event
 					</button>
-					<button
+					<button 
 						type="button"
 						class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
 						onMouseMove={(e) => {
@@ -85,20 +85,26 @@ export default function InputMethodStatus() {
 			</div>
 
 			<div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
-				<h2 class="text-lg font-semibold mb-2">Troubleshooting</h2>
+				<h2 class="text-lg font-semibold mb-2">🔧 Troubleshooting</h2>
 				<div class="text-sm space-y-2">
-					<p><strong>If it's stuck on "Mouse/Pointer":</strong></p>
+					<p><strong>If it won't switch from Mouse to Touch:</strong></p>
 					<ul class="list-disc ml-6 space-y-1">
-						<li>Check browser console for debug logs</li>
-						<li>Try touching the screen directly (not just scrolling)</li>
-						<li>Check if "Has Touch Events" shows "Yes" on your device</li>
-						<li>On mobile, the initial guess should be "Touch"</li>
+						<li>Make sure you're actually touching the screen (not just scrolling)</li>
+						<li>Check if touch event counter increases when you touch</li>
+						<li>Some devices need a firm, deliberate touch</li>
 					</ul>
-					<p class="mt-3"><strong>If detection seems wrong:</strong></p>
+					<p class="mt-3"><strong>If it won't switch from Touch to Mouse:</strong></p>
 					<ul class="list-disc ml-6 space-y-1">
-						<li>Look at the User Agent string - should contain mobile keywords</li>
-						<li>Check Media Query results - these vary by browser/device</li>
-						<li>Try the manual test buttons above</li>
+						<li>Move the mouse cursor (not just clicks)</li>
+						<li>Try typing on the keyboard</li>
+						<li>Check if mouse event counter increases</li>
+						<li>Wait 500ms between switches (debouncing)</li>
+					</ul>
+					<p class="mt-3"><strong>General debugging:</strong></p>
+					<ul class="list-disc ml-6 space-y-1">
+						<li>Watch the event counters and timestamps</li>
+						<li>Check browser console for real-time logs</li>
+						<li>Try the manual test buttons if needed</li>
 					</ul>
 				</div>
 			</div>
