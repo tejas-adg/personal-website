@@ -1,64 +1,268 @@
-:root {
-	--shadow-soft: 0 4px 6px rgba(0, 0, 0, 0.1);
-	--shadow-bottom: 0 6px 0 rgba(0, 0, 0, 0.2);
-	--shadow-top: 0 -6px 0 rgba(0, 0, 0, 0.2);
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+	:root {
+		--color-lume: 208 188 255;
+		--color-vapor: 196 193 251;
+		--color-deep: 47 0 117;
+		--color-background: 24 15 35;
+		--color-surface: 24 15 35;
+		--color-surface-dim: 24 15 35;
+		--color-surface-bright: 63 53 75;
+		--color-surface-container-lowest: 18 10 29;
+		--color-surface-container-low: 32 24 44;
+		--color-surface-container: 36 28 48;
+		--color-surface-container-high: 47 38 59;
+		--color-surface-container-highest: 58 49 70;
+		--color-surface-variant: 58 49 70;
+		--color-outline: 148 142 153;
+		--color-outline-variant: 73 69 78;
+		--color-primary: 208 188 255;
+		--color-on-primary: 60 0 145;
+		--color-primary-container: 47 0 117;
+		--color-on-primary-container: 156 114 255;
+		--color-primary-fixed: 233 221 255;
+		--color-primary-fixed-dim: 208 188 255;
+		--color-secondary: 196 193 251;
+		--color-on-secondary: 45 42 91;
+		--color-secondary-container: 68 65 115;
+		--color-on-secondary-container: 179 175 233;
+		--color-secondary-fixed: 227 223 255;
+		--color-secondary-fixed-dim: 196 193 251;
+		--color-tertiary: 219 184 255;
+		--color-on-tertiary: 63 33 96;
+		--color-tertiary-container: 51 20 84;
+		--color-on-tertiary-container: 159 126 195;
+		--color-tertiary-fixed: 239 219 255;
+		--color-tertiary-fixed-dim: 219 184 255;
+		--color-on-background: 236 221 249;
+		--color-on-surface: 236 221 249;
+		--color-on-surface-variant: 203 196 207;
+		--color-inverse-surface: 236 221 249;
+		--color-inverse-on-surface: 54 44 65;
+		--color-inverse-primary: 109 59 215;
+		--color-error: 255 180 171;
+		--color-on-error: 105 0 5;
+		--color-error-container: 147 0 10;
+		--color-on-error-container: 255 218 214;
+		--radius-default: 0.125rem;
+		--radius-lg: 0.25rem;
+		--radius-xl: 0.5rem;
+		--radius-soft: 0.75rem;
+		--blur-glass: 20px;
+		--shadow-surface: 0 24px 48px -24px rgba(0, 0, 0, 0.55);
+		--shadow-primary-glow: 0 24px 48px -24px rgba(208, 188, 255, 0.1);
+		--shadow-primary-glow-hover: 0 28px 60px -24px rgba(208, 188, 255, 0.3);
+		--shadow-nav-elevated: 0 40px 60px -15px rgba(0, 0, 0, 0.3);
+	}
+
+	html {
+		color-scheme: dark;
+		background-color: rgb(var(--color-background));
+	}
+
+	body {
+		@apply bg-background font-body text-on-background;
+		font-optical-sizing: auto;
+		font-size: 1.0625rem;
+		line-height: 1.8;
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+	}
+
+	body,
+	button,
+	input,
+	select,
+	textarea {
+		font-optical-sizing: auto;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-headline italic text-on-surface;
+		letter-spacing: -0.03em;
+		line-height: 0.96;
+	}
+
+	p,
+	li,
+	blockquote {
+		@apply font-body text-on-surface;
+	}
+
+	label,
+	figcaption,
+	caption {
+		@apply text-on-surface-variant;
+		font-family: "Manrope", sans-serif;
+		font-size: 0.75rem;
+		letter-spacing: 0.16em;
+		text-transform: uppercase;
+	}
+
+	a,
+	button {
+		@apply duration-300 ease-standard;
+		transition-property:
+			color,
+			background-color,
+			border-color,
+			box-shadow,
+			transform,
+			filter,
+			opacity;
+	}
+
+	a {
+		@apply text-primary;
+		text-decoration-color: rgb(var(--color-primary) / 0.35);
+		text-underline-offset: 0.2em;
+	}
+
+	a:hover {
+		@apply text-secondary;
+	}
+
+	hr {
+		@apply border-outline-variant/15;
+	}
+
+	::selection {
+		background-color: rgb(var(--color-primary) / 0.3);
+		color: rgb(var(--color-on-surface));
+	}
+}
+
+@layer components {
+	.type-headline {
+		@apply font-headline italic text-on-surface;
+		font-size: clamp(3rem, 7vw, 5.5rem);
+		line-height: 0.95;
+		letter-spacing: -0.04em;
+	}
+
+	.type-subheadline {
+		@apply font-headline font-medium text-on-surface;
+		font-size: clamp(1.75rem, 3vw, 2.5rem);
+		line-height: 1.08;
+		letter-spacing: -0.025em;
+	}
+
+	.type-body {
+		@apply font-body text-on-surface;
+		font-size: clamp(1.125rem, 0.6vw + 1rem, 1.375rem);
+		line-height: 1.75;
+	}
+
+	.type-label {
+		@apply font-label text-on-surface-variant;
+		font-size: 0.68rem;
+		font-weight: 700;
+		letter-spacing: 0.24em;
+		line-height: 1.4;
+		text-transform: uppercase;
+	}
+
+	.btn-base,
+	.btn-primary,
+	.btn-primary-soft,
+	.btn-secondary,
+	.btn-ghost,
+	.btn-primary-slate-colors,
+	.btn-primary-slate-colors-inverted,
+	.transparent-btn-slate-colors,
+	.transparent-btn-slate-colors-inverted,
+	.btn-primary-stone-colors,
+	.btn-primary-stone-colors-inverted {
+		@apply inline-flex items-center justify-center gap-2 rounded-soft border border-transparent px-4 py-2.5 font-body text-sm font-semibold;
+		@apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+		@apply disabled:pointer-events-none disabled:opacity-60;
+	}
+
+	.btn-primary,
+	.btn-primary-slate-colors,
+	.btn-primary-stone-colors {
+		@apply border-transparent bg-gradient-to-br from-primary to-on-primary-container text-on-primary shadow-primary-glow;
+		@apply font-headline italic hover:-translate-y-px hover:brightness-105 hover:shadow-primary-glow-hover active:translate-y-0;
+	}
+
+	.btn-primary-soft,
+	.btn-primary-slate-colors-inverted,
+	.btn-primary-stone-colors-inverted {
+		@apply border-outline-variant/25 bg-surface-container-high text-on-surface shadow-surface;
+		@apply hover:-translate-y-px hover:border-primary/30 hover:bg-primary-container/20 hover:text-primary active:translate-y-0;
+	}
+
+	.btn-secondary,
+	.transparent-btn-slate-colors {
+		@apply border-outline-variant/35 bg-transparent text-secondary;
+		@apply hover:-translate-y-px hover:border-primary/30 hover:bg-primary/10 hover:text-on-surface hover:shadow-primary-glow active:translate-y-0;
+	}
+
+	.btn-ghost,
+	.transparent-btn-slate-colors-inverted {
+		@apply bg-transparent text-on-surface-variant hover:text-primary active:text-secondary;
+		font-family: "Manrope", sans-serif;
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.22em;
+		text-transform: uppercase;
+	}
+
+	.card-surface,
+	.card-base {
+		@apply rounded-xl border border-outline-variant/10 bg-surface-container text-on-surface shadow-surface;
+		@apply hover:-translate-y-0.5 hover:bg-surface-container-high hover:shadow-nav-elevated;
+	}
+
+	.card-base {
+		@apply p-8;
+	}
+
+	.glass-nav {
+		@apply rounded-soft border border-outline-variant/15 bg-background/70 shadow-nav-elevated backdrop-blur-glass;
+	}
+
+	.nav-divider {
+		@apply border-b border-outline-variant/15;
+	}
+
+	.footer-divider {
+		@apply border-t border-outline-variant/10;
+	}
+
+	.icon-muted {
+		@apply text-primary/40;
+		transition-property: color, filter, opacity;
+	}
+
+	.icon-muted:hover {
+		@apply text-primary;
+		filter: brightness(1.12);
+	}
+
+	.media-muted {
+		@apply grayscale transition duration-500 ease-standard hover:grayscale-0;
+	}
+}
+
 @layer utilities {
 	.my-colors-transition {
-		@apply transition-colors duration-300;
-	}
-	.card-base {
-		@apply bg-white/80 dark:bg-card-background-dark/80 rounded-2xl shadow-lg
-			p-8;
-	}
-	.btn-base {
-		@apply px-4 py-2 rounded-lg font-semibold my-transition;
+		@apply transition-colors duration-300 ease-standard;
 	}
 
-	.btn-primary-slate-colors {
-		@apply bg-slate-200 hover:bg-slate-300 active:bg-slate-400
-			dark:bg-slate-600 dark:hover:bg-slate-700 dark:active:bg-slate-800
-			text-slate-800 hover:text-slate-900 active:text-slate-950 border-transparent
-			dark:text-slate-200 dark:hover:text-slate-100 dark:active:text-slate-50;
+	.focus-ring {
+		@apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background;
 	}
 
-	.btn-primary-slate-colors-inverted {
-		@apply dark:bg-slate-200 dark:hover:bg-slate-300 dark:active:bg-slate-400
-			bg-slate-600 hover:bg-slate-700 active:bg-slate-800
-			dark:text-slate-800 dark:hover:text-slate-900 dark:active:text-slate-950
-			text-slate-200 hover:text-slate-100 active:text-slate-50 border-transparent;
-	}
-
-	.transparent-btn-slate-colors {
-		@apply bg-transparent hover:bg-slate-300 active:bg-slate-400
-			dark:hover:bg-slate-700 dark:active:bg-slate-800
-			dark:text-slate-200 hover:text-slate-700 active:text-slate-800
-			text-slate-600 dark:hover:text-slate-200 dark:active:text-slate-100;
-	}
-
-	.transparent-btn-slate-colors-inverted {
-		@apply bg-transparent dark:hover:bg-slate-200 dark:active:bg-slate-300
-			hover:bg-slate-600 active:bg-slate-700
-			dark:text-slate-200 dark:hover:text-slate-700 dark:active:text-slate-800
-			text-slate-600 hover:text-slate-200 active:text-slate-100;
-	}
-
-	.btn-primary-stone-colors {
-		@apply bg-stone-200 hover:bg-stone-300 active:bg-stone-400
-			text-stone-800 hover:text-stone-900 active:text-stone-950 border-transparent
-			dark:bg-stone-600 dark:hover:bg-stone-700 dark:active:bg-stone-800
-			dark:text-stone-200 dark:hover:text-stone-100 dark:active:text-stone-50;
-	}
-
-	.btn-primary-stone-colors-inverted {
-		@apply dark:bg-stone-200 dark:hover:bg-stone-300 dark:active:bg-stone-400
-			dark:text-stone-800 dark:hover:text-stone-900 dark:active:text-stone-950
-			bg-stone-600 hover:bg-stone-700 active:bg-stone-800
-			text-stone-200 hover:text-stone-100 active:text-stone-50 border-transparent;
+	.overlay-gradient {
+		@apply bg-gradient-to-t from-background via-transparent to-transparent;
 	}
 }
