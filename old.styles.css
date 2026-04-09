@@ -95,6 +95,7 @@
 	li,
 	blockquote {
 		@apply font-body text-on-surface;
+
 	}
 
 	label,
@@ -191,6 +192,8 @@
 	.btn-primary-stone-colors {
 		@apply border-transparent bg-gradient-to-br from-primary to-on-primary-container text-on-primary shadow-primary-glow;
 		@apply font-headline italic hover:-translate-y-px hover:brightness-105 hover:shadow-primary-glow-hover active:translate-y-0;
+
+
 	}
 
 	.btn-primary-soft,

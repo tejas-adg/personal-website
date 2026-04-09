@@ -1,22 +1,33 @@
-import Header from "../components/Header.tsx";
+import { useSignal } from "@preact/signals";
+import { Head } from "fresh/runtime";
+import { define } from "../utils.ts";
+import Counter from "../islands/Counter.tsx";
 
-export default function Home() {
-	return (
-		<div class="min-h-screen bg-slate-100 text-slate-800 dark:bg-slate-900 dark:text-slate-100 my-colors-transition">
-			{/* HEADER */}
-			<Header />
+export default define.page(function Home(ctx) {
+  const count = useSignal(3);
 
-			{/* MAIN CONTENT */}
-			<main class="flex flex-col items-center justify-center flex-1">
-				<div class="flex flex-col items-center justify-start min-w-[722px] w-1/2 max-w-screen-lg rounded-2xl shadow-lg dark:shadow-lg p-8 mt-16 dark:bg-slate-900">
-					<h1 class="text-xl font-semibold mb-4 text-left">
-						Welcome to my personal website
-					</h1>
-					<div class="text-4xl font-extrabold text-green-700 dark:text-green-300 mb-2 text-left">
-						Website under Construction 🚧👷‍♂️🛠️
-					</div>
-				</div>
-			</main>
-		</div>
-	);
-}
+  console.log("Shared value " + ctx.state.shared);
+
+  return (
+    <div class="px-4 py-8 mx-auto fresh-gradient min-h-screen">
+      <Head>
+        <title>Fresh counter</title>
+      </Head>
+      <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
+        <img
+          class="my-6"
+          src="/logo.svg"
+          width="128"
+          height="128"
+          alt="the Fresh logo: a sliced lemon dripping with juice"
+        />
+        <h1 class="text-4xl font-bold">Welcome to Fresh</h1>
+        <p class="my-4">
+          Try updating this message in the
+          <code class="mx-2">./routes/index.tsx</code> file, and refresh.
+        </p>
+        <Counter count={count} />
+      </div>
+    </div>
+  );
+});

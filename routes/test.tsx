@@ -1,4 +1,4 @@
-import { Head } from "$fresh/runtime.ts";
+import { Head } from "fresh/runtime";
 
 const navLinks = [
 	{ label: "Exhibitions", href: "#palette" },

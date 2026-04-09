@@ -1,29 +1,17 @@
-# Personal Website
+# Fresh project
 
-A small Fresh + Preact site for Tejas A. M.
+Your new Fresh project is ready to go. You can follow the Fresh "Getting
+Started" guide here: https://fresh.deno.dev/docs/getting-started
 
-## What’s here
+### Usage
 
-- A minimal homepage in `routes/index.tsx`
-- Shared layout and metadata in `routes/_app.tsx`
-- Header controls for theme and accessibility
-- A test playground under `routes/test.tsx`
-- A tiny `/greet/:name` route for route testing
-- A joke API at `routes/api/joke.ts`
+Make sure to install Deno:
+https://docs.deno.com/runtime/getting_started/installation
 
-## Run It
+Then start the project in development mode:
 
-```sh
-deno task start
+```
+deno task dev
 ```
 
-## Checks
-
-```sh
-deno task check
-```
-
-## Notes
-
-- The app uses Fresh with Tailwind.
-- Dark mode is handled in the app shell and the theme switcher island.
+This will watch the project directory and restart as necessary.
