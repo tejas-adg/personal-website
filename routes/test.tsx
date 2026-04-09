@@ -118,9 +118,9 @@ export default function TestRoute() {
 					class="pointer-events-none absolute inset-0"
 					aria-hidden="true"
 				>
-					<div class="absolute inset-x-0 top-0 h-[34rem] bg-[radial-gradient(circle_at_top,_rgba(208,188,255,0.18),_transparent_58%)]" />
-					<div class="absolute left-[-9rem] top-[42rem] h-[24rem] w-[24rem] rounded-full bg-primary-container/18 blur-3xl" />
-					<div class="absolute right-[-10rem] top-[76rem] h-[28rem] w-[28rem] rounded-full bg-secondary/8 blur-3xl" />
+					<div class="absolute inset-x-0 top-0 h-[34rem] bg-[radial-gradient(ellipse_50%_25%_at_50%_0%,#251736_0%,#180F23_100%)]"/>
+					{/*<div class="absolute left-[-9rem] top-[42rem] h-[24rem] w-[24rem] rounded-full bg-primary-container/18 blur-3xl" />
+					<div class="absolute right-[-10rem] top-[76rem] h-[28rem] w-[28rem] rounded-full bg-secondary/8 blur-3xl" />*/}
 				</div>
 
 				<nav class="fixed inset-x-0 top-4 z-50 px-4 sm:px-6">
@@ -200,9 +200,7 @@ export default function TestRoute() {
 							{paletteSwatches.map((swatch, index) => (
 								<article
 									key={swatch.name}
-									class={`group relative min-h-[13rem] overflow-hidden rounded-xl p-5 shadow-surface transition duration-500 ease-standard hover:-translate-y-1 hover:shadow-nav-elevated ${swatch.panelClass} ${
-										index === 0 ? "xl:translate-y-8" : ""
-									}`}
+									class={`group relative min-h-[13rem] overflow-hidden rounded-xl p-5 shadow-surface transition duration-500 ease-standard hover:-translate-y-1 hover:shadow-nav-elevated ${swatch.panelClass} `}
 								>
 									<div class="absolute right-5 top-5 h-12 w-12 rounded-full bg-white/10 blur-2xl" />
 									<div class="relative flex h-full flex-col justify-end">
