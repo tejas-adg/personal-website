@@ -4,7 +4,7 @@ export default function ArchivesPage() {
 	return (
 		<>
 			<Head>
-				<title>Archives</title>
+				<title>Tejas'sArchives</title>
 				<meta
 					name="description"
 					content="A small page for testing the shared navbar."
@@ -20,6 +20,9 @@ export default function ArchivesPage() {
 				<p class="mt-8 max-w-2xl text-sm leading-7 text-on-surface-variant sm:text-base sm:leading-8 md:text-lg">
 					This page exists so you can click the shared second nav link and
 					confirm the global navbar is rendering consistently across routes.
+				</p>
+				<p class="mt-8 max-w-2xl text-sm leading-7 text-on-surface-variant sm:text-base sm:leading-8 md:text-lg">
+					For now ... 😈
 				</p>
 			</main>
 		</>

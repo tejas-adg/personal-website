@@ -4,7 +4,7 @@ export default function AtelierTestPage() {
 	return (
 		<>
 			<Head>
-				<title>Atelier</title>
+				<title>Atelier 👨‍💻</title>
 				<meta
 					name="description"
 					content="A simple test page for the atelier route."

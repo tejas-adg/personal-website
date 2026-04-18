@@ -4,7 +4,7 @@ export default function ExhibitionsPage() {
 	return (
 		<>
 			<Head>
-				<title>Exhibitions</title>
+				<title>Tejas's Gallery</title>
 				<meta
 					name="description"
 					content="A simple test page for the exhibitions route."
