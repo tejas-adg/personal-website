@@ -40,7 +40,6 @@ export function NavBar({
               <a
                 key={link.label}
                 href={link.href}
-                /*aria-current={link.href === activeHref ? "page" : undefined}*/
                 class="nav-link-text"
               >
                 {link.label}
