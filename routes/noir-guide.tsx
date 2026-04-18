@@ -67,14 +67,14 @@ export default function NoirGuideRoute() {
 			</Head>
 
 			<div class="relative min-h-screen overflow-x-clip bg-background text-on-background selection:bg-primary/30">
-				<div
+				{/*<div
 					class="pointer-events-none absolute inset-0"
 					aria-hidden="true"
 				>
 					<div class="absolute inset-x-0 top-0 h-[34rem] bg-[radial-gradient(ellipse_50%_25%_at_50%_0%,#251736_0%,#180F23_100%)]"/>
-					{/*<div class="absolute left-[-9rem] top-[42rem] h-[24rem] w-[24rem] rounded-full bg-primary-container/18 blur-3xl" />
-					<div class="absolute right-[-10rem] top-[76rem] h-[28rem] w-[28rem] rounded-full bg-secondary/8 blur-3xl" />*/}
-				</div>
+					<div class="absolute left-[-9rem] top-[42rem] h-[24rem] w-[24rem] rounded-full bg-primary-container/18 blur-3xl" />
+					<div class="absolute right-[-10rem] top-[76rem] h-[28rem] w-[28rem] rounded-full bg-secondary/8 blur-3xl" />
+				</div>*/}
 
 				<main
 					id="showcase"
