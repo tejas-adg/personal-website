@@ -1,4 +1,5 @@
 import { define } from "../utils.ts";
+import { NavBar } from "../components/NavBar.tsx";
 
 export default define.page(function App({ Component }) {
   return (
@@ -20,6 +21,7 @@ export default define.page(function App({ Component }) {
         {/*<link rel="stylesheet" href="/styles.css" />*/}
       </head>
       <body>
+        <NavBar />
         <Component />
       </body>
     </html>

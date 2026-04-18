@@ -292,6 +292,18 @@
 		@apply rounded-soft border border-outline-variant/15 bg-background/70 shadow-nav-elevated backdrop-blur-glass;
 	}
 
+	.nav-icon-button {
+		@apply inline-flex h-9 w-9 items-center justify-center rounded-full border border-outline-variant/10 bg-surface-container-low text-primary/70;
+		@apply transition duration-300 ease-standard hover:bg-surface-container-high hover:text-primary;
+	}
+
+	.nav-link-text {
+		@apply font-headline text-sm italic transition duration-300 ease-standard text-on-surface-variant hover:text-on-surface;
+
+		@apply aria-[current=page]:text-primary aria-[current=page]:hover:text-primary-fixed 
+		aria-[current=page]:border-b aria-[current=page]:border-primary/30 aria-[current=page]:pb-1;
+	}
+
 	.nav-divider {
 		@apply border-b border-outline-variant/15;
 	}

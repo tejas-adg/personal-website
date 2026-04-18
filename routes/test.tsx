@@ -1,11 +1,5 @@
 import { Head } from "fresh/runtime";
-
-const navLinks = [
-	{ label: "Exhibitions", href: "#palette" },
-	{ label: "Archives", href: "#voice" },
-	{ label: "Atelier", href: "#controls" },
-	{ label: "Contact", href: "#footer" },
-];
+import { ambientImage, exhibitionImage } from "../components/urls.ts";
 
 const footerLinks = [
 	{ label: "Journal", href: "#voice" },
@@ -47,12 +41,6 @@ const interactionFacts = [
 	{ label: "Glass Backdrop", value: "Blur-xl (20px)" },
 ];
 
-const exhibitionImage =
-	"https://lh3.googleusercontent.com/aida-public/AB6AXuDn8LaAMZzGTEK7IfaZ7sCjYsKvROTdbxtksXhc_ThkaNsZ7plXhxHSIYZAGWcMLVBKAzvSCWaiC5wOUWDydV8L_-O2HuNSmBhXiD3mdoeavH5IbKjZq6DQXhf8o0tJ6NO3opMOJjdk8neMLuH2CLTA4M_SWNMlqfDiFBaMu83GBhofvdko2kNNJGgFZuucgOAZvpxfrZUJzlsoOaaamXutfso24vaBtgLv47P4M6qO5Nw2egHfzgeDfwqIp5-wteq7qS46L-K-Td2M";
-
-const ambientImage =
-	"https://lh3.googleusercontent.com/aida-public/AB6AXuBIiYqAttTmOdfaPoGodIhX-T3mhY_NZXlKmOwWdloe--mwmFvbjdzK7WPfpgzfA_jlvoMt65n5T2cCgdUyK1TEw1O9MeDocJdvoDGbB3De_Dp_Ere0ITQSpAPj-BBw35-lc-Sc100qPzRaeij5RYE2fe8_QyukjveiZyCyXMA7xWF6F4RrDhHxRnrPFYHZVtNS56cmrik5yK1j6wJ1YRnIUSpLlKxhrY1MrOzto6AyGXJydcicLSYoiRC0iHy7BP3YIaS9imPE_z8T";
-
 function SectionHeading(
 	{ id, title, index }: { id: string; title: string; index: string },
 ) {
@@ -64,41 +52,6 @@ function SectionHeading(
 			<h2 class="type-subheadline italic">{title}</h2>
 			<span class="type-label text-outline">{index}</span>
 		</div>
-	);
-}
-
-function MoonIcon() {
-	return (
-		<svg
-			viewBox="0 0 24 24"
-			fill="none"
-			stroke="currentColor"
-			strokeWidth="1.5"
-			strokeLinecap="round"
-			strokeLinejoin="round"
-			class="h-4 w-4"
-			aria-hidden="true"
-		>
-			<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />
-		</svg>
-	);
-}
-
-function SearchIcon() {
-	return (
-		<svg
-			viewBox="0 0 24 24"
-			fill="none"
-			stroke="currentColor"
-			strokeWidth="1.5"
-			strokeLinecap="round"
-			strokeLinejoin="round"
-			class="h-4 w-4"
-			aria-hidden="true"
-		>
-			<circle cx="11" cy="11" r="7" />
-			<path d="m20 20-3.5-3.5" />
-		</svg>
 	);
 }
 
@@ -122,57 +75,6 @@ export default function TestRoute() {
 					{/*<div class="absolute left-[-9rem] top-[42rem] h-[24rem] w-[24rem] rounded-full bg-primary-container/18 blur-3xl" />
 					<div class="absolute right-[-10rem] top-[76rem] h-[28rem] w-[28rem] rounded-full bg-secondary/8 blur-3xl" />*/}
 				</div>
-
-				<nav class="fixed inset-x-0 top-4 z-50 px-4 sm:px-6">
-					<div class="glass-nav mx-auto max-w-6xl">
-						<div class="flex items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
-							<a
-								href="#showcase"
-								class="font-headline text-lg italic text-on-surface sm:text-2xl"
-							>
-								Tejas Adagoor
-							</a>
-
-							<div class="hidden items-center gap-7 lg:flex">
-								{navLinks.map((link) => (
-									<a
-										key={link.label}
-										href={link.href}
-										class="font-headline text-sm italic text-on-surface-variant transition duration-300 ease-standard hover:text-on-surface"
-									>
-										{link.label}
-									</a>
-								))}
-								<a
-									href="#showcase"
-									class="border-b border-primary/30 pb-1 font-headline text-sm italic text-primary transition duration-300 ease-standard hover:text-primary-fixed"
-								>
-									Noir Guide
-								</a>
-							</div>
-
-							<div class="flex items-center gap-2 sm:gap-3">
-								<span class="type-label hidden text-primary/70 sm:inline">
-									Noir Guide
-								</span>
-								<button
-									type="button"
-									aria-label="Theme indicator"
-									class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-outline-variant/10 bg-surface-container-low text-primary/70 transition duration-300 ease-standard hover:bg-surface-container-high hover:text-primary"
-								>
-									<MoonIcon />
-								</button>
-								<button
-									type="button"
-									aria-label="Search showcase"
-									class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-outline-variant/10 bg-surface-container-low text-primary/70 transition duration-300 ease-standard hover:bg-surface-container-high hover:text-primary"
-								>
-									<SearchIcon />
-								</button>
-							</div>
-						</div>
-					</div>
-				</nav>
 
 				<main
 					id="showcase"
