@@ -11,3 +11,5 @@ _fresh/
 node_modules/
 vendor/
 
+static/favicon*.png
+static/profile_photo_face (ICO size).jpg

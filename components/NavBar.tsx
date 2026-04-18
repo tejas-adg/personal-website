@@ -56,13 +56,13 @@ export function NavBar({
             >
               <MoonIcon />
             </button>
-            <button
+            {/*<button
               type="button"
               aria-label="Search showcase"
               class="nav-icon-button"
             >
               <SearchIcon />
-            </button>
+            </button>*/}
           </div>
         </div>
       </div>
