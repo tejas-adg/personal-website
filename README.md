@@ -52,4 +52,4 @@ Then start the project in development mode:
 deno task dev
 ```
 
-This will watch the project directory and restart as necessary.
+This will watch the project directory and restart as necessary
