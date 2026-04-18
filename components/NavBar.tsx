@@ -12,16 +12,16 @@ export interface NavBarProps {
 }
 
 const defaultLinks: NavLink[] = [
-  { label: "Exhibitions", href: "/" },
-  { label: "Archives", href: "/navbar-test" },
-  { label: "Atelier", href: "#controls" },
-  { label: "Contact", href: "#footer" },
-  { label: "Noir Guide", href: "/test" },
+  { label: "Exhibitions", href: "/exhibitions" },
+  { label: "Archives", href: "/archives" },
+  { label: "Atelier", href: "/test" },
+  { label: "Contact", href: "/contact" },
+  { label: "Noir Guide", href: "/noir-guide" },
 ];
 
 export function NavBar({
   brandLabel = "Tejas A. M.",
-  brandHref = "#showcase",
+  brandHref = "/",
   links = defaultLinks,
 }: NavBarProps) {
   return (
@@ -30,7 +30,7 @@ export function NavBar({
         <div class="flex items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
           <a
             href={brandHref}
-            class="font-headline text-lg italic text-on-surface sm:text-2xl"
+            class="font-headline text-lg italic text-on-surface sm:text-2xl aria-[current=page]:text-primary aria-[current=page]:hover:text-primary-fixed"
           >
             {brandLabel}
           </a>
