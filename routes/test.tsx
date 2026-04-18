@@ -2,10 +2,9 @@ import { useSignal } from "@preact/signals";
 import { Head } from "fresh/runtime";
 import Counter from "../islands/Counter.tsx";
 
-export default function AtelierTestPage(ctx) {
+export default function AtelierTestPage() {
 	const count = useSignal(3);
 	
-		console.log("Shared value " + ctx.state.shared);
 	return (
 		<>
 			<Head>
