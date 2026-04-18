@@ -1,21 +1,40 @@
-import { Head } from "$fresh/runtime.ts";
-import TestingLayout from "../components/TestingLayout.tsx";
-import InputMethodStatus from "../islands/InputMethodStatus.tsx";
-import InputDetectorInit from "../islands/InputDetectorInit.tsx";
+import { useSignal } from "@preact/signals";
+import { Head } from "fresh/runtime";
+import Counter from "../islands/Counter.tsx";
 
-export default function TestRoute() {
+export default function AtelierTestPage() {
+	const count = useSignal(3);
+	
 	return (
-		<TestingLayout>
+		<>
 			<Head>
-				<title>Testing Page</title>
-				<meta name="description" content="A page for testing components." />
+				<title>Atelier 👨‍💻</title>
+				<meta
+					name="description"
+					content="A simple test page for the atelier route."
+				/>
 			</Head>
 
-			{/* Initialize the input detector */}
-			<InputDetectorInit />
-
-			{/* Show the input method status */}
-			<InputMethodStatus />
-		</TestingLayout>
+			<main
+				id="showcase"
+				class="mx-auto flex min-h-screen max-w-6xl flex-col px-5 pb-24 pt-32 sm:px-8 lg:px-12 lg:pt-36"
+			>
+				<div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
+								<img
+									class="my-6"
+									src="/logo.svg"
+									width="128"
+									height="128"
+									alt="the Fresh logo: a sliced lemon dripping with juice"
+								/>
+								<h1 class="text-4xl font-bold">Welcome to Fresh</h1>
+								<p class="my-4">
+									Try updating this message in the
+									<code class="mx-2">./routes/index.tsx</code> file, and refresh.
+								</p>
+								<Counter count={count} />
+							</div>
+			</main>
+		</>
 	);
 }

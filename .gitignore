@@ -7,7 +7,9 @@
 
 # Fresh build directory
 _fresh/
-# npm dependencies
+# npm + other dependencies
 node_modules/
+vendor/
 
-docs/
+static/favicon*.png
+static/profile_photo_face (ICO size).jpg
