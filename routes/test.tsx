@@ -1,8 +1,9 @@
 import { useSignal } from "@preact/signals";
 import { Head } from "fresh/runtime";
+import { define } from "../utils.ts";
 import Counter from "../islands/Counter.tsx";
 
-export default function AtelierTestPage() {
+export default define.page(function AtelierTestPage(_) {
 	const count = useSignal(3);
 	
 	return (
@@ -17,7 +18,7 @@ export default function AtelierTestPage() {
 
 			<main
 				id="showcase"
-				class="mx-auto flex max-w-6xl flex-col px-5 pb-24 pt-32 sm:px-8 lg:px-12 lg:pt-36"
+				class="mx-auto flex max-w-6xl min-h-screen flex-col px-5 pb-24 pt-32 sm:px-8 lg:px-12 lg:pt-36"
 			>
 				<div class="mx-auto flex flex-col items-center justify-center">
 								<img
@@ -37,4 +38,4 @@ export default function AtelierTestPage() {
 			</main>
 		</>
 	);
-}
+});

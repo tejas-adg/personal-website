@@ -1,4 +1,5 @@
 import { Head } from "fresh/runtime";
+import { define } from "../utils.ts";
 import { ambientImage, exhibitionImage } from "../components/urls.ts";
 
 const footerLinks = [
@@ -55,7 +56,7 @@ function SectionHeading(
 	);
 }
 
-export default function NoirGuideRoute() {
+export default define.page(function NoirGuideRoute(_) {
 	return (
 		<>
 			<Head>
@@ -275,7 +276,7 @@ export default function NoirGuideRoute() {
 									</div>
 								</section>
 
-								<article class="relative min-h-[22rem] overflow-hidden rounded-xl bg-surface-container-high shadow-nav-elevated sm:min-h-[26rem]">
+								<article class="relative min-h-88 overflow-hidden rounded-xl bg-surface-container-high shadow-nav-elevated sm:min-h-104">
 									<img
 										src={ambientImage}
 										alt="Night sky with a luminous violet nebula."
@@ -326,4 +327,4 @@ export default function NoirGuideRoute() {
 			</div>
 		</>
 	);
-}
+});

@@ -1,6 +1,7 @@
 import { Head } from "fresh/runtime";
+import { define } from "../utils.ts";
 
-export default function ExhibitionsPage() {
+export default define.page(function ExhibitionsPage(_) {
 	return (
 		<>
 			<Head>
@@ -13,7 +14,7 @@ export default function ExhibitionsPage() {
 
 			<main
 				id="showcase"
-				class="mx-auto flex max-w-6xl flex-col px-5 pb-24 pt-32 sm:px-8 lg:px-12 lg:pt-36"
+				class="mx-auto flex max-w-6xl min-h-screen flex-col px-5 pb-24 pt-32 sm:px-8 lg:px-12 lg:pt-36"
 			>
 				<p class="type-label mb-6 text-primary/75">Route Test</p>
 				<h1 class="type-headline">Exhibitions</h1>
@@ -24,4 +25,4 @@ export default function ExhibitionsPage() {
 			</main>
 		</>
 	);
-}
+});

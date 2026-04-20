@@ -1,6 +1,7 @@
 import { Head } from "fresh/runtime";
+import { define } from "../utils.ts";
 
-export default function ArchivesPage() {
+export default define.page(function ArchivesPage(_) {
 	return (
 		<>
 			<Head>
@@ -13,7 +14,7 @@ export default function ArchivesPage() {
 
 			<main
 				id="showcase"
-				class="mx-auto flex max-w-6xl flex-col px-5 pb-24 pt-32 sm:px-8 lg:px-12 lg:pt-36"
+				class="mx-auto flex max-w-6xl min-h-screen flex-col px-5 pb-24 pt-32 sm:px-8 lg:px-12 lg:pt-36"
 			>
 				<p class="type-label mb-6 text-primary/75">Shared Navigation Test</p>
 				<h1 class="type-headline">Archives</h1>
@@ -27,4 +28,4 @@ export default function ArchivesPage() {
 			</main>
 		</>
 	);
-}
+});

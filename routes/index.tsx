@@ -8,7 +8,7 @@ export default define.page(function Home(_) {
       <Head>
         <title>Tejas's Website 😊</title>
       </Head>
-      <main class="max-w-4xl mx-auto mt-32 lg:mt-36 flex flex-col items-center justify-center">
+      <main class="mx-auto flex max-w-6xl min-h-screen flex-col items-center px-5 pb-24 pt-32 sm:px-8 lg:px-12 lg:pt-36">
         <img
           class="my-6"
           src="/profile_photo_face.jpg"

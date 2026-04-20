@@ -1,6 +1,7 @@
 import { Head } from "fresh/runtime";
+import { define } from "../utils.ts";
 
-export default function ContactPage() {
+export default define.page(function ContactPage(_) {
 	return (
 		<>
 			<Head>
@@ -13,7 +14,7 @@ export default function ContactPage() {
 
 			<main
 				id="showcase"
-				class="mx-auto flex max-w-6xl flex-col px-5 pb-24 pt-32 sm:px-8 lg:px-12 lg:pt-36"
+				class="mx-auto flex max-w-6xl min-h-screen flex-col px-5 pb-24 pt-32 sm:px-8 lg:px-12 lg:pt-36"
 			>
 				<p class="type-label mb-6 text-primary/75">Get in Touch</p>
 				<h1 class="type-headline">Contact</h1>
@@ -30,4 +31,4 @@ export default function ContactPage() {
 			</main>
 		</>
 	);
-}
+});
