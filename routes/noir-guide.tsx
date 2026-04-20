@@ -178,7 +178,7 @@ export default function NoirGuideRoute() {
 									</button>
 									<p class="mt-5 text-sm italic text-outline">
 										Diagonal glow from Lume into the deep violet pulse of the
-										container accent. also absurd shadows rn
+										container accent.
 									</p>
 								</div>
 
