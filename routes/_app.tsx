@@ -22,7 +22,7 @@ export default define.page(function App({ Component }) {
       </head>
       <body>
         <NavBar />
-        <div class="pt-25 bg-[radial-gradient(ellipse_50%_25%_at_50%_0%,#251736_0%,#180F23_100%)]" />
+        <div class="pt-30 bg-[radial-gradient(ellipse_50%_100%_at_50%_0%,#251736_0%,#180F23_100%)]" />
         <Component />
       </body>
     </html>
