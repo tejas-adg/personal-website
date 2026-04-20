@@ -122,11 +122,17 @@
 @layer base {
 	html {
 		color-scheme: dark;
-		background-color: rgb(var(--app-color-background));
+		/*background-color: rgb(var(--app-color-background));*/
 	}
 
 	body {
-		@apply bg-background font-body text-on-background;
+		@apply font-body text-on-background;
+		min-height: 100vh;
+		/*background-color: rgb(var(--app-color-background));*/
+		background-image:
+			radial-gradient(ellipse 50% 120px at top, #251736 0%, #180F23 100%);
+		background-repeat: no-repeat;
+		background-position: top center;
 		font-optical-sizing: auto;
 		font-size: 1.0625rem;
 		line-height: 1.8;
@@ -206,7 +212,7 @@
 	.type-headline {
 		@apply font-headline italic text-on-surface;
 		font-size: clamp(3rem, 7vw, 5.5rem);
-		line-height: 0.95;
+		line-height: 0.98;
 		letter-spacing: -0.04em;
 	}
 
@@ -309,7 +315,7 @@
 	}
 
 	.footer-divider {
-		@apply border-t border-outline-variant/10;
+		@apply border-t border-outline-variant/25;
 	}
 
 	.icon-muted {

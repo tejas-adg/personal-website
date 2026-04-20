@@ -17,9 +17,9 @@ export default function AtelierTestPage() {
 
 			<main
 				id="showcase"
-				class="mx-auto flex min-h-screen max-w-6xl flex-col px-5 pb-24 pt-32 sm:px-8 lg:px-12 lg:pt-36"
+				class="mx-auto flex max-w-6xl flex-col px-5 pb-24 pt-32 sm:px-8 lg:px-12 lg:pt-36"
 			>
-				<div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
+				<div class="mx-auto flex flex-col items-center justify-center">
 								<img
 									class="my-6"
 									src="/logo.svg"

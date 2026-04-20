@@ -13,7 +13,7 @@ const paletteSwatches = [
 		hex: "#180f23",
 		description: "Intentional void",
 		panelClass:
-			"bg-background text-on-surface border border-outline-variant/15",
+			"bg-background text-on-surface border border-outline-variant/25",
 	},
 	{
 		name: "Lume",
@@ -37,7 +37,7 @@ const paletteSwatches = [
 
 const interactionFacts = [
 	{ label: "Hover Easing", value: "Cubic Bezier (0.4, 0, 0.2, 1)" },
-	{ label: "Elevation Blur", value: "40px - 60px" },
+	{ label: "Elevation Blur", value: "~ 40px - 60px" },
 	{ label: "Glass Backdrop", value: "Blur-xl (20px)" },
 ];
 
@@ -66,7 +66,7 @@ export default function NoirGuideRoute() {
 				/>
 			</Head>
 
-			<div class="relative min-h-screen overflow-x-clip bg-background text-on-background selection:bg-primary/30">
+			<div class="relative overflow-x-clip text-on-background selection:bg-primary/30">
 				{/*<div
 					class="pointer-events-none absolute inset-0"
 					aria-hidden="true"
@@ -99,20 +99,20 @@ export default function NoirGuideRoute() {
 						/>
 
 						<div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-							{paletteSwatches.map((swatch, index) => (
+							{paletteSwatches.map((swatch, _) => (
 								<article
 									key={swatch.name}
-									class={`group relative min-h-[13rem] overflow-hidden rounded-xl p-5 shadow-surface transition duration-500 ease-standard hover:-translate-y-1 hover:shadow-nav-elevated ${swatch.panelClass} `}
+									class={`group relative min-h-52 overflow-hidden rounded-xl p-5 shadow-surface transition duration-500 ease-standard hover:-translate-y-1 hover:shadow-nav-elevated ${swatch.panelClass} `}
 								>
 									<div class="absolute right-5 top-5 h-12 w-12 rounded-full bg-white/10 blur-2xl" />
 									<div class="relative flex h-full flex-col justify-end">
-										<p class="type-label text-current opacity-70">
+										<p class="type-label text-current opacity-75">
 											{swatch.description}
 										</p>
-										<h3 class="mt-3 font-headline text-3xl italic">
+										<h3 class="mt-3 font-headline text-current text-3xl italic opacity-75">
 											{swatch.name}
 										</h3>
-										<p class="mt-2 font-body text-sm opacity-80">
+										<p class="mt-2 font-body text-current text-sm opacity-90">
 											{swatch.hex}
 										</p>
 									</div>
@@ -134,7 +134,7 @@ export default function NoirGuideRoute() {
 									Newsreader Display
 								</p>
 								<h3 class="font-headline text-[clamp(2.8rem,6vw,5rem)] italic leading-[0.94] tracking-[-0.04em] text-on-surface">
-									The quick brown fox rises through the velvet quiet.
+									The quick brown fox jumps through hazy meadows, playing with quirky zeal and vigor.
 								</h3>
 							</div>
 
@@ -302,10 +302,10 @@ export default function NoirGuideRoute() {
 					</section>
 				</main>
 
-				<footer id="footer" class="footer-divider relative bg-background/90">
+				<footer id="footer" class="footer-divider relative">
 					<div class="mx-auto flex max-w-6xl flex-col gap-6 px-5 py-10 sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-12">
 						<p class="text-sm italic text-primary/80">
-							© 2026 Tejas Adagoor. Crafted in aetheric shadow.
+							© 2026 Tejas A. M. Crafted in aetheric shadow
 						</p>
 
 						<div class="flex flex-wrap items-center gap-6">

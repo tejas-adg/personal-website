@@ -1,4 +1,4 @@
-import { MoonIcon, SearchIcon } from "./icons.tsx";
+import { MoonIcon } from "./icons.tsx";
 
 export type NavLink = {
   label: string;
