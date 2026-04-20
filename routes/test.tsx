@@ -18,11 +18,11 @@ export default define.page(function AtelierTestPage(_) {
 
 			<main
 				id="showcase"
-				class="mx-auto flex max-w-6xl min-h-screen flex-col px-5 pb-24 pt-32 sm:px-8 lg:px-12 lg:pt-36"
+				class="mx-auto max-w-6xl min-h-screen px-5 pb-24 pt-32 sm:px-8 lg:px-12 lg:pt-36"
 			>
 				<div class="mx-auto flex flex-col items-center justify-center">
 								<img
-									class="my-6"
+									class="mb-6"
 									src="/logo.svg"
 									width="128"
 									height="128"
