@@ -50,8 +50,8 @@
 	--app-radius-soft: 0.75rem;
 	--app-blur-glass: 20px;
 	--app-shadow-surface: 0 24px 48px -24px rgba(0, 0, 0, 0.55);
-	--app-shadow-primary-glow: 0 24px 48px -24px rgba(255, 0, 0, 0.952);
-	--app-shadow-primary-glow-hover: 0 28px 60px -24px rgba(21, 255, 0, 0.884);
+	--app-shadow-primary-glow: 0 24px 48px -24px rgba(208, 188, 255, 0.1);
+	--app-shadow-primary-glow-hover: 0 28px 60px -24px rgba(208, 188, 255, 0.3);
 	--app-shadow-nav-elevated: 0 40px 60px -15px rgba(0, 0, 0, 0.3);
 	--app-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
 }
