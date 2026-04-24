@@ -135,6 +135,7 @@
 		font-size: 1.0625rem;
 		line-height: 1.8;
 		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: antialiased;
 		text-rendering: optimizeLegibility;
 	}
 
@@ -189,7 +190,7 @@
 	a {
 		@apply text-primary;
 		text-decoration-color: rgb(var(--app-color-primary) / 0.35);
-		text-underline-offset: 0.2em;
+		text-underline-offset: auto;
 	}
 
 	a:hover {
