@@ -13,18 +13,24 @@
 
 ## 1.1) Recent componentization notes
 
-The navbar and its assets were moved out of the route files so the layout can be shared cleanly across the app:
+The navbar and its assets were moved out of the route files so the layout can be
+shared cleanly across the app:
 
 - `components/NavBar.tsx` now contains the full shared navigation bar.
 - `components/icons.tsx` contains the moon and search SVGs used by the nav.
-- `components/urls.ts` contains shared remote image URLs that are reused by the showcase route.
-- `routes/navbar-test.tsx` exists as a dedicated route for validating navbar behavior after `_app.tsx` started rendering the navbar globally.
+- `components/urls.ts` contains shared remote image URLs that are reused by the
+  showcase route.
+- `routes/navbar-test.tsx` exists as a dedicated route for validating navbar
+  behavior after `_app.tsx` started rendering the navbar globally.
 
-The repeated utility-heavy button markup from the navbar was also collapsed into a reusable CSS class:
+The repeated utility-heavy button markup from the navbar was also collapsed into
+a reusable CSS class:
 
-- `.nav-icon-button` is the compact circular icon button used for the moon and search controls.
+- `.nav-icon-button` is the compact circular icon button used for the moon and
+  search controls.
 
-This keeps the route files focused on page content instead of repeating shared header implementation details.
+This keeps the route files focused on page content instead of repeating shared
+header implementation details.
 
 ---
 
@@ -201,7 +207,7 @@ These selectors all share the same core structure:
 | `.card-surface`, `.card-base` | Rounded card, subtle border, themed surface bg, text color, shadow      | Reusable card container         |
 | `.card-base`                  | Same as above + `p-8`                                                   | Standard padded card            |
 | `.glass-nav`                  | Rounded, translucent background, border, elevated shadow, backdrop blur | Frosted glass navigation bar    |
-| `.nav-link-text`              | Headline font, italic, transition                                      | Shared desktop nav text links   |
+| `.nav-link-text`              | Headline font, italic, transition                                       | Shared desktop nav text links   |
 | `.nav-icon-button`            | Circular low-emphasis icon button with hover state                      | Shared nav utility buttons      |
 | `.nav-divider`                | Bottom border                                                           | Divider for nav areas           |
 | `.footer-divider`             | Top border                                                              | Divider for footer              |

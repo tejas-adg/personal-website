@@ -34,15 +34,11 @@ export default define.page(function AtelierTestPage(_) {
             <code class="mx-2">./routes/index.tsx</code> file, and refresh.
           </p>
           <Counter count={count} />
-          
+
           {/* after:absolute after:left-0 after:bottom-[-2px] after:h-[2px] after:w-full after:bg-primary/30 after:scale-x-0 after:origin-center after:transition-transform after:duration-300 after:ease-[var(--app-ease-standard)] data-[active=true]:after:scale-x-100 */}
           <a className="grow-center">
             Home
           </a>
-
-          
-
-          
         </div>
       </main>
     </>
