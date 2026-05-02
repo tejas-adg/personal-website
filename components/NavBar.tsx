@@ -1,4 +1,4 @@
-import { MoonIcon, SearchIcon } from "./icons.tsx";
+import { MoonIcon } from "./icons.tsx";
 
 export type NavLink = {
   label: string;
@@ -56,13 +56,15 @@ export function NavBar({
             >
               <MoonIcon />
             </button>
-            {/*<button
+            {
+              /*<button
               type="button"
               aria-label="Search showcase"
               class="nav-icon-button"
             >
               <SearchIcon />
-            </button>*/}
+            </button>*/
+            }
           </div>
         </div>
       </div>
