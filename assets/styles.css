@@ -313,6 +313,34 @@
 		@apply border-b border-outline-variant/15;
 	}
 
+	/* grow-center */
+	.grow-center {
+    position: relative;
+    padding-bottom: 6px;
+  }
+
+	.grow-center::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 1px;
+    background: var(--color-vapor);
+    border-radius: 999px;
+
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 220ms ease;
+  }
+
+	.grow-center:hover::after,
+  .grow-center.active::after {
+    transform: scaleX(1);
+  }
+	/* end grow-center */
+
 	.footer-divider {
 		@apply border-t border-outline-variant/25;
 	}

@@ -34,20 +34,15 @@ export default define.page(function AtelierTestPage(_) {
             <code class="mx-2">./routes/index.tsx</code> file, and refresh.
           </p>
           <Counter count={count} />
+          
           {/* after:absolute after:left-0 after:bottom-[-2px] after:h-[2px] after:w-full after:bg-primary/30 after:scale-x-0 after:origin-center after:transition-transform after:duration-300 after:ease-[var(--app-ease-standard)] data-[active=true]:after:scale-x-100 */}
-          <a className="relative inline-block before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-pink-500 before:-z-10">
+          <a className="grow-center">
             Home
           </a>
 
-          <blockquote class="text-center text-2xl font-semibold text-gray-900 italic dark:text-white">
-            When you look
-            <span class="relative inline-block before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-pink-500">
-              <span class="relative text-white dark:text-gray-950">
-                annoyed
-              </span>
-            </span>
-            all the time, people think that you're busy.
-          </blockquote>
+          
+
+          
         </div>
       </main>
     </>
