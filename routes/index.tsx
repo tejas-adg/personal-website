@@ -12,7 +12,7 @@ export default define.page(function Home(ctx) {
       <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
         <img
           class="my-6 h-32 w-32 object-cover object-bottom"
-          src="/profile_photo.jpg"
+          src="/profile_photo.png"
           width="128"
           height="128"
           alt="Tejas wearing sunglasses at a scenic overlook"
