@@ -11,11 +11,11 @@ export default define.page(function Home(ctx) {
       </Head>
       <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
         <img
-          class="my-6"
-          src="/profile_photo_face.jpg"
+          class="my-6 h-32 w-32 object-cover object-bottom"
+          src="/profile_photo.jpg"
           width="128"
           height="128"
-          alt="the Fresh logo: a sliced lemon dripping with juice"
+          alt="Tejas wearing sunglasses at a scenic overlook"
         />
         <h1 class="text-4xl font-bold">Welcome to my website</h1>
         <p class="mt-8 max-w-2xl text-sm leading-7 text-on-surface-variant sm:text-base sm:leading-8 md:text-lg">
