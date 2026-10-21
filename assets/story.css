@@ -1,0 +1,552 @@
+@layer components {
+  .story-page {
+    width: min(100% - 2rem, 80rem);
+    margin-inline: auto;
+    padding-block: clamp(1.5rem, 4vw, 4rem) clamp(4rem, 8vw, 8rem);
+  }
+
+  .story-topline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: clamp(2.5rem, 5vw, 5rem);
+  }
+
+  .story-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    text-decoration: none;
+  }
+
+  .story-back:hover {
+    text-decoration: underline;
+  }
+
+  .story-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: rgb(var(--app-color-on-surface-variant));
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+  }
+
+  .story-status::before {
+    width: 0.35rem;
+    height: 0.35rem;
+    border-radius: 50%;
+    background: rgb(var(--app-color-primary));
+    content: "";
+  }
+
+  .story-header {
+    margin-bottom: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  .story-eyebrow {
+    color: rgb(var(--app-color-primary));
+    font-size: 0.68rem;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .story-title {
+    max-width: 19ch;
+    margin-top: 1.3rem;
+    font-family: var(--font-headline, "Newsreader", serif);
+    font-size: clamp(5rem, 12vw, 10rem);
+    font-weight: 500;
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+    text-wrap: balance;
+  }
+
+  .story-asterisk {
+    display: inline-block;
+    margin-left: 0.08em;
+    color: rgb(var(--app-color-primary));
+    font-size: 0.6em;
+    font-style: normal;
+    vertical-align: top;
+  }
+
+  .story-deck {
+    max-width: 58ch;
+    margin-top: clamp(1.5rem, 3vw, 2.25rem);
+    color: rgb(var(--app-color-on-surface-variant));
+    font-size: clamp(1rem, 1.4vw, 1.2rem);
+    line-height: 1.8;
+    text-wrap: pretty;
+  }
+
+  .story-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgb(var(--app-color-outline-variant) / 0.45);
+  }
+
+  .story-author {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  .story-avatar {
+    display: grid;
+    flex: 0 0 auto;
+    width: 2.5rem;
+    height: 2.5rem;
+    place-items: center;
+    overflow: hidden;
+    border: 1px solid rgb(var(--app-color-outline-variant) / 0.45);
+    border-radius: 50%;
+    background: rgb(var(--app-color-surface-container-low));
+    color: rgb(var(--app-color-primary));
+    font-family: var(--font-headline, "Newsreader", serif);
+    font-size: 1.2rem;
+    font-style: italic;
+    object-fit: cover;
+  }
+
+  .story-author-note {
+    display: block;
+    margin-top: 0.15rem;
+    color: rgb(var(--app-color-on-surface-variant));
+    font-size: 0.7rem;
+  }
+
+  .story-topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    color: rgb(var(--app-color-on-surface-variant));
+    font-size: 0.66rem;
+    line-height: 1.5;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  .story-frame {
+    min-width: 0;
+    margin: 0;
+  }
+
+  .story-frame-blank {
+    position: relative;
+    display: grid;
+    min-height: 10rem;
+    aspect-ratio: 16 / 9;
+    place-items: center;
+    overflow: hidden;
+    border: 1px solid rgb(var(--app-color-outline-variant) / 0.55);
+    border-radius: 0.35rem;
+    background-color: rgb(var(--app-color-surface-container-lowest));
+  }
+
+  .story-frame-grid {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(
+      rgb(var(--app-color-outline-variant) / 0.16) 1px,
+      transparent 1px
+    ),
+      linear-gradient(
+      90deg,
+      rgb(var(--app-color-outline-variant) / 0.16) 1px,
+      transparent 1px
+    );
+    background-size: 2.5rem 2.5rem;
+  }
+
+  .story-frame-counter {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    color: rgb(var(--app-color-on-surface-variant));
+    font-size: 0.6rem;
+    line-height: 1.4;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  .story-frame-center {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    max-width: 80%;
+    padding-block: 2.5rem;
+    text-align: center;
+  }
+
+  .story-frame-number {
+    color: rgb(var(--app-color-primary) / 0.22);
+    font-family: var(--font-headline, "Newsreader", serif);
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+  }
+
+  .story-frame-label {
+    color: rgb(var(--app-color-on-surface-variant));
+    font-family: var(--font-headline, "Newsreader", serif);
+    font-size: clamp(1rem, 1.8vw, 1.7rem);
+    font-style: italic;
+    line-height: 1.3;
+  }
+
+  .story-frame-hint {
+    position: absolute;
+    right: 1rem;
+    bottom: 0.85rem;
+    color: rgb(var(--app-color-on-surface-variant) / 0.7);
+    font-size: 0.59rem;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+  }
+
+  .story-frame-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-inline: auto;
+    border-radius: 0.35rem;
+  }
+
+  .story-image-link {
+    display: block;
+    border-radius: 0.35rem;
+    cursor: zoom-in;
+  }
+
+  .story-frame-groups,
+  .story-frame-stack {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .story-frame-caption {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    margin-top: 0.85rem;
+    color: rgb(var(--app-color-on-surface-variant));
+    font-family: var(--font-body, "Manrope", sans-serif);
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.75;
+    letter-spacing: normal;
+    text-transform: none;
+  }
+
+  .story-caption-number {
+    flex: 0 0 auto;
+    color: rgb(var(--app-color-primary));
+    font-size: 0.65rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .story-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(2.5rem, 5vw, 5rem);
+    margin-top: clamp(3rem, 7vw, 7rem);
+    padding-top: 2rem;
+    border-top: 1px solid rgb(var(--app-color-outline-variant) / 0.45);
+  }
+
+  .story-index {
+    align-self: start;
+    font-size: 0.76rem;
+    line-height: 1.5;
+  }
+
+  .story-index ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem 1.5rem;
+    margin-top: 1rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .story-index a {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    padding-block: 0.3rem;
+    color: rgb(var(--app-color-on-surface-variant));
+    text-decoration: none;
+  }
+
+  .story-index a:hover {
+    color: rgb(var(--app-color-primary));
+  }
+
+  .story-index a > span:first-child {
+    color: rgb(var(--app-color-primary) / 0.7);
+    font-size: 0.62rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .story-chapters {
+    min-width: 0;
+  }
+
+  .story-chapter {
+    scroll-margin-top: 8rem;
+  }
+
+  .story-chapter + .story-chapter {
+    margin-top: clamp(3.5rem, 7vw, 6rem);
+  }
+
+  .story-chapter-heading {
+    max-width: 65ch;
+    margin-bottom: 1.35rem;
+  }
+
+  .story-chapter-heading h2 {
+    margin-top: 0.8rem;
+    font-size: clamp(2rem, 3.5vw, 3.3rem);
+    font-weight: 500;
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+
+  .story-prose {
+    max-width: 65ch;
+    margin-bottom: 1.75rem;
+    color: rgb(var(--app-color-on-surface-variant));
+    font-size: clamp(0.95rem, 1.2vw, 1.06rem);
+    line-height: 1.9;
+    text-wrap: pretty;
+  }
+
+  .story-frame-pair {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+
+  .story-gallery {
+    margin-top: clamp(4rem, 8vw, 8rem);
+    padding-top: 2.5rem;
+    border-top: 1px solid rgb(var(--app-color-outline-variant) / 0.45);
+    scroll-margin-top: 8rem;
+  }
+
+  .story-gallery-groups {
+    margin-top: 2rem;
+  }
+
+  .story-gallery details {
+    border-top: 1px solid rgb(var(--app-color-outline-variant) / 0.45);
+  }
+
+  .story-gallery details:last-child {
+    border-bottom: 1px solid rgb(var(--app-color-outline-variant) / 0.45);
+  }
+
+  .story-gallery summary {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-block: 1.25rem;
+    color: rgb(var(--app-color-on-surface));
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-family: var(--font-headline, "Newsreader", serif);
+    font-style: italic;
+    line-height: 1.4;
+    list-style: none;
+    cursor: pointer;
+  }
+
+  .story-gallery summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .story-gallery summary::after {
+    margin-left: auto;
+    color: rgb(var(--app-color-primary));
+    font-size: 1.5rem;
+    font-style: normal;
+    content: "+";
+  }
+
+  .story-gallery details[open] > summary::after {
+    content: "−";
+  }
+
+  .story-gallery summary:focus-visible {
+    outline: 2px solid rgb(var(--app-color-primary));
+    outline-offset: 5px;
+  }
+
+  .story-gallery-count {
+    color: rgb(var(--app-color-on-surface-variant));
+    font-family: var(--font-body, "Manrope", sans-serif);
+    font-size: 0.7rem;
+    font-style: normal;
+    white-space: nowrap;
+  }
+
+  .story-gallery-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+    padding: 0.5rem 0 2rem;
+    list-style: none;
+  }
+
+  .story-gallery-grid > li {
+    min-width: 0;
+  }
+
+  .story-gallery-item {
+    display: block;
+    color: rgb(var(--app-color-on-surface-variant));
+    text-decoration: none;
+  }
+
+  .story-gallery-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: contain;
+    border-radius: 0.35rem;
+    background: rgb(var(--app-color-surface-container-lowest));
+  }
+
+  .story-gallery-label {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 0.65rem;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+
+  .story-gallery-label > span {
+    flex: 0 0 auto;
+    color: rgb(var(--app-color-primary));
+  }
+
+  .story-footer {
+    max-width: 65ch;
+    margin: clamp(4rem, 8vw, 8rem) auto 0;
+    padding-top: 2rem;
+    border-top: 1px solid rgb(var(--app-color-outline-variant) / 0.45);
+  }
+
+  .story-footer h2 {
+    margin-top: 1rem;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 500;
+    line-height: 1.1;
+  }
+
+  .story-footer > p:not(.story-eyebrow) {
+    margin-top: 1rem;
+    color: rgb(var(--app-color-on-surface-variant));
+    font-size: 0.95rem;
+    line-height: 1.85;
+  }
+
+  .story-footer .story-back {
+    margin-top: 1.5rem;
+  }
+
+  .story-page a:focus-visible {
+    outline: 2px solid rgb(var(--app-color-primary));
+    outline-offset: 5px;
+    border-radius: 2px;
+  }
+
+  #story-top {
+    scroll-margin-top: 8rem;
+  }
+
+  @media (min-width: 40rem) {
+    .story-page {
+      width: min(100% - 4rem, 80rem);
+    }
+
+    .story-frame-pair {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .story-gallery-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .story-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      column-gap: clamp(2.5rem, 5vw, 5rem);
+    }
+
+    .story-header > .story-eyebrow,
+    .story-meta {
+      grid-column: 1 / -1;
+    }
+
+    .story-deck {
+      align-self: end;
+      max-width: 40ch;
+      margin-top: 0;
+      padding-bottom: 0.75rem;
+    }
+
+    .story-body {
+      grid-template-columns: 10rem minmax(0, 1fr);
+      column-gap: clamp(2.5rem, 5vw, 5rem);
+    }
+
+    .story-index {
+      position: sticky;
+      top: 8rem;
+    }
+
+    .story-index ol {
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .story-gallery-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .story-frame-cover .story-frame-center {
+      gap: 0.75rem;
+    }
+
+    .story-frame-cover .story-frame-number {
+      font-size: 9rem;
+    }
+  }
+}

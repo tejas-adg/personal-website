@@ -1,0 +1,1759 @@
+{
+  "encoding": {
+    "format": "WebP",
+    "quality": 86,
+    "thumbnailQuality": 82,
+    "method": 6,
+    "cropped": false
+  },
+  "imageCount": 68,
+  "fileCount": 166,
+  "totalSourceBytes": 275642157,
+  "totalGeneratedBytes": 35560204,
+  "images": [
+    {
+      "slug": "aster-cliffside",
+      "originalFilename": "aster_cliffside.png",
+      "width": 3840,
+      "height": 2137,
+      "sourceBytes": 8273784,
+      "sourceSha256": "a1e5e9d4f55785e357e8c13688780694b2136a32df90479001ca5c47b52f6f8b",
+      "generatedBytes": 959328,
+      "files": [
+        {
+          "filename": "aster-cliffside-480.webp",
+          "width": 480,
+          "height": 267,
+          "bytes": 21612
+        },
+        {
+          "filename": "aster-cliffside-full.webp",
+          "width": 3840,
+          "height": 2137,
+          "bytes": 937716
+        }
+      ]
+    },
+    {
+      "slug": "early-house",
+      "originalFilename": "aster_hero.png",
+      "width": 3840,
+      "height": 2137,
+      "sourceBytes": 9211899,
+      "sourceSha256": "df428a3bdf3cab6fb488207099eea1a186a9d09aaeb6ead348b31aae16456931",
+      "generatedBytes": 1383244,
+      "files": [
+        {
+          "filename": "early-house-800.webp",
+          "width": 800,
+          "height": 445,
+          "bytes": 80844
+        },
+        {
+          "filename": "early-house-1440.webp",
+          "width": 1440,
+          "height": 801,
+          "bytes": 216984
+        },
+        {
+          "filename": "early-house-full.webp",
+          "width": 3840,
+          "height": 2137,
+          "bytes": 1058028
+        },
+        {
+          "filename": "early-house-480.webp",
+          "width": 480,
+          "height": 267,
+          "bytes": 27388
+        }
+      ]
+    },
+    {
+      "slug": "early-overhead",
+      "originalFilename": "aster_overhead.png",
+      "width": 3840,
+      "height": 2137,
+      "sourceBytes": 9583997,
+      "sourceSha256": "333fcbc8109619b9e4c124325ca142f853c2e16064306239e68cf81cf140c19f",
+      "generatedBytes": 1085664,
+      "files": [
+        {
+          "filename": "early-overhead-800.webp",
+          "width": 800,
+          "height": 445,
+          "bytes": 71466
+        },
+        {
+          "filename": "early-overhead-1440.webp",
+          "width": 1440,
+          "height": 801,
+          "bytes": 187374
+        },
+        {
+          "filename": "early-overhead-full.webp",
+          "width": 3840,
+          "height": 2137,
+          "bytes": 802236
+        },
+        {
+          "filename": "early-overhead-480.webp",
+          "width": 480,
+          "height": 267,
+          "bytes": 24588
+        }
+      ]
+    },
+    {
+      "slug": "v2-house",
+      "originalFilename": "aster_v2_hero.png",
+      "width": 2558,
+      "height": 2128,
+      "sourceBytes": 7030376,
+      "sourceSha256": "3a96384995d59d8d5637672f273ba9266864110e87e444dd5f0516c34a9271e3",
+      "generatedBytes": 1485996,
+      "files": [
+        {
+          "filename": "v2-house-800.webp",
+          "width": 800,
+          "height": 666,
+          "bytes": 138420
+        },
+        {
+          "filename": "v2-house-1440.webp",
+          "width": 1440,
+          "height": 1198,
+          "bytes": 368334
+        },
+        {
+          "filename": "v2-house-full.webp",
+          "width": 2558,
+          "height": 2128,
+          "bytes": 932248
+        },
+        {
+          "filename": "v2-house-480.webp",
+          "width": 480,
+          "height": 399,
+          "bytes": 46994
+        }
+      ]
+    },
+    {
+      "slug": "aster-v2-overhead",
+      "originalFilename": "aster_v2_overhead.png",
+      "width": 2558,
+      "height": 2128,
+      "sourceBytes": 5150277,
+      "sourceSha256": "9f40d35461f66c5ed3ee58fe2c4769bf7f59060b612269f1c40dcf19b69ef61e",
+      "generatedBytes": 448500,
+      "files": [
+        {
+          "filename": "aster-v2-overhead-480.webp",
+          "width": 480,
+          "height": 399,
+          "bytes": 27820
+        },
+        {
+          "filename": "aster-v2-overhead-full.webp",
+          "width": 2558,
+          "height": 2128,
+          "bytes": 420680
+        }
+      ]
+    },
+    {
+      "slug": "aster-v2-side",
+      "originalFilename": "aster_v2_side.png",
+      "width": 2558,
+      "height": 2128,
+      "sourceBytes": 5078308,
+      "sourceSha256": "1d6cc3e65ffc16f164a45340168ac72e756254a3e5ec26eded6c686e48cfbec0",
+      "generatedBytes": 583406,
+      "files": [
+        {
+          "filename": "aster-v2-side-480.webp",
+          "width": 480,
+          "height": 399,
+          "bytes": 28100
+        },
+        {
+          "filename": "aster-v2-side-full.webp",
+          "width": 2558,
+          "height": 2128,
+          "bytes": 555306
+        }
+      ]
+    },
+    {
+      "slug": "aster-v3-crown",
+      "originalFilename": "aster_v3_crown.png",
+      "width": 3840,
+      "height": 2137,
+      "sourceBytes": 5318816,
+      "sourceSha256": "3e92b49695bd963b91c0285ece2ab9083f40a1500bcb4f68d799ae7e96683ae7",
+      "generatedBytes": 548542,
+      "files": [
+        {
+          "filename": "aster-v3-crown-480.webp",
+          "width": 480,
+          "height": 267,
+          "bytes": 12582
+        },
+        {
+          "filename": "aster-v3-crown-full.webp",
+          "width": 3840,
+          "height": 2137,
+          "bytes": 535960
+        }
+      ]
+    },
+    {
+      "slug": "v3-house",
+      "originalFilename": "aster_v3_hero.png",
+      "width": 3840,
+      "height": 2137,
+      "sourceBytes": 10640559,
+      "sourceSha256": "38054bc44e11256a339882570c4dbd180d2954b26c39ff96c103061c91b2825e",
+      "generatedBytes": 1859188,
+      "files": [
+        {
+          "filename": "v3-house-800.webp",
+          "width": 800,
+          "height": 445,
+          "bytes": 98520
+        },
+        {
+          "filename": "v3-house-1440.webp",
+          "width": 1440,
+          "height": 801,
+          "bytes": 278520
+        },
+        {
+          "filename": "v3-house-full.webp",
+          "width": 3840,
+          "height": 2137,
+          "bytes": 1449226
+        },
+        {
+          "filename": "v3-house-480.webp",
+          "width": 480,
+          "height": 267,
+          "bytes": 32922
+        }
+      ]
+    },
+    {
+      "slug": "aster-v3-overhead",
+      "originalFilename": "aster_v3_overhead.png",
+      "width": 3840,
+      "height": 2137,
+      "sourceBytes": 8406087,
+      "sourceSha256": "59dbb3cf5d1f8c4a6c34541b0cf032e95fb761ed3939e39e5f02e585a4c9ea64",
+      "generatedBytes": 686700,
+      "files": [
+        {
+          "filename": "aster-v3-overhead-480.webp",
+          "width": 480,
+          "height": 267,
+          "bytes": 21088
+        },
+        {
+          "filename": "aster-v3-overhead-full.webp",
+          "width": 3840,
+          "height": 2137,
+          "bytes": 665612
+        }
+      ]
+    },
+    {
+      "slug": "aster-v3-showcase-interior",
+      "originalFilename": "aster_v3_showcase_interior.png",
+      "width": 3840,
+      "height": 2137,
+      "sourceBytes": 2129776,
+      "sourceSha256": "d59ab652d1f094095522d67e38661ddf92d8902c83d42db5a8f8d23026dbdeb5",
+      "generatedBytes": 217426,
+      "files": [
+        {
+          "filename": "aster-v3-showcase-interior-480.webp",
+          "width": 480,
+          "height": 267,
+          "bytes": 5168
+        },
+        {
+          "filename": "aster-v3-showcase-interior-full.webp",
+          "width": 3840,
+          "height": 2137,
+          "bytes": 212258
+        }
+      ]
+    },
+    {
+      "slug": "aster-v4-bezier-roof",
+      "originalFilename": "aster_v4_bezier_roof.png",
+      "width": 2558,
+      "height": 2124,
+      "sourceBytes": 3218817,
+      "sourceSha256": "0a4f1a19b018c592fa985868590842b2250077eb06da39f48d9b75c55a0280d1",
+      "generatedBytes": 325092,
+      "files": [
+        {
+          "filename": "aster-v4-bezier-roof-480.webp",
+          "width": 480,
+          "height": 399,
+          "bytes": 17506
+        },
+        {
+          "filename": "aster-v4-bezier-roof-full.webp",
+          "width": 2558,
+          "height": 2124,
+          "bytes": 307586
+        }
+      ]
+    },
+    {
+      "slug": "aster-v4-clean-floor",
+      "originalFilename": "aster_v4_clean_floor.png",
+      "width": 2558,
+      "height": 2124,
+      "sourceBytes": 720378,
+      "sourceSha256": "e3b76b93e3e4c65b8b274d9458637741c1b807d70d32ddd77a9e97be9ca4747b",
+      "generatedBytes": 77870,
+      "files": [
+        {
+          "filename": "aster-v4-clean-floor-480.webp",
+          "width": 480,
+          "height": 399,
+          "bytes": 3838
+        },
+        {
+          "filename": "aster-v4-clean-floor-full.webp",
+          "width": 2558,
+          "height": 2124,
+          "bytes": 74032
+        }
+      ]
+    },
+    {
+      "slug": "v4-crown",
+      "originalFilename": "aster_v4_crown.png",
+      "width": 2558,
+      "height": 2124,
+      "sourceBytes": 2881506,
+      "sourceSha256": "29856e961a6453ea07e72cab9e495bf9c1bef104bb55624eff9f295f69bbf072",
+      "generatedBytes": 502212,
+      "files": [
+        {
+          "filename": "v4-crown-800.webp",
+          "width": 800,
+          "height": 664,
+          "bytes": 50220
+        },
+        {
+          "filename": "v4-crown-1440.webp",
+          "width": 1440,
+          "height": 1196,
+          "bytes": 129484
+        },
+        {
+          "filename": "v4-crown-full.webp",
+          "width": 2558,
+          "height": 2124,
+          "bytes": 304774
+        },
+        {
+          "filename": "v4-crown-480.webp",
+          "width": 480,
+          "height": 399,
+          "bytes": 17734
+        }
+      ]
+    },
+    {
+      "slug": "aster-v4-decal-confirm-before",
+      "originalFilename": "aster_v4_decal_confirm_before.png",
+      "width": 2558,
+      "height": 2124,
+      "sourceBytes": 916365,
+      "sourceSha256": "c8a1cacbe89552abede942629503c5b66fb6681f769c619376ab04aa293a4abf",
+      "generatedBytes": 96810,
+      "files": [
+        {
+          "filename": "aster-v4-decal-confirm-before-480.webp",
+          "width": 480,
+          "height": 399,
+          "bytes": 4908
+        },
+        {
+          "filename": "aster-v4-decal-confirm-before-full.webp",
+          "width": 2558,
+          "height": 2124,
+          "bytes": 91902
+        }
+      ]
+    },
+    {
+      "slug": "aster-v4-decal-confirm-rejected",
+      "originalFilename": "aster_v4_decal_confirm_rejected.png",
+      "width": 2558,
+      "height": 2124,
+      "sourceBytes": 724203,
+      "sourceSha256": "983bfad09ef36a096adfb5dd8a26f41c595758aa3c5f3a9f8ec7df959bf070c9",
+      "generatedBytes": 82852,
+      "files": [
+        {
+          "filename": "aster-v4-decal-confirm-rejected-480.webp",
+          "width": 480,
+          "height": 399,
+          "bytes": 3976
+        },
+        {
+          "filename": "aster-v4-decal-confirm-rejected-full.webp",
+          "width": 2558,
+          "height": 2124,
+          "bytes": 78876
+        }
+      ]
+    },
+    {
+      "slug": "aster-v4-decal-confirm-shrunk",
+      "originalFilename": "aster_v4_decal_confirm_shrunk.png",
+      "width": 2558,
+      "height": 2124,
+      "sourceBytes": 726920,
+      "sourceSha256": "6aa5a545ddce4664d8ca5b7f4ebe04dad3a5052939cb0d12f0035eb054b91926",
+      "generatedBytes": 83206,
+      "files": [
+        {
+          "filename": "aster-v4-decal-confirm-shrunk-480.webp",
+          "width": 480,
+          "height": 399,
+          "bytes": 3990
+        },
+        {
+          "filename": "aster-v4-decal-confirm-shrunk-full.webp",
+          "width": 2558,
+          "height": 2124,
+          "bytes": 79216
+        }
+      ]
+    },
+    {
+      "slug": "aster-v4-dirt-before",
+      "originalFilename": "aster_v4_dirt_before.png",
+      "width": 2558,
+      "height": 2124,
+      "sourceBytes": 917296,
+      "sourceSha256": "3d8eb8c29cada27d1f9f69325c32fe9606ee17ff8e17a8d2f896203fd962212f",
+      "generatedBytes": 104552,
+      "files": [
+        {
+          "filename": "aster-v4-dirt-before-480.webp",
+          "width": 480,
+          "height": 399,
+          "bytes": 4570
+        },
+        {
+          "filename": "aster-v4-dirt-before-full.webp",
+          "width": 2558,
+          "height": 2124,
+          "bytes": 99982
+        }
+      ]
+    },
+    {
+      "slug": "aster-v4-dirt-decal-shrunk",
+      "originalFilename": "aster_v4_dirt_decal_shrunk.png",
+      "width": 2558,
+      "height": 2124,
+      "sourceBytes": 908356,
+      "sourceSha256": "6a8b074d4cf6e3d65bd2bc29847e37d4173a34a1f6bdcb3bf4999e8e6a29160b",
+      "generatedBytes": 103324,
+      "files": [
+        {
+          "filename": "aster-v4-dirt-decal-shrunk-480.webp",
+          "width": 480,
+          "height": 399,
+          "bytes": 4444
+        },
+        {
+          "filename": "aster-v4-dirt-decal-shrunk-full.webp",
+          "width": 2558,
+          "height": 2124,
+          "bytes": 98880
+        }
+      ]
+    },
+    {
+      "slug": "aster-v4-dirt-no-receive",
+      "originalFilename": "aster_v4_dirt_no_receive.png",
+      "width": 2558,
+      "height": 2124,
+      "sourceBytes": 911246,
+      "sourceSha256": "7f5683cd2819f452eff88d0fd8ff8cab19b384fbb3837f004ee93c26f54b3577",
+      "generatedBytes": 103388,
+      "files": [
+        {
+          "filename": "aster-v4-dirt-no-receive-480.webp",
+          "width": 480,
+          "height": 399,
+          "bytes": 4448
+        },
+        {
+          "filename": "aster-v4-dirt-no-receive-full.webp",
+          "width": 2558,
+          "height": 2124,
+          "bytes": 98940
+        }
+      ]
+    },
+    {
+      "slug": "aster-v4-hero",
+      "originalFilename": "aster_v4_hero.png",
+      "width": 2558,
+      "height": 2124,
+      "sourceBytes": 6861274,
+      "sourceSha256": "82e69768e3cb4221fa47d0ecae0668d43783c79ba01b9d04fdd4b36d4b063168",
+      "generatedBytes": 982690,
+      "files": [
+        {
+          "filename": "aster-v4-hero-480.webp",
+          "width": 480,
+          "height": 399,
+          "bytes": 46740
+        },
+        {
+          "filename": "aster-v4-hero-full.webp",
+          "width": 2558,
+          "height": 2124,
+          "bytes": 935950
+        }
+      ]
+    },
+    {
+      "slug": "aster-v4-overhead",
+      "originalFilename": "aster_v4_overhead.png",
+      "width": 2558,
+      "height": 2124,
+      "sourceBytes": 5253736,
+      "sourceSha256": "d89ea91f5480ddbe140b9504af68736f717ef6e0f05fc315cceea3900b1c3ba2",
+      "generatedBytes": 501304,
+      "files": [
+        {
+          "filename": "aster-v4-overhead-480.webp",
+          "width": 480,
+          "height": 399,
+          "bytes": 28682
+        },
+        {
+          "filename": "aster-v4-overhead-full.webp",
+          "width": 2558,
+          "height": 2124,
+          "bytes": 472622
+        }
+      ]
+    },
+    {
+      "slug": "aster-v4-showcase-interior",
+      "originalFilename": "aster_v4_showcase_interior.png",
+      "width": 2558,
+      "height": 2124,
+      "sourceBytes": 1663294,
+      "sourceSha256": "f69172cffc9eede8217ed98e0d1097c4cb8b122f7625b53673b6aaedaa78a9ff",
+      "generatedBytes": 152916,
+      "files": [
+        {
+          "filename": "aster-v4-showcase-interior-480.webp",
+          "width": 480,
+          "height": 399,
+          "bytes": 8558
+        },
+        {
+          "filename": "aster-v4-showcase-interior-full.webp",
+          "width": 2558,
+          "height": 2124,
+          "bytes": 144358
+        }
+      ]
+    },
+    {
+      "slug": "v5-roof",
+      "originalFilename": "aster_v5_bezier_roof.png",
+      "width": 3840,
+      "height": 2137,
+      "sourceBytes": 7118122,
+      "sourceSha256": "d922d1ee8948345efe8dc1ed4fd52df38c7b0f0d948e2eb20b567b140b42b80f",
+      "generatedBytes": 839680,
+      "files": [
+        {
+          "filename": "v5-roof-800.webp",
+          "width": 800,
+          "height": 445,
+          "bytes": 55130
+        },
+        {
+          "filename": "v5-roof-1440.webp",
+          "width": 1440,
+          "height": 801,
+          "bytes": 143138
+        },
+        {
+          "filename": "v5-roof-full.webp",
+          "width": 3840,
+          "height": 2137,
+          "bytes": 621006
+        },
+        {
+          "filename": "v5-roof-480.webp",
+          "width": 480,
+          "height": 267,
+          "bytes": 20406
+        }
+      ]
+    },
+    {
+      "slug": "aster-v5-clean-floor",
+      "originalFilename": "aster_v5_clean_floor.png",
+      "width": 3840,
+      "height": 2137,
+      "sourceBytes": 1148099,
+      "sourceSha256": "b7a3a2db41cf4e1cd88a532b6e99a90d1b850652516233f46cf2aca26f259a10",
+      "generatedBytes": 122596,
+      "files": [
+        {
+          "filename": "aster-v5-clean-floor-480.webp",
+          "width": 480,
+          "height": 267,
+          "bytes": 3148
+        },
+        {
+          "filename": "aster-v5-clean-floor-full.webp",
+          "width": 3840,
+          "height": 2137,
+          "bytes": 119448
+        }
+      ]
+    },
+    {
+      "slug": "aster-v5-crown",
+      "originalFilename": "aster_v5_crown.png",
+      "width": 3840,
+      "height": 2137,
+      "sourceBytes": 5522249,
+      "sourceSha256": "0a7ed6db69cd423afde2fce3f4c7f3c1a1e79b9f572c8dd556ac77b6cc1c438d",
+      "generatedBytes": 598778,
+      "files": [
+        {
+          "filename": "aster-v5-crown-480.webp",
+          "width": 480,
+          "height": 267,
+          "bytes": 14854
+        },
+        {
+          "filename": "aster-v5-crown-full.webp",
+          "width": 3840,
+          "height": 2137,
+          "bytes": 583924
+        }
+      ]
+    },
+    {
+      "slug": "v5-curved-glass",
+      "originalFilename": "aster_v5_curved_glass_L1.png",
+      "width": 2582,
+      "height": 1747,
+      "sourceBytes": 4247892,
+      "sourceSha256": "98beb5243ece35073dcf33c1448abde7130c0d9ff92e90a42835379f4b13c2b6",
+      "generatedBytes": 802888,
+      "files": [
+        {
+          "filename": "v5-curved-glass-800.webp",
+          "width": 800,
+          "height": 541,
+          "bytes": 79648
+        },
+        {
+          "filename": "v5-curved-glass-1440.webp",
+          "width": 1440,
+          "height": 974,
+          "bytes": 198846
+        },
+        {
+          "filename": "v5-curved-glass-full.webp",
+          "width": 2582,
+          "height": 1747,
+          "bytes": 494614
+        },
+        {
+          "filename": "v5-curved-glass-480.webp",
+          "width": 480,
+          "height": 325,
+          "bytes": 29780
+        }
+      ]
+    },
+    {
+      "slug": "aster-v5-curved-glass-l2",
+      "originalFilename": "aster_v5_curved_glass_L2.png",
+      "width": 2582,
+      "height": 1747,
+      "sourceBytes": 4143184,
+      "sourceSha256": "b27d844cbd0547128a65f52e14886f8df069650dae06decdc205af3a10aa11a6",
+      "generatedBytes": 490798,
+      "files": [
+        {
+          "filename": "aster-v5-curved-glass-l2-480.webp",
+          "width": 480,
+          "height": 325,
+          "bytes": 26640
+        },
+        {
+          "filename": "aster-v5-curved-glass-l2-full.webp",
+          "width": 2582,
+          "height": 1747,
+          "bytes": 464158
+        }
+      ]
+    },
+    {
+      "slug": "aster-v5-curved-glass-l3",
+      "originalFilename": "aster_v5_curved_glass_L3.png",
+      "width": 2582,
+      "height": 1747,
+      "sourceBytes": 3830921,
+      "sourceSha256": "f6fa62994d48e5d53720cc2c07414f37616c2358b680497eeeaf78f28ce5545c",
+      "generatedBytes": 438748,
+      "files": [
+        {
+          "filename": "aster-v5-curved-glass-l3-480.webp",
+          "width": 480,
+          "height": 325,
+          "bytes": 22298
+        },
+        {
+          "filename": "aster-v5-curved-glass-l3-full.webp",
+          "width": 2582,
+          "height": 1747,
+          "bytes": 416450
+        }
+      ]
+    },
+    {
+      "slug": "aster-v5-curved-glass-l4",
+      "originalFilename": "aster_v5_curved_glass_L4.png",
+      "width": 2582,
+      "height": 1747,
+      "sourceBytes": 3337101,
+      "sourceSha256": "6821f656cba9356a1bc705f967ebc65ebc10104ac54fcb0f37425ee9c2f3c202",
+      "generatedBytes": 390138,
+      "files": [
+        {
+          "filename": "aster-v5-curved-glass-l4-480.webp",
+          "width": 480,
+          "height": 325,
+          "bytes": 20800
+        },
+        {
+          "filename": "aster-v5-curved-glass-l4-full.webp",
+          "width": 2582,
+          "height": 1747,
+          "bytes": 369338
+        }
+      ]
+    },
+    {
+      "slug": "aster-v5-curved-glass-l5",
+      "originalFilename": "aster_v5_curved_glass_L5.png",
+      "width": 2582,
+      "height": 1747,
+      "sourceBytes": 3080892,
+      "sourceSha256": "b14ec8e7877cf469d0adce2718b8944060721e643fba0df2c24ab7a57740e6b9",
+      "generatedBytes": 333304,
+      "files": [
+        {
+          "filename": "aster-v5-curved-glass-l5-480.webp",
+          "width": 480,
+          "height": 325,
+          "bytes": 18940
+        },
+        {
+          "filename": "aster-v5-curved-glass-l5-full.webp",
+          "width": 2582,
+          "height": 1747,
+          "bytes": 314364
+        }
+      ]
+    },
+    {
+      "slug": "aster-v5-curved-glass-hero",
+      "originalFilename": "aster_v5_curved_glass_hero.png",
+      "width": 2582,
+      "height": 1747,
+      "sourceBytes": 6229701,
+      "sourceSha256": "1205d39aaf5f2f3dd7c9075c4a61916080ed7e80f95d308e37eb73c21866bd73",
+      "generatedBytes": 772210,
+      "files": [
+        {
+          "filename": "aster-v5-curved-glass-hero-480.webp",
+          "width": 480,
+          "height": 325,
+          "bytes": 32914
+        },
+        {
+          "filename": "aster-v5-curved-glass-hero-full.webp",
+          "width": 2582,
+          "height": 1747,
+          "bytes": 739296
+        }
+      ]
+    },
+    {
+      "slug": "aster-v5-hero",
+      "originalFilename": "aster_v5_hero.png",
+      "width": 3840,
+      "height": 2137,
+      "sourceBytes": 10996699,
+      "sourceSha256": "1398cdac4f93e45191b90540e35a435c6e3d3c97e37a8f67b1240b06ac7fd544",
+      "generatedBytes": 1292154,
+      "files": [
+        {
+          "filename": "aster-v5-hero-480.webp",
+          "width": 480,
+          "height": 267,
+          "bytes": 26370
+        },
+        {
+          "filename": "aster-v5-hero-full.webp",
+          "width": 3840,
+          "height": 2137,
+          "bytes": 1265784
+        }
+      ]
+    },
+    {
+      "slug": "aster-v5-overhead",
+      "originalFilename": "aster_v5_overhead.png",
+      "width": 3840,
+      "height": 2137,
+      "sourceBytes": 8641141,
+      "sourceSha256": "c43a1e98c72f89e20d4cbf1d2aac5cc8573cd798a05c228a03225a1c390a54d0",
+      "generatedBytes": 683932,
+      "files": [
+        {
+          "filename": "aster-v5-overhead-480.webp",
+          "width": 480,
+          "height": 267,
+          "bytes": 21752
+        },
+        {
+          "filename": "aster-v5-overhead-full.webp",
+          "width": 3840,
+          "height": 2137,
+          "bytes": 662180
+        }
+      ]
+    },
+    {
+      "slug": "aster-v5-showcase-interior",
+      "originalFilename": "aster_v5_showcase_interior.png",
+      "width": 3840,
+      "height": 2137,
+      "sourceBytes": 3071106,
+      "sourceSha256": "5a176e44ed0cc466e6407a06970cc3823996e9a674eccd38c9d825bb0244f2a6",
+      "generatedBytes": 297542,
+      "files": [
+        {
+          "filename": "aster-v5-showcase-interior-480.webp",
+          "width": 480,
+          "height": 267,
+          "bytes": 5728
+        },
+        {
+          "filename": "aster-v5-showcase-interior-full.webp",
+          "width": 3840,
+          "height": 2137,
+          "bytes": 291814
+        }
+      ]
+    },
+    {
+      "slug": "aster-v5-tip-arch-l1-front",
+      "originalFilename": "aster_v5_tip_arch_L1_front.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 2494001,
+      "sourceSha256": "d8a9bd110a594ade8310519782024f460fc41787fe81d158d52736643e4a3e47",
+      "generatedBytes": 290096,
+      "files": [
+        {
+          "filename": "aster-v5-tip-arch-l1-front-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 17440
+        },
+        {
+          "filename": "aster-v5-tip-arch-l1-front-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 272656
+        }
+      ]
+    },
+    {
+      "slug": "aster-v5-tip-arch-l1-inside",
+      "originalFilename": "aster_v5_tip_arch_L1_inside.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 1066950,
+      "sourceSha256": "5e6652b119152cca8accad198a8f3d46e039928d30494dddffcbff72688ac477",
+      "generatedBytes": 127222,
+      "files": [
+        {
+          "filename": "aster-v5-tip-arch-l1-inside-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 6258
+        },
+        {
+          "filename": "aster-v5-tip-arch-l1-inside-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 120964
+        }
+      ]
+    },
+    {
+      "slug": "aster-v5-tip-arch-l2-front",
+      "originalFilename": "aster_v5_tip_arch_L2_front.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 2696927,
+      "sourceSha256": "fa3b9fb5740c070e296fcbbae391a5f660f2323bf37446030652a8cc9702e22c",
+      "generatedBytes": 307520,
+      "files": [
+        {
+          "filename": "aster-v5-tip-arch-l2-front-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 19264
+        },
+        {
+          "filename": "aster-v5-tip-arch-l2-front-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 288256
+        }
+      ]
+    },
+    {
+      "slug": "aster-v5-tip-arch-l3-front",
+      "originalFilename": "aster_v5_tip_arch_L3_front.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 2331974,
+      "sourceSha256": "a72dc7e9db6743027519ea65f5540f2496d01e35a28bbd7a2e7e2fa996451e39",
+      "generatedBytes": 270086,
+      "files": [
+        {
+          "filename": "aster-v5-tip-arch-l3-front-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 16756
+        },
+        {
+          "filename": "aster-v5-tip-arch-l3-front-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 253330
+        }
+      ]
+    },
+    {
+      "slug": "aster-v5-tip-arch-l4-front",
+      "originalFilename": "aster_v5_tip_arch_L4_front.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 2300026,
+      "sourceSha256": "6c8b166b3677ac18659605517dae6fb694b3858fe7e4433c52a7aa8d2898dc1b",
+      "generatedBytes": 252434,
+      "files": [
+        {
+          "filename": "aster-v5-tip-arch-l4-front-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 15654
+        },
+        {
+          "filename": "aster-v5-tip-arch-l4-front-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 236780
+        }
+      ]
+    },
+    {
+      "slug": "aster-v5-tip-arch-l5-front",
+      "originalFilename": "aster_v5_tip_arch_L5_front.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 1810931,
+      "sourceSha256": "f20a14f1a90089696fa87a96e70b2c3f25331afc2ee6bfc71007985e77bdf6b2",
+      "generatedBytes": 188392,
+      "files": [
+        {
+          "filename": "aster-v5-tip-arch-l5-front-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 11524
+        },
+        {
+          "filename": "aster-v5-tip-arch-l5-front-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 176868
+        }
+      ]
+    },
+    {
+      "slug": "v5-opening-before",
+      "originalFilename": "aster_v5_tip_arch_before_L1_front.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 2495431,
+      "sourceSha256": "858cd7107a2735201766c5dc6599d53632f5ad8f18d24d8948ee9ab2bd53b086",
+      "generatedBytes": 450208,
+      "files": [
+        {
+          "filename": "v5-opening-before-800.webp",
+          "width": 800,
+          "height": 472,
+          "bytes": 46608
+        },
+        {
+          "filename": "v5-opening-before-1440.webp",
+          "width": 1440,
+          "height": 849,
+          "bytes": 113504
+        },
+        {
+          "filename": "v5-opening-before-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 272536
+        },
+        {
+          "filename": "v5-opening-before-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 17560
+        }
+      ]
+    },
+    {
+      "slug": "aster-v5-tip-arch-hero",
+      "originalFilename": "aster_v5_tip_arch_hero.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5300055,
+      "sourceSha256": "f1ed836876b0f86dada829a496bd9d35b936bfeb6211637a3d25ee80a475077a",
+      "generatedBytes": 664258,
+      "files": [
+        {
+          "filename": "aster-v5-tip-arch-hero-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 30402
+        },
+        {
+          "filename": "aster-v5-tip-arch-hero-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 633856
+        }
+      ]
+    },
+    {
+      "slug": "aster-v5-tip-arch-reloaded-front",
+      "originalFilename": "aster_v5_tip_arch_reloaded_front.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 2628510,
+      "sourceSha256": "0bb16936fbd39849beb752e387fef857cb7bfbc516e22e9dcfc416de548b60e1",
+      "generatedBytes": 301790,
+      "files": [
+        {
+          "filename": "aster-v5-tip-arch-reloaded-front-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 17326
+        },
+        {
+          "filename": "aster-v5-tip-arch-reloaded-front-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 284464
+        }
+      ]
+    },
+    {
+      "slug": "aster-v5-tip-arch-reloaded-oblique",
+      "originalFilename": "aster_v5_tip_arch_reloaded_oblique.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 2565604,
+      "sourceSha256": "25f5526c5a3e2d7d1ab045d8d964eea67afb04c19c610ad07f56f56e302cabe7",
+      "generatedBytes": 303252,
+      "files": [
+        {
+          "filename": "aster-v5-tip-arch-reloaded-oblique-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 17826
+        },
+        {
+          "filename": "aster-v5-tip-arch-reloaded-oblique-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 285426
+        }
+      ]
+    },
+    {
+      "slug": "v5-opening-after",
+      "originalFilename": "aster_v5_wide_tip_arch_L1_front.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 2637801,
+      "sourceSha256": "701c7acdfc4fd7c474cd118bb50288af5edff6f7e172db726a74b583c8003829",
+      "generatedBytes": 461460,
+      "files": [
+        {
+          "filename": "v5-opening-after-800.webp",
+          "width": 800,
+          "height": 472,
+          "bytes": 45982
+        },
+        {
+          "filename": "v5-opening-after-1440.webp",
+          "width": 1440,
+          "height": 849,
+          "bytes": 114818
+        },
+        {
+          "filename": "v5-opening-after-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 283534
+        },
+        {
+          "filename": "v5-opening-after-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 17126
+        }
+      ]
+    },
+    {
+      "slug": "aster-v5-wide-tip-arch-l1-inside",
+      "originalFilename": "aster_v5_wide_tip_arch_L1_inside.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 695935,
+      "sourceSha256": "e678c62b6ed95efb564de3e14b5095dd3c85a59db9325b9c0eeda2d8c6e670f4",
+      "generatedBytes": 84716,
+      "files": [
+        {
+          "filename": "aster-v5-wide-tip-arch-l1-inside-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 5280
+        },
+        {
+          "filename": "aster-v5-wide-tip-arch-l1-inside-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 79436
+        }
+      ]
+    },
+    {
+      "slug": "aster-v5-wide-tip-arch-l2-front",
+      "originalFilename": "aster_v5_wide_tip_arch_L2_front.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 2845560,
+      "sourceSha256": "c903d8b7ac8850a82f7a588fd1c7e22e640154c842f95dc660aadd4ded84c691",
+      "generatedBytes": 330702,
+      "files": [
+        {
+          "filename": "aster-v5-wide-tip-arch-l2-front-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 20552
+        },
+        {
+          "filename": "aster-v5-wide-tip-arch-l2-front-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 310150
+        }
+      ]
+    },
+    {
+      "slug": "aster-v5-wide-tip-arch-l3-front",
+      "originalFilename": "aster_v5_wide_tip_arch_L3_front.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 2237457,
+      "sourceSha256": "70ba891a445cfa8a76553a06893564d0550e6b33560280858f907dde204a510a",
+      "generatedBytes": 276580,
+      "files": [
+        {
+          "filename": "aster-v5-wide-tip-arch-l3-front-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 17876
+        },
+        {
+          "filename": "aster-v5-wide-tip-arch-l3-front-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 258704
+        }
+      ]
+    },
+    {
+      "slug": "aster-v5-wide-tip-arch-l4-front",
+      "originalFilename": "aster_v5_wide_tip_arch_L4_front.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 2189666,
+      "sourceSha256": "fbbdc4c741065867b53f287d240c642faba5b682e4ffdf2efa89fb672916a6e2",
+      "generatedBytes": 279136,
+      "files": [
+        {
+          "filename": "aster-v5-wide-tip-arch-l4-front-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 16928
+        },
+        {
+          "filename": "aster-v5-wide-tip-arch-l4-front-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 262208
+        }
+      ]
+    },
+    {
+      "slug": "aster-v5-wide-tip-arch-l5-front",
+      "originalFilename": "aster_v5_wide_tip_arch_L5_front.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 1908836,
+      "sourceSha256": "aaa314e762c11dba03827ab6895124fbdb6c8ce37483a5983a9e321ff1240def",
+      "generatedBytes": 193558,
+      "files": [
+        {
+          "filename": "aster-v5-wide-tip-arch-l5-front-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 11550
+        },
+        {
+          "filename": "aster-v5-wide-tip-arch-l5-front-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 182008
+        }
+      ]
+    },
+    {
+      "slug": "aster-v5-wide-tip-arch-before-l1-front",
+      "originalFilename": "aster_v5_wide_tip_arch_before_L1_front.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 2633593,
+      "sourceSha256": "c931357b6df294cabfc43e4ef5b0160d51aadbd0e5f9487d0ac4229b7729c9a1",
+      "generatedBytes": 301660,
+      "files": [
+        {
+          "filename": "aster-v5-wide-tip-arch-before-l1-front-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 17138
+        },
+        {
+          "filename": "aster-v5-wide-tip-arch-before-l1-front-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 284522
+        }
+      ]
+    },
+    {
+      "slug": "aster-v5-wide-tip-arch-hero",
+      "originalFilename": "aster_v5_wide_tip_arch_hero.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5316329,
+      "sourceSha256": "c2e167228aa00dd4f40c254950ab67f0d9e007fd1e6f28c330f2fff31b0a2859",
+      "generatedBytes": 635204,
+      "files": [
+        {
+          "filename": "aster-v5-wide-tip-arch-hero-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 26904
+        },
+        {
+          "filename": "aster-v5-wide-tip-arch-hero-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 608300
+        }
+      ]
+    },
+    {
+      "slug": "aster-v5-wide-tip-arch-reloaded-front",
+      "originalFilename": "aster_v5_wide_tip_arch_reloaded_front.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 2668133,
+      "sourceSha256": "a52ae300d7342b0cd5422b5661eeaa6021d2fb4e35446807146aafc5be588dbc",
+      "generatedBytes": 313734,
+      "files": [
+        {
+          "filename": "aster-v5-wide-tip-arch-reloaded-front-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 17964
+        },
+        {
+          "filename": "aster-v5-wide-tip-arch-reloaded-front-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 295770
+        }
+      ]
+    },
+    {
+      "slug": "collar",
+      "originalFilename": "collar.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 3328291,
+      "sourceSha256": "04a163112ef9045c052769b1abc1d430e0d8b0ea8a295bab4c35a30c4df4dee5",
+      "generatedBytes": 303782,
+      "files": [
+        {
+          "filename": "collar-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 15680
+        },
+        {
+          "filename": "collar-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 288102
+        }
+      ]
+    },
+    {
+      "slug": "east",
+      "originalFilename": "east.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 4658366,
+      "sourceSha256": "96dfad4ed44ef7ecfe675f1231ab3216661b99987b65f07d10d1e0653dfec5da",
+      "generatedBytes": 571016,
+      "files": [
+        {
+          "filename": "east-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 29796
+        },
+        {
+          "filename": "east-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 541220
+        }
+      ]
+    },
+    {
+      "slug": "v6-entry",
+      "originalFilename": "entry.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 3628396,
+      "sourceSha256": "90d71fc70d50f3dea79308f97d3abe742ef6cfe681c191275f7c8b2266a34882",
+      "generatedBytes": 624716,
+      "files": [
+        {
+          "filename": "v6-entry-800.webp",
+          "width": 800,
+          "height": 472,
+          "bytes": 61746
+        },
+        {
+          "filename": "v6-entry-1440.webp",
+          "width": 1440,
+          "height": 849,
+          "bytes": 159014
+        },
+        {
+          "filename": "v6-entry-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 381828
+        },
+        {
+          "filename": "v6-entry-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 22128
+        }
+      ]
+    },
+    {
+      "slug": "v7-drive",
+      "originalFilename": "garage-drive-test.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 3586432,
+      "sourceSha256": "fb04596a198742d3cbac40b626f4709d20f1374c06f1e5b7eecbbf8685ba3616",
+      "generatedBytes": 562416,
+      "files": [
+        {
+          "filename": "v7-drive-800.webp",
+          "width": 800,
+          "height": 472,
+          "bytes": 51666
+        },
+        {
+          "filename": "v7-drive-1440.webp",
+          "width": 1440,
+          "height": 849,
+          "bytes": 136630
+        },
+        {
+          "filename": "v7-drive-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 356648
+        },
+        {
+          "filename": "v7-drive-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 17472
+        }
+      ]
+    },
+    {
+      "slug": "v7-garage",
+      "originalFilename": "garage.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 3891753,
+      "sourceSha256": "721e86cf218bd246c8f3c43499471a6eca46c5a75a42bee89aa9c50f89ae74b5",
+      "generatedBytes": 753804,
+      "files": [
+        {
+          "filename": "v7-garage-800.webp",
+          "width": 800,
+          "height": 472,
+          "bytes": 67328
+        },
+        {
+          "filename": "v7-garage-1440.webp",
+          "width": 1440,
+          "height": 849,
+          "bytes": 183804
+        },
+        {
+          "filename": "v7-garage-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 479832
+        },
+        {
+          "filename": "v7-garage-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 22840
+        }
+      ]
+    },
+    {
+      "slug": "hairpin",
+      "originalFilename": "hairpin.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5837448,
+      "sourceSha256": "69ad7ee34eaccc54e6759a5df298cec4d99ba560e15a4ae93ee0a321aaca24f0",
+      "generatedBytes": 673858,
+      "files": [
+        {
+          "filename": "hairpin-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 32270
+        },
+        {
+          "filename": "hairpin-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 641588
+        }
+      ]
+    },
+    {
+      "slug": "hero-2",
+      "originalFilename": "hero (2).png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 4831146,
+      "sourceSha256": "2df1f25cb49f42250fd3c451b8ee577f02d87b9cd1749ca95b6bc090a7047ba1",
+      "generatedBytes": 648852,
+      "files": [
+        {
+          "filename": "hero-2-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 30376
+        },
+        {
+          "filename": "hero-2-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 618476
+        }
+      ]
+    },
+    {
+      "slug": "v7-house",
+      "originalFilename": "hero.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5650897,
+      "sourceSha256": "0b011531b6738a528df662e586c77e9f2d405bc7f9eb13ecd61cec560a72e6c3",
+      "generatedBytes": 1194156,
+      "files": [
+        {
+          "filename": "v7-house-800.webp",
+          "width": 800,
+          "height": 472,
+          "bytes": 105188
+        },
+        {
+          "filename": "v7-house-1440.webp",
+          "width": 1440,
+          "height": 849,
+          "bytes": 294862
+        },
+        {
+          "filename": "v7-house-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 759722
+        },
+        {
+          "filename": "v7-house-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 34384
+        }
+      ]
+    },
+    {
+      "slug": "v6-interior",
+      "originalFilename": "inside.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 1479674,
+      "sourceSha256": "d2573013a7a077b9fc1707d639c7ae6a6b8fbc4d6dfb3d11ef2d808cced92e80",
+      "generatedBytes": 209666,
+      "files": [
+        {
+          "filename": "v6-interior-800.webp",
+          "width": 800,
+          "height": 472,
+          "bytes": 21334
+        },
+        {
+          "filename": "v6-interior-1440.webp",
+          "width": 1440,
+          "height": 849,
+          "bytes": 53076
+        },
+        {
+          "filename": "v6-interior-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 127268
+        },
+        {
+          "filename": "v6-interior-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 7988
+        }
+      ]
+    },
+    {
+      "slug": "mound",
+      "originalFilename": "mound.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 4425804,
+      "sourceSha256": "045c774730984f3885c636965344104c732fbd271bd9fc80dd0b5747e0b26122",
+      "generatedBytes": 546902,
+      "files": [
+        {
+          "filename": "mound-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 27018
+        },
+        {
+          "filename": "mound-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 519884
+        }
+      ]
+    },
+    {
+      "slug": "relocation-inspection",
+      "originalFilename": "relocation-inspection.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5523755,
+      "sourceSha256": "82f4e319c429a1f4b408b475d2fbafc760e379d6db30b4da3f7407a20d77100e",
+      "generatedBytes": 615654,
+      "files": [
+        {
+          "filename": "relocation-inspection-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 28642
+        },
+        {
+          "filename": "relocation-inspection-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 587012
+        }
+      ]
+    },
+    {
+      "slug": "restored-main",
+      "originalFilename": "restored_main.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5624482,
+      "sourceSha256": "b7d2a4772bd802ce69ff293aa6aaa6677d93eeb9061eed8d22253255893e01cc",
+      "generatedBytes": 717858,
+      "files": [
+        {
+          "filename": "restored-main-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 37368
+        },
+        {
+          "filename": "restored-main-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 680490
+        }
+      ]
+    },
+    {
+      "slug": "restored-trail",
+      "originalFilename": "restored_trail.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 4995198,
+      "sourceSha256": "a5fc9c921783044647f7b05af62c2be79df332e19c624c253f3010e43e062f7a",
+      "generatedBytes": 641358,
+      "files": [
+        {
+          "filename": "restored-trail-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 32582
+        },
+        {
+          "filename": "restored-trail-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 608776
+        }
+      ]
+    },
+    {
+      "slug": "road-2",
+      "originalFilename": "road (2).png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5317182,
+      "sourceSha256": "d5aadc090b1ae13788f8a926030f5878e87d1984c833b3a3d7033ab2b74eaf6d",
+      "generatedBytes": 727044,
+      "files": [
+        {
+          "filename": "road-2-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 38074
+        },
+        {
+          "filename": "road-2-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 688970
+        }
+      ]
+    },
+    {
+      "slug": "v7-road",
+      "originalFilename": "road.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 6145237,
+      "sourceSha256": "aecb5080f6a46c73879fb4140c0aa22041133d97b123a629d2fa96e078bed4be",
+      "generatedBytes": 1300136,
+      "files": [
+        {
+          "filename": "v7-road-800.webp",
+          "width": 800,
+          "height": 472,
+          "bytes": 125522
+        },
+        {
+          "filename": "v7-road-1440.webp",
+          "width": 1440,
+          "height": 849,
+          "bytes": 325790
+        },
+        {
+          "filename": "v7-road-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 804642
+        },
+        {
+          "filename": "v7-road-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 44182
+        }
+      ]
+    }
+  ]
+}

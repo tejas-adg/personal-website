@@ -1,0 +1,665 @@
+{
+  "imageCount": 68,
+  "groups": [
+    {
+      "id": "early",
+      "label": "Early captures",
+      "images": [
+        {
+          "title": "The early house",
+          "alt": "Aster — early captures: the early house.",
+          "thumbnail": "/aster/early-house-480.webp",
+          "fullSrc": "/aster/early-house-full.webp",
+          "width": 3840,
+          "height": 2137,
+          "originalFilename": "aster_hero.png"
+        },
+        {
+          "title": "The asterisk from above",
+          "alt": "Aster — early captures: the asterisk from above.",
+          "thumbnail": "/aster/early-overhead-480.webp",
+          "fullSrc": "/aster/early-overhead-full.webp",
+          "width": 3840,
+          "height": 2137,
+          "originalFilename": "aster_overhead.png"
+        },
+        {
+          "title": "The early cliffside view",
+          "alt": "Aster — early captures: the early cliffside view.",
+          "thumbnail": "/aster/aster-cliffside-480.webp",
+          "fullSrc": "/aster/aster-cliffside-full.webp",
+          "width": 3840,
+          "height": 2137,
+          "originalFilename": "aster_cliffside.png"
+        }
+      ]
+    },
+    {
+      "id": "v2",
+      "label": "Version 2",
+      "images": [
+        {
+          "title": "House overview",
+          "alt": "Aster — version 2: house overview.",
+          "thumbnail": "/aster/v2-house-480.webp",
+          "fullSrc": "/aster/v2-house-full.webp",
+          "width": 2558,
+          "height": 2128,
+          "originalFilename": "aster_v2_hero.png"
+        },
+        {
+          "title": "Side elevation",
+          "alt": "Aster — version 2: side elevation.",
+          "thumbnail": "/aster/aster-v2-side-480.webp",
+          "fullSrc": "/aster/aster-v2-side-full.webp",
+          "width": 2558,
+          "height": 2128,
+          "originalFilename": "aster_v2_side.png"
+        },
+        {
+          "title": "Overhead view",
+          "alt": "Aster — version 2: overhead view.",
+          "thumbnail": "/aster/aster-v2-overhead-480.webp",
+          "fullSrc": "/aster/aster-v2-overhead-full.webp",
+          "width": 2558,
+          "height": 2128,
+          "originalFilename": "aster_v2_overhead.png"
+        }
+      ]
+    },
+    {
+      "id": "v3",
+      "label": "Version 3",
+      "images": [
+        {
+          "title": "House overview",
+          "alt": "Aster — version 3: house overview.",
+          "thumbnail": "/aster/v3-house-480.webp",
+          "fullSrc": "/aster/v3-house-full.webp",
+          "width": 3840,
+          "height": 2137,
+          "originalFilename": "aster_v3_hero.png"
+        },
+        {
+          "title": "Overhead view",
+          "alt": "Aster — version 3: overhead view.",
+          "thumbnail": "/aster/aster-v3-overhead-480.webp",
+          "fullSrc": "/aster/aster-v3-overhead-full.webp",
+          "width": 3840,
+          "height": 2137,
+          "originalFilename": "aster_v3_overhead.png"
+        },
+        {
+          "title": "The crown",
+          "alt": "Aster — version 3: the crown.",
+          "thumbnail": "/aster/aster-v3-crown-480.webp",
+          "fullSrc": "/aster/aster-v3-crown-full.webp",
+          "width": 3840,
+          "height": 2137,
+          "originalFilename": "aster_v3_crown.png"
+        },
+        {
+          "title": "Showcase interior",
+          "alt": "Aster — version 3: showcase interior.",
+          "thumbnail": "/aster/aster-v3-showcase-interior-480.webp",
+          "fullSrc": "/aster/aster-v3-showcase-interior-full.webp",
+          "width": 3840,
+          "height": 2137,
+          "originalFilename": "aster_v3_showcase_interior.png"
+        }
+      ]
+    },
+    {
+      "id": "v4",
+      "label": "Version 4",
+      "images": [
+        {
+          "title": "House overview",
+          "alt": "Aster — version 4: house overview.",
+          "thumbnail": "/aster/aster-v4-hero-480.webp",
+          "fullSrc": "/aster/aster-v4-hero-full.webp",
+          "width": 2558,
+          "height": 2124,
+          "originalFilename": "aster_v4_hero.png"
+        },
+        {
+          "title": "Overhead view",
+          "alt": "Aster — version 4: overhead view.",
+          "thumbnail": "/aster/aster-v4-overhead-480.webp",
+          "fullSrc": "/aster/aster-v4-overhead-full.webp",
+          "width": 2558,
+          "height": 2124,
+          "originalFilename": "aster_v4_overhead.png"
+        },
+        {
+          "title": "The crown",
+          "alt": "Aster — version 4: the crown.",
+          "thumbnail": "/aster/v4-crown-480.webp",
+          "fullSrc": "/aster/v4-crown-full.webp",
+          "width": 2558,
+          "height": 2124,
+          "originalFilename": "aster_v4_crown.png"
+        },
+        {
+          "title": "Bézier roof ribbons",
+          "alt": "Aster — version 4: bézier roof ribbons.",
+          "thumbnail": "/aster/aster-v4-bezier-roof-480.webp",
+          "fullSrc": "/aster/aster-v4-bezier-roof-full.webp",
+          "width": 2558,
+          "height": 2124,
+          "originalFilename": "aster_v4_bezier_roof.png"
+        },
+        {
+          "title": "Showcase interior",
+          "alt": "Aster — version 4: showcase interior.",
+          "thumbnail": "/aster/aster-v4-showcase-interior-480.webp",
+          "fullSrc": "/aster/aster-v4-showcase-interior-full.webp",
+          "width": 2558,
+          "height": 2124,
+          "originalFilename": "aster_v4_showcase_interior.png"
+        },
+        {
+          "title": "Clean floor",
+          "alt": "Aster — version 4: clean floor.",
+          "thumbnail": "/aster/aster-v4-clean-floor-480.webp",
+          "fullSrc": "/aster/aster-v4-clean-floor-full.webp",
+          "width": 2558,
+          "height": 2124,
+          "originalFilename": "aster_v4_clean_floor.png"
+        },
+        {
+          "title": "Floor detail · Before",
+          "alt": "Aster — version 4: floor detail · before.",
+          "thumbnail": "/aster/aster-v4-dirt-before-480.webp",
+          "fullSrc": "/aster/aster-v4-dirt-before-full.webp",
+          "width": 2558,
+          "height": 2124,
+          "originalFilename": "aster_v4_dirt_before.png"
+        },
+        {
+          "title": "Floor decal reception test",
+          "alt": "Aster — version 4: floor decal reception test.",
+          "thumbnail": "/aster/aster-v4-dirt-no-receive-480.webp",
+          "fullSrc": "/aster/aster-v4-dirt-no-receive-full.webp",
+          "width": 2558,
+          "height": 2124,
+          "originalFilename": "aster_v4_dirt_no_receive.png"
+        },
+        {
+          "title": "Floor decal · Reduced",
+          "alt": "Aster — version 4: floor decal · reduced.",
+          "thumbnail": "/aster/aster-v4-dirt-decal-shrunk-480.webp",
+          "fullSrc": "/aster/aster-v4-dirt-decal-shrunk-full.webp",
+          "width": 2558,
+          "height": 2124,
+          "originalFilename": "aster_v4_dirt_decal_shrunk.png"
+        },
+        {
+          "title": "Decal check · Before",
+          "alt": "Aster — version 4: decal check · before.",
+          "thumbnail": "/aster/aster-v4-decal-confirm-before-480.webp",
+          "fullSrc": "/aster/aster-v4-decal-confirm-before-full.webp",
+          "width": 2558,
+          "height": 2124,
+          "originalFilename": "aster_v4_decal_confirm_before.png"
+        },
+        {
+          "title": "Decal check · Reduced",
+          "alt": "Aster — version 4: decal check · reduced.",
+          "thumbnail": "/aster/aster-v4-decal-confirm-shrunk-480.webp",
+          "fullSrc": "/aster/aster-v4-decal-confirm-shrunk-full.webp",
+          "width": 2558,
+          "height": 2124,
+          "originalFilename": "aster_v4_decal_confirm_shrunk.png"
+        },
+        {
+          "title": "Decal check · Rejected",
+          "alt": "Aster — version 4: decal check · rejected.",
+          "thumbnail": "/aster/aster-v4-decal-confirm-rejected-480.webp",
+          "fullSrc": "/aster/aster-v4-decal-confirm-rejected-full.webp",
+          "width": 2558,
+          "height": 2124,
+          "originalFilename": "aster_v4_decal_confirm_rejected.png"
+        }
+      ]
+    },
+    {
+      "id": "v5",
+      "label": "Version 5",
+      "images": [
+        {
+          "title": "Bézier roof ribbons",
+          "alt": "Aster — version 5: bézier roof ribbons.",
+          "thumbnail": "/aster/v5-roof-480.webp",
+          "fullSrc": "/aster/v5-roof-full.webp",
+          "width": 3840,
+          "height": 2137,
+          "originalFilename": "aster_v5_bezier_roof.png"
+        },
+        {
+          "title": "Clean floor",
+          "alt": "Aster — version 5: clean floor.",
+          "thumbnail": "/aster/aster-v5-clean-floor-480.webp",
+          "fullSrc": "/aster/aster-v5-clean-floor-full.webp",
+          "width": 3840,
+          "height": 2137,
+          "originalFilename": "aster_v5_clean_floor.png"
+        },
+        {
+          "title": "The crown",
+          "alt": "Aster — version 5: the crown.",
+          "thumbnail": "/aster/aster-v5-crown-480.webp",
+          "fullSrc": "/aster/aster-v5-crown-full.webp",
+          "width": 3840,
+          "height": 2137,
+          "originalFilename": "aster_v5_crown.png"
+        },
+        {
+          "title": "Curved glazing · Level 1",
+          "alt": "Aster — version 5: curved glazing · level 1.",
+          "thumbnail": "/aster/v5-curved-glass-480.webp",
+          "fullSrc": "/aster/v5-curved-glass-full.webp",
+          "width": 2582,
+          "height": 1747,
+          "originalFilename": "aster_v5_curved_glass_L1.png"
+        },
+        {
+          "title": "Curved glazing · Level 2",
+          "alt": "Aster — version 5: curved glazing · level 2.",
+          "thumbnail": "/aster/aster-v5-curved-glass-l2-480.webp",
+          "fullSrc": "/aster/aster-v5-curved-glass-l2-full.webp",
+          "width": 2582,
+          "height": 1747,
+          "originalFilename": "aster_v5_curved_glass_L2.png"
+        },
+        {
+          "title": "Curved glazing · Level 3",
+          "alt": "Aster — version 5: curved glazing · level 3.",
+          "thumbnail": "/aster/aster-v5-curved-glass-l3-480.webp",
+          "fullSrc": "/aster/aster-v5-curved-glass-l3-full.webp",
+          "width": 2582,
+          "height": 1747,
+          "originalFilename": "aster_v5_curved_glass_L3.png"
+        },
+        {
+          "title": "Curved glazing · Level 4",
+          "alt": "Aster — version 5: curved glazing · level 4.",
+          "thumbnail": "/aster/aster-v5-curved-glass-l4-480.webp",
+          "fullSrc": "/aster/aster-v5-curved-glass-l4-full.webp",
+          "width": 2582,
+          "height": 1747,
+          "originalFilename": "aster_v5_curved_glass_L4.png"
+        },
+        {
+          "title": "Curved glazing · Level 5",
+          "alt": "Aster — version 5: curved glazing · level 5.",
+          "thumbnail": "/aster/aster-v5-curved-glass-l5-480.webp",
+          "fullSrc": "/aster/aster-v5-curved-glass-l5-full.webp",
+          "width": 2582,
+          "height": 1747,
+          "originalFilename": "aster_v5_curved_glass_L5.png"
+        },
+        {
+          "title": "Curved glazing · Overview",
+          "alt": "Aster — version 5: curved glazing · overview.",
+          "thumbnail": "/aster/aster-v5-curved-glass-hero-480.webp",
+          "fullSrc": "/aster/aster-v5-curved-glass-hero-full.webp",
+          "width": 2582,
+          "height": 1747,
+          "originalFilename": "aster_v5_curved_glass_hero.png"
+        },
+        {
+          "title": "House overview",
+          "alt": "Aster — version 5: house overview.",
+          "thumbnail": "/aster/aster-v5-hero-480.webp",
+          "fullSrc": "/aster/aster-v5-hero-full.webp",
+          "width": 3840,
+          "height": 2137,
+          "originalFilename": "aster_v5_hero.png"
+        },
+        {
+          "title": "Overhead view",
+          "alt": "Aster — version 5: overhead view.",
+          "thumbnail": "/aster/aster-v5-overhead-480.webp",
+          "fullSrc": "/aster/aster-v5-overhead-full.webp",
+          "width": 3840,
+          "height": 2137,
+          "originalFilename": "aster_v5_overhead.png"
+        },
+        {
+          "title": "Showcase interior",
+          "alt": "Aster — version 5: showcase interior.",
+          "thumbnail": "/aster/aster-v5-showcase-interior-480.webp",
+          "fullSrc": "/aster/aster-v5-showcase-interior-full.webp",
+          "width": 3840,
+          "height": 2137,
+          "originalFilename": "aster_v5_showcase_interior.png"
+        },
+        {
+          "title": "Tip arch · Level 1 · Front",
+          "alt": "Aster — version 5: tip arch · level 1 · front.",
+          "thumbnail": "/aster/aster-v5-tip-arch-l1-front-480.webp",
+          "fullSrc": "/aster/aster-v5-tip-arch-l1-front-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "aster_v5_tip_arch_L1_front.png"
+        },
+        {
+          "title": "Tip arch · Level 1 · Interior",
+          "alt": "Aster — version 5: tip arch · level 1 · interior.",
+          "thumbnail": "/aster/aster-v5-tip-arch-l1-inside-480.webp",
+          "fullSrc": "/aster/aster-v5-tip-arch-l1-inside-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "aster_v5_tip_arch_L1_inside.png"
+        },
+        {
+          "title": "Tip arch · Level 2 · Front",
+          "alt": "Aster — version 5: tip arch · level 2 · front.",
+          "thumbnail": "/aster/aster-v5-tip-arch-l2-front-480.webp",
+          "fullSrc": "/aster/aster-v5-tip-arch-l2-front-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "aster_v5_tip_arch_L2_front.png"
+        },
+        {
+          "title": "Tip arch · Level 3 · Front",
+          "alt": "Aster — version 5: tip arch · level 3 · front.",
+          "thumbnail": "/aster/aster-v5-tip-arch-l3-front-480.webp",
+          "fullSrc": "/aster/aster-v5-tip-arch-l3-front-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "aster_v5_tip_arch_L3_front.png"
+        },
+        {
+          "title": "Tip arch · Level 4 · Front",
+          "alt": "Aster — version 5: tip arch · level 4 · front.",
+          "thumbnail": "/aster/aster-v5-tip-arch-l4-front-480.webp",
+          "fullSrc": "/aster/aster-v5-tip-arch-l4-front-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "aster_v5_tip_arch_L4_front.png"
+        },
+        {
+          "title": "Tip arch · Level 5 · Front",
+          "alt": "Aster — version 5: tip arch · level 5 · front.",
+          "thumbnail": "/aster/aster-v5-tip-arch-l5-front-480.webp",
+          "fullSrc": "/aster/aster-v5-tip-arch-l5-front-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "aster_v5_tip_arch_L5_front.png"
+        },
+        {
+          "title": "Tip arch · Before · Level 1 · Front",
+          "alt": "Aster — version 5: tip arch · before · level 1 · front.",
+          "thumbnail": "/aster/v5-opening-before-480.webp",
+          "fullSrc": "/aster/v5-opening-before-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "aster_v5_tip_arch_before_L1_front.png"
+        },
+        {
+          "title": "Tip arch · Overview",
+          "alt": "Aster — version 5: tip arch · overview.",
+          "thumbnail": "/aster/aster-v5-tip-arch-hero-480.webp",
+          "fullSrc": "/aster/aster-v5-tip-arch-hero-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "aster_v5_tip_arch_hero.png"
+        },
+        {
+          "title": "Tip arch · Reloaded front view",
+          "alt": "Aster — version 5: tip arch · reloaded front view.",
+          "thumbnail": "/aster/aster-v5-tip-arch-reloaded-front-480.webp",
+          "fullSrc": "/aster/aster-v5-tip-arch-reloaded-front-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "aster_v5_tip_arch_reloaded_front.png"
+        },
+        {
+          "title": "Tip arch · Reloaded oblique view",
+          "alt": "Aster — version 5: tip arch · reloaded oblique view.",
+          "thumbnail": "/aster/aster-v5-tip-arch-reloaded-oblique-480.webp",
+          "fullSrc": "/aster/aster-v5-tip-arch-reloaded-oblique-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "aster_v5_tip_arch_reloaded_oblique.png"
+        },
+        {
+          "title": "Wider tip arch · Level 1 · Front",
+          "alt": "Aster — version 5: wider tip arch · level 1 · front.",
+          "thumbnail": "/aster/v5-opening-after-480.webp",
+          "fullSrc": "/aster/v5-opening-after-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "aster_v5_wide_tip_arch_L1_front.png"
+        },
+        {
+          "title": "Wider tip arch · Level 1 · Interior",
+          "alt": "Aster — version 5: wider tip arch · level 1 · interior.",
+          "thumbnail": "/aster/aster-v5-wide-tip-arch-l1-inside-480.webp",
+          "fullSrc": "/aster/aster-v5-wide-tip-arch-l1-inside-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "aster_v5_wide_tip_arch_L1_inside.png"
+        },
+        {
+          "title": "Wider tip arch · Level 2 · Front",
+          "alt": "Aster — version 5: wider tip arch · level 2 · front.",
+          "thumbnail": "/aster/aster-v5-wide-tip-arch-l2-front-480.webp",
+          "fullSrc": "/aster/aster-v5-wide-tip-arch-l2-front-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "aster_v5_wide_tip_arch_L2_front.png"
+        },
+        {
+          "title": "Wider tip arch · Level 3 · Front",
+          "alt": "Aster — version 5: wider tip arch · level 3 · front.",
+          "thumbnail": "/aster/aster-v5-wide-tip-arch-l3-front-480.webp",
+          "fullSrc": "/aster/aster-v5-wide-tip-arch-l3-front-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "aster_v5_wide_tip_arch_L3_front.png"
+        },
+        {
+          "title": "Wider tip arch · Level 4 · Front",
+          "alt": "Aster — version 5: wider tip arch · level 4 · front.",
+          "thumbnail": "/aster/aster-v5-wide-tip-arch-l4-front-480.webp",
+          "fullSrc": "/aster/aster-v5-wide-tip-arch-l4-front-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "aster_v5_wide_tip_arch_L4_front.png"
+        },
+        {
+          "title": "Wider tip arch · Level 5 · Front",
+          "alt": "Aster — version 5: wider tip arch · level 5 · front.",
+          "thumbnail": "/aster/aster-v5-wide-tip-arch-l5-front-480.webp",
+          "fullSrc": "/aster/aster-v5-wide-tip-arch-l5-front-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "aster_v5_wide_tip_arch_L5_front.png"
+        },
+        {
+          "title": "Wider tip arch · Before · Level 1 · Front",
+          "alt": "Aster — version 5: wider tip arch · before · level 1 · front.",
+          "thumbnail": "/aster/aster-v5-wide-tip-arch-before-l1-front-480.webp",
+          "fullSrc": "/aster/aster-v5-wide-tip-arch-before-l1-front-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "aster_v5_wide_tip_arch_before_L1_front.png"
+        },
+        {
+          "title": "Wider tip arch · Overview",
+          "alt": "Aster — version 5: wider tip arch · overview.",
+          "thumbnail": "/aster/aster-v5-wide-tip-arch-hero-480.webp",
+          "fullSrc": "/aster/aster-v5-wide-tip-arch-hero-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "aster_v5_wide_tip_arch_hero.png"
+        },
+        {
+          "title": "Wider tip arch · Reloaded front view",
+          "alt": "Aster — version 5: wider tip arch · reloaded front view.",
+          "thumbnail": "/aster/aster-v5-wide-tip-arch-reloaded-front-480.webp",
+          "fullSrc": "/aster/aster-v5-wide-tip-arch-reloaded-front-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "aster_v5_wide_tip_arch_reloaded_front.png"
+        }
+      ]
+    },
+    {
+      "id": "v6",
+      "label": "Version 6 · Grounded",
+      "images": [
+        {
+          "title": "House and driveway",
+          "alt": "Aster — version 6 · grounded: house and driveway.",
+          "thumbnail": "/aster/hero-2-480.webp",
+          "fullSrc": "/aster/hero-2-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "hero (2).png"
+        },
+        {
+          "title": "Basement entrance",
+          "alt": "Aster — version 6 · grounded: basement entrance.",
+          "thumbnail": "/aster/v6-entry-480.webp",
+          "fullSrc": "/aster/v6-entry-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "entry.png"
+        },
+        {
+          "title": "Inside the basement",
+          "alt": "Aster — version 6 · grounded: inside the basement.",
+          "thumbnail": "/aster/v6-interior-480.webp",
+          "fullSrc": "/aster/v6-interior-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "inside.png"
+        },
+        {
+          "title": "Grounding collar",
+          "alt": "Aster — version 6 · grounded: grounding collar.",
+          "thumbnail": "/aster/collar-480.webp",
+          "fullSrc": "/aster/collar-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "collar.png"
+        },
+        {
+          "title": "East elevation",
+          "alt": "Aster — version 6 · grounded: east elevation.",
+          "thumbnail": "/aster/east-480.webp",
+          "fullSrc": "/aster/east-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "east.png"
+        },
+        {
+          "title": "The first driveway",
+          "alt": "Aster — version 6 · grounded: the first driveway.",
+          "thumbnail": "/aster/road-2-480.webp",
+          "fullSrc": "/aster/road-2-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "road (2).png"
+        }
+      ]
+    },
+    {
+      "id": "v7",
+      "label": "Version 7 · Hillside Link",
+      "images": [
+        {
+          "title": "Aster on the hillside",
+          "alt": "Aster — version 7 · hillside link: aster on the hillside.",
+          "thumbnail": "/aster/v7-house-480.webp",
+          "fullSrc": "/aster/v7-house-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "hero.png"
+        },
+        {
+          "title": "The hillside link road",
+          "alt": "Aster — version 7 · hillside link: the hillside link road.",
+          "thumbnail": "/aster/v7-road-480.webp",
+          "fullSrc": "/aster/v7-road-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "road.png"
+        },
+        {
+          "title": "The north hairpin",
+          "alt": "Aster — version 7 · hillside link: the north hairpin.",
+          "thumbnail": "/aster/hairpin-480.webp",
+          "fullSrc": "/aster/hairpin-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "hairpin.png"
+        },
+        {
+          "title": "Catenary garage entrance",
+          "alt": "Aster — version 7 · hillside link: catenary garage entrance.",
+          "thumbnail": "/aster/v7-garage-480.webp",
+          "fullSrc": "/aster/v7-garage-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "garage.png"
+        },
+        {
+          "title": "The garage drive test",
+          "alt": "Aster — version 7 · hillside link: the garage drive test.",
+          "thumbnail": "/aster/v7-drive-480.webp",
+          "fullSrc": "/aster/v7-drive-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "garage-drive-test.png"
+        },
+        {
+          "title": "The terrain mound",
+          "alt": "Aster — version 7 · hillside link: the terrain mound.",
+          "thumbnail": "/aster/mound-480.webp",
+          "fullSrc": "/aster/mound-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "mound.png"
+        },
+        {
+          "title": "The restored main road cut",
+          "alt": "Aster — version 7 · hillside link: the restored main road cut.",
+          "thumbnail": "/aster/restored-main-480.webp",
+          "fullSrc": "/aster/restored-main-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "restored_main.png"
+        },
+        {
+          "title": "The restored trail cut",
+          "alt": "Aster — version 7 · hillside link: the restored trail cut.",
+          "thumbnail": "/aster/restored-trail-480.webp",
+          "fullSrc": "/aster/restored-trail-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "restored_trail.png"
+        }
+      ]
+    },
+    {
+      "id": "site-studies",
+      "label": "Site studies",
+      "images": [
+        {
+          "title": "Relocation inspection",
+          "alt": "Aster — site studies: relocation inspection.",
+          "thumbnail": "/aster/relocation-inspection-480.webp",
+          "fullSrc": "/aster/relocation-inspection-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "relocation-inspection.png"
+        }
+      ]
+    }
+  ]
+}

@@ -1,4 +1,5 @@
-import { MoonIcon } from "./icons.tsx";
+import MobileNav from "../islands/MobileNav.tsx";
+import { PaletteIcon } from "./icons.tsx";
 
 export type NavLink = {
   label: string;
@@ -25,12 +26,19 @@ export function NavBar({
   links = defaultLinks,
 }: NavBarProps) {
   return (
-    <nav class="fixed inset-x-0 top-4 z-50 px-4 sm:px-6">
-      <div class="glass-nav mx-auto max-w-6xl">
-        <div class="flex items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+    <nav
+      aria-label="Main navigation"
+      class="fixed inset-x-0 top-4 z-50 px-4 sm:px-6"
+    >
+      <div class="relative mx-auto max-w-6xl">
+        <div
+          aria-hidden="true"
+          class="glass-nav pointer-events-none absolute inset-0"
+        />
+        <div class="relative flex items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8 lg:py-4">
           <a
             href={brandHref}
-            class="font-headline text-lg italic text-on-surface sm:text-2xl aria-[current=page]:text-primary aria-[current=page]:hover:text-primary-fixed"
+            class="shrink-0 font-headline text-lg italic text-on-surface sm:text-2xl aria-[current=page]:text-primary aria-[current=page]:hover:text-primary-fixed"
           >
             {brandLabel}
           </a>
@@ -47,24 +55,16 @@ export function NavBar({
             ))}
           </div>
 
-          <div class="flex items-center gap-2 sm:gap-3">
-            <span class="type-label hidden text-primary/70">Noir Guide</span>
+          <div class="flex shrink-0 items-center gap-2 sm:gap-3">
             <button
               type="button"
-              aria-label="Theme indicator"
-              class="nav-icon-button"
+              aria-label="Change theme"
+              title="Change theme"
+              class="nav-icon-button focus-ring min-h-11 min-w-11 lg:min-h-9 lg:min-w-9"
             >
-              <MoonIcon />
+              <PaletteIcon />
             </button>
-            {
-              /*<button
-              type="button"
-              aria-label="Search showcase"
-              class="nav-icon-button"
-            >
-              <SearchIcon />
-            </button>*/
-            }
+            <MobileNav links={links} />
           </div>
         </div>
       </div>

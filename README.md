@@ -59,14 +59,33 @@ the site.
 
 ### Usage
 
-Make sure to install Deno:
+Install Deno (this project has been verified with Deno 2.9.8):
 
 https://docs.deno.com/runtime/getting_started/installation
 
-Then start the project in development mode:
+Install the project dependencies, then start the development server:
 
 ```sh
+deno install
 deno task dev
 ```
 
-This will watch the project directory and restart as necessary
+Open the local URL printed by Vite. The server watches the project directory and
+reloads as files change.
+
+To check the project and build and serve the production version:
+
+```sh
+deno task check
+deno task build
+deno task start
+```
+
+To update Deno, Fresh, and the remaining compatible dependencies:
+
+```sh
+deno upgrade
+deno task update
+deno update
+deno install
+```

@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./story.css";
 
 :root {
   --app-color-lume: 208 188 255;
@@ -203,6 +204,42 @@
 }
 
 @layer components {
+  .home-hero {
+    /* The portrait is 558 × 558 pixels; all fluid sizes stop growing with it. */
+    --hero-portrait-size: clamp(128px, 28vw, 558px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(100% - 2rem, 72rem);
+    margin-inline: auto;
+    padding-block: clamp(1.5rem, calc(var(--hero-portrait-size) * 0.08), 3rem);
+    text-align: center;
+  }
+
+  .home-hero-portrait {
+    display: block;
+    width: min(100%, var(--hero-portrait-size));
+    max-width: 558px;
+    height: auto;
+  }
+
+  .home-hero-heading {
+    max-width: 100%;
+    margin-top: calc(1rem + var(--hero-portrait-size) * 0.03);
+    font-size: calc(1.25rem + var(--hero-portrait-size) * 0.1);
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+
+  .home-hero-description {
+    max-width: 100%;
+    margin-top: calc(1rem + var(--hero-portrait-size) * 0.04);
+    color: rgb(var(--app-color-on-surface-variant));
+    font-size: calc(0.75rem + var(--hero-portrait-size) * 0.025);
+    line-height: 1.75;
+    text-wrap: pretty;
+  }
+
   .type-headline {
     @apply font-headline italic text-on-surface;
     font-size: clamp(3rem, 7vw, 5.5rem);
@@ -243,34 +280,43 @@
   .transparent-btn-slate-colors-inverted,
   .btn-primary-stone-colors,
   .btn-primary-stone-colors-inverted {
-    @apply inline-flex items-center justify-center gap-2 rounded-soft border border-transparent px-4 py-2.5 font-body text-sm font-semibold;
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+    @apply inline-flex items-center justify-center gap-2 rounded-soft border
+      border-transparent px-4 py-2.5 font-body text-sm font-semibold;
+    @apply focus-visible:outline-none focus-visible:ring-2
+      focus-visible:ring-primary/40 focus-visible:ring-offset-2
+      focus-visible:ring-offset-background;
     @apply disabled:pointer-events-none disabled:opacity-60;
   }
 
   .btn-primary,
   .btn-primary-slate-colors,
   .btn-primary-stone-colors {
-    @apply border-transparent bg-gradient-to-br from-primary to-on-primary-container text-on-primary shadow-primary-glow;
-    @apply font-headline italic hover:-translate-y-px hover:brightness-105 hover:shadow-primary-glow-hover active:translate-y-0;
+    @apply border-transparent bg-gradient-to-br from-primary
+      to-on-primary-container text-on-primary shadow-primary-glow;
+    @apply font-headline italic hover:-translate-y-px hover:brightness-105
+      hover:shadow-primary-glow-hover active:translate-y-0;
   }
 
   .btn-primary-soft,
   .btn-primary-slate-colors-inverted,
   .btn-primary-stone-colors-inverted {
-    @apply border-outline-variant/25 bg-surface-container-high text-on-surface shadow-surface;
-    @apply hover:-translate-y-px hover:border-primary/30 hover:bg-primary-container/20 hover:text-primary active:translate-y-0;
+    @apply border-outline-variant/25 bg-surface-container-high text-on-surface
+      shadow-surface;
+    @apply hover:-translate-y-px hover:border-primary/30
+      hover:bg-primary-container/20 hover:text-primary active:translate-y-0;
   }
 
   .btn-secondary,
   .transparent-btn-slate-colors {
     @apply border-outline-variant/35 bg-transparent text-secondary;
-    @apply hover:-translate-y-px hover:border-primary/30 hover:bg-primary/10 hover:text-on-surface hover:shadow-primary-glow active:translate-y-0;
+    @apply hover:-translate-y-px hover:border-primary/30 hover:bg-primary/10
+      hover:text-on-surface hover:shadow-primary-glow active:translate-y-0;
   }
 
   .btn-ghost,
   .transparent-btn-slate-colors-inverted {
-    @apply bg-transparent text-on-surface-variant hover:text-primary active:text-secondary;
+    @apply bg-transparent text-on-surface-variant hover:text-primary
+      active:text-secondary;
     font-family: "Manrope", sans-serif;
     font-size: 0.72rem;
     font-weight: 700;
@@ -280,8 +326,10 @@
 
   .card-surface,
   .card-base {
-    @apply rounded-xl border border-outline-variant/10 bg-surface-container text-on-surface shadow-surface;
-    @apply hover:-translate-y-0.5 hover:bg-surface-container-high hover:shadow-nav-elevated;
+    @apply rounded-xl border border-outline-variant/10 bg-surface-container
+      text-on-surface shadow-surface;
+    @apply hover:-translate-y-0.5 hover:bg-surface-container-high
+      hover:shadow-nav-elevated;
   }
 
   .card-base {
@@ -289,19 +337,31 @@
   }
 
   .glass-nav {
-    @apply rounded-soft border border-outline-variant/15 bg-background/70 shadow-nav-elevated backdrop-blur-glass;
+    @apply rounded-soft border border-outline-variant/15 bg-background/70
+      shadow-nav-elevated backdrop-blur-glass;
+  }
+
+  .nav-dropdown {
+    @apply rounded-soft border border-outline-variant/15 shadow-nav-elevated
+      backdrop-blur-glass;
+    background-color: transparent;
   }
 
   .nav-icon-button {
-    @apply inline-flex h-9 w-9 items-center justify-center rounded-full border border-outline-variant/10 bg-surface-container-low text-primary/70;
-    @apply transition duration-300 ease-standard hover:bg-surface-container-high hover:text-primary;
+    @apply inline-flex h-9 w-9 items-center justify-center rounded-full border
+      border-outline-variant/10 bg-surface-container-low text-primary/70;
+    @apply transition duration-300 ease-standard hover:bg-surface-container-high
+      hover:text-primary;
   }
 
   .nav-link-text {
-    @apply font-headline text-sm italic transition duration-300 ease-standard text-on-surface-variant hover:text-on-surface;
+    @apply font-headline text-sm italic transition duration-300 ease-standard
+      text-on-surface-variant hover:text-on-surface;
 
-    @apply aria-[current=page]:text-primary aria-[current=page]:hover:text-primary-fixed
-      aria-[current=page]:border-b aria-[current=page]:border-primary/30 aria-[current=page]:pb-1;
+    @apply aria-[current=page]:text-primary
+      aria-[current=page]:hover:text-primary-fixed
+      aria-[current=page]:border-b aria-[current=page]:border-primary/30
+      aria-[current=page]:pb-1;
   }
 
   .nav-divider {
@@ -333,7 +393,9 @@
   }
 
   .focus-ring {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+    @apply focus-visible:outline-none focus-visible:ring-2
+      focus-visible:ring-primary/40 focus-visible:ring-offset-2
+      focus-visible:ring-offset-background;
   }
 
   .overlay-gradient {

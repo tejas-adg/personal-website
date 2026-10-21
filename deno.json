@@ -4,37 +4,23 @@
     "check": "deno fmt --check . && deno lint . && deno check",
     "dev": "vite",
     "build": "vite build",
-    "start": "deno serve -A _fresh/server.js",
-    "update": "deno run -A -r jsr:@fresh/update ."
+    "start": "deno serve -A _fresh/server/server-entry.mjs",
+    "update": "deno run -A -r --node-modules-dir=auto jsr:@fresh/update ."
   },
-  "lint": {
-    "rules": {
-      "tags": [
-        "fresh",
-        "recommended"
-      ]
-    }
-  },
-  "exclude": [
-    "**/_fresh/*"
-  ],
+  "lint": { "rules": { "tags": ["fresh", "recommended"] } },
+  "exclude": ["**/_fresh/*"],
   "imports": {
     "@/": "./",
-    "fresh": "jsr:@fresh/core@^2.2.2",
-    "preact": "npm:preact@^10.27.2",
-    "@preact/signals": "npm:@preact/signals@^2.5.0",
-    "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@^1.0.8",
-    "vite": "npm:vite@^7.1.3",
-    "tailwindcss": "npm:tailwindcss@^4.1.10",
-    "@tailwindcss/vite": "npm:@tailwindcss/vite@^4.1.12"
+    "fresh": "jsr:@fresh/core@^2.3.3",
+    "preact": "npm:preact@^10.29.8",
+    "@preact/signals": "npm:@preact/signals@^2.11.3",
+    "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@^1.1.2",
+    "vite": "npm:vite@^7.3.7",
+    "tailwindcss": "npm:tailwindcss@^4.3.3",
+    "@tailwindcss/vite": "npm:@tailwindcss/vite@^4.3.3"
   },
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.asynciterable",
-      "dom.iterable",
-      "deno.ns"
-    ],
+    "lib": ["dom", "dom.asynciterable", "dom.iterable", "deno.ns"],
     "jsx": "precompile",
     "jsxImportSource": "preact",
     "jsxPrecompileSkipElements": [
@@ -53,8 +39,6 @@
       "noscript",
       "template"
     ],
-    "types": [
-      "vite/client"
-    ]
+    "types": ["vite/client"]
   }
 }
