@@ -68,12 +68,22 @@ export function AccessGate({
               <span>{message.action}</span>
               <GateArrow />
             </a>
-            <a
-              href={denied ? signInHref : "/"}
-              class="access-gate-secondary focus-ring"
-            >
-              {denied ? "Use another account" : "Back to the website"}
-            </a>
+            {denied
+              ? (
+                <form method="post" action="/auth/logout">
+                  <button
+                    type="submit"
+                    class="access-gate-secondary focus-ring"
+                  >
+                    Sign out to use another account
+                  </button>
+                </form>
+              )
+              : (
+                <a href="/" class="access-gate-secondary focus-ring">
+                  Back to the website
+                </a>
+              )}
           </div>
         </div>
 

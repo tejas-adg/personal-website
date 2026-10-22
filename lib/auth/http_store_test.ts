@@ -1,4 +1,7 @@
 import { HttpAuthStore } from "./http_store.ts";
+import { AuthService } from "./service.ts";
+import { serveAsterAsset } from "./aster_assets.ts";
+import type { AuthConfig } from "./config.ts";
 import type { Identity, OAuthTransaction, SessionRecord } from "./types.ts";
 
 function assert(value: unknown, message = "Assertion failed"): asserts value {
@@ -450,4 +453,279 @@ Deno.test("an invalid clock fails before any network call", async () => {
     );
     equal(called, false);
   }
+});
+
+Deno.test("parallel RPCs are serialized without sharing stored results", async () => {
+  let active = 0;
+  let maximum = 0;
+  let calls = 0;
+  const fetcher: typeof fetch = async () => {
+    calls++;
+    active++;
+    maximum = Math.max(maximum, active);
+    await new Promise((resolve) => setTimeout(resolve, 2));
+    active--;
+    return Response.json({ result: null });
+  };
+  const store = new HttpAuthStore(endpoint, secret, fetcher, () => now);
+  const results = await Promise.all(
+    Array.from({ length: 12 }, () => store.getSession(key)),
+  );
+  equal(results, Array(12).fill(null));
+  equal(maximum, 1);
+  equal(calls, 12, "Every request must still read the store");
+});
+
+Deno.test("twelve parallel protected images all load within the bridge concurrency cap", async () => {
+  let active = 0;
+  let calls = 0;
+  let throttles = 0;
+  const fetcher: typeof fetch = async (_input, init) => {
+    assert(init);
+    calls++;
+    if (active >= 2) {
+      throttles++;
+      return new Response(null, { status: 429 });
+    }
+    active++;
+    await new Promise((resolve) => setTimeout(resolve, 1));
+    active--;
+    const { action } = JSON.parse(String(init.body));
+    return Response.json({
+      result: action === "getSession"
+        ? session
+        : { ...user, accessTags: ["aster:read"] },
+    });
+  };
+  const store = new HttpAuthStore(endpoint, secret, fetcher, () => now);
+  const service = new AuthService(
+    { recentSeconds: 900 } as AuthConfig,
+    store,
+    fetch,
+    undefined,
+    () => now,
+  );
+  const results = await Promise.all(Array.from({ length: 12 }, async () => {
+    const response = await serveAsterAsset(
+      new Request("https://tejasam.com/aster/test-full.webp", {
+        headers: { Cookie: `__Host-tejas-session=${key}` },
+      }),
+      new URL("file:///server/private/aster/"),
+      {
+        requireAccess: async (request, tags) =>
+          await service.hasAccess(request, tags)
+            ? null
+            : new Response(null, { status: 404 }),
+        loadManifest: () =>
+          Promise.resolve({
+            images: [{ files: [{ filename: "test-full.webp", bytes: 4 }] }],
+          }),
+        readFile: () => Promise.resolve(new Uint8Array([1, 2, 3, 4])),
+      },
+    );
+    return [response.status, (await response.arrayBuffer()).byteLength];
+  }));
+  equal(results, Array.from({ length: 12 }, () => [200, 4]));
+  equal(throttles, 0);
+  equal(calls, 24, "Each image must freshly read both its session and user");
+});
+
+Deno.test("explicit Lambda throttles retry with fresh signed requests and cancel their bodies", async () => {
+  const requests: RequestInit[] = [];
+  const waits: number[] = [];
+  let cancelled = 0;
+  const fetcher: typeof fetch = (_input, init) => {
+    assert(init);
+    requests.push(init);
+    return Promise.resolve(
+      requests.length < 3
+        ? new Response(
+          new ReadableStream({
+            cancel() {
+              cancelled++;
+            },
+          }),
+          { status: 429 },
+        )
+        : Response.json({ result: session }),
+    );
+  };
+  const store = new HttpAuthStore(
+    endpoint,
+    secret,
+    fetcher,
+    () => now + requests.length,
+    {
+      wait(milliseconds, signal) {
+        assert(!signal.aborted);
+        waits.push(milliseconds);
+        return Promise.resolve();
+      },
+      jitter: () => 0.5,
+    },
+  );
+  equal(await store.getSession(key), session);
+  equal(requests.length, 3);
+  equal(cancelled, 2);
+  equal(waits, [250, 500]);
+  const nonces = new Set<string>();
+  for (const [index, init] of requests.entries()) {
+    const headers = new Headers(init.headers);
+    const nonce = headers.get("x-auth-nonce")!;
+    nonces.add(nonce);
+    equal(headers.get("x-auth-timestamp"), String(now + index));
+    assert(
+      await verifies(
+        headers.get("x-auth-signature")!,
+        String(now + index),
+        nonce,
+        String(init.body),
+      ),
+    );
+  }
+  equal(nonces.size, 3);
+});
+
+Deno.test("429 retries are bounded and an exhausted call releases the queue", async () => {
+  let calls = 0;
+  let waits = 0;
+  let throttle = true;
+  const fetcher: typeof fetch = () => {
+    calls++;
+    return Promise.resolve(
+      throttle
+        ? new Response(null, { status: 429 })
+        : Response.json({ result: null }),
+    );
+  };
+  const store = new HttpAuthStore(endpoint, secret, fetcher, () => now, {
+    wait: () => {
+      waits++;
+      return Promise.resolve();
+    },
+    jitter: () => 0,
+  });
+  const error = await rejects(() => store.getSession(key));
+  equal(error.message, "Authentication storage is unavailable");
+  equal(calls, 4);
+  equal(waits, 3);
+  throttle = false;
+  equal(await store.getSession(key), null);
+  equal(calls, 5);
+});
+
+Deno.test("a pre-execution 429 may retry a write but ambiguous write failures never retry", async () => {
+  for (const firstStatus of [429, 401, 403, 500, 502, 503, 504]) {
+    let calls = 0;
+    const fetcher: typeof fetch = () => {
+      calls++;
+      return Promise.resolve(
+        calls === 1
+          ? new Response(null, { status: firstStatus })
+          : Response.json({ result: null }),
+      );
+    };
+    const store = new HttpAuthStore(endpoint, secret, fetcher, () => now, {
+      wait: () => Promise.resolve(),
+      jitter: () => 0,
+    });
+    if (firstStatus === 429) {
+      await store.putSession(key, session);
+      equal(calls, 2);
+    } else {
+      await rejects(() => store.putSession(key, session));
+      equal(calls, 1);
+    }
+  }
+  let calls = 0;
+  const fetcher: typeof fetch = () => {
+    calls++;
+    return Promise.reject(new Error("Ambiguous network failure"));
+  };
+  const store = new HttpAuthStore(endpoint, secret, fetcher, () => now);
+  await rejects(() => store.consumeTransaction(key, browserHash, now));
+  equal(calls, 1);
+});
+
+Deno.test("permanent read failures do not retry and queued work can proceed", async () => {
+  let calls = 0;
+  const fetcher: typeof fetch = () => {
+    calls++;
+    return Promise.resolve(
+      calls === 1
+        ? new Response("Private failure", { status: 503 })
+        : Response.json({ result: null }),
+    );
+  };
+  const store = new HttpAuthStore(endpoint, secret, fetcher, () => now);
+  const results = await Promise.allSettled([
+    store.getSession(key),
+    store.getSession(key),
+  ]);
+  equal(results.map((result) => result.status), ["rejected", "fulfilled"]);
+  equal(calls, 2);
+});
+
+Deno.test("the RPC queue is bounded and excess work fails closed", async () => {
+  let calls = 0;
+  const fetcher: typeof fetch = async () => {
+    calls++;
+    await new Promise((resolve) => setTimeout(resolve, 1));
+    return Response.json({ result: null });
+  };
+  const store = new HttpAuthStore(endpoint, secret, fetcher, () => now);
+  const results = await Promise.allSettled(
+    Array.from({ length: 34 }, () => store.getSession(key)),
+  );
+  equal(results.filter((result) => result.status === "fulfilled").length, 33);
+  equal(results.filter((result) => result.status === "rejected").length, 1);
+  equal(calls, 33);
+});
+
+Deno.test("one RPC deadline includes queue wait, aborts requests, and frees the queue", async () => {
+  let block = true;
+  const entered: number[] = [];
+  const fetcher: typeof fetch = (_input, init) => {
+    assert(init?.signal);
+    entered.push(performance.now());
+    if (!block) return Promise.resolve(Response.json({ result: null }));
+    return new Promise((_resolve, reject) => {
+      init.signal!.addEventListener(
+        "abort",
+        () => reject(new Error("Aborted")),
+        {
+          once: true,
+        },
+      );
+    });
+  };
+  const store = new HttpAuthStore(endpoint, secret, fetcher, () => now, {
+    timeoutMs: 80,
+  });
+  const first = rejects(() => store.getSession(key));
+  await new Promise((resolve) => setTimeout(resolve, 30));
+  const started = performance.now();
+  await Promise.all([first, rejects(() => store.getSession(key))]);
+  assert(
+    performance.now() - started < 115,
+    "Queue wait must count toward timeout",
+  );
+  assert(entered.length <= 2);
+  block = false;
+  equal(await store.getSession(key), null);
+});
+
+Deno.test("the deadline also bounds stalled throttle backoff", async () => {
+  let calls = 0;
+  const fetcher: typeof fetch = () => {
+    calls++;
+    return Promise.resolve(new Response(null, { status: 429 }));
+  };
+  const store = new HttpAuthStore(endpoint, secret, fetcher, () => now, {
+    timeoutMs: 20,
+    wait: () => new Promise(() => {}),
+    jitter: () => 0,
+  });
+  await rejects(() => store.getSession(key));
+  equal(calls, 1);
 });

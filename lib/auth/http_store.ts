@@ -11,11 +11,46 @@ import {
 } from "./types.ts";
 
 const MAX_RESPONSE_BYTES = 65_536;
+const MAX_QUEUED_CALLS = 32;
+const MAX_ATTEMPTS = 4;
 const encoder = new TextEncoder();
 const unavailableMessage = "Authentication storage is unavailable";
 
 function unavailable(): never {
   throw new Error(unavailableMessage);
+}
+
+interface TransportOptions {
+  /** Tests may shorten the budget, but production can never exceed ten seconds. */
+  timeoutMs?: number;
+  wait?: (milliseconds: number, signal: AbortSignal) => Promise<void>;
+  jitter?: () => number;
+}
+
+function beforeAbort<T>(promise: Promise<T>, signal: AbortSignal): Promise<T> {
+  return new Promise<T>((resolve, reject) => {
+    const aborted = () => reject(new Error(unavailableMessage));
+    signal.addEventListener("abort", aborted, { once: true });
+    if (signal.aborted) aborted();
+    promise.then(resolve, reject).finally(() => {
+      signal.removeEventListener("abort", aborted);
+    });
+  });
+}
+
+function pause(milliseconds: number, signal: AbortSignal): Promise<void> {
+  return new Promise((resolve, reject) => {
+    const aborted = () => {
+      clearTimeout(timer);
+      reject(new Error(unavailableMessage));
+    };
+    const timer = setTimeout(() => {
+      signal.removeEventListener("abort", aborted);
+      resolve();
+    }, milliseconds);
+    signal.addEventListener("abort", aborted, { once: true });
+    if (signal.aborted) aborted();
+  });
 }
 
 function record(value: unknown): value is Record<string, unknown> {
@@ -126,12 +161,18 @@ async function responseJson(response: Response): Promise<unknown> {
 export class HttpAuthStore implements AuthStore {
   private endpoint: string;
   private key: Promise<CryptoKey>;
+  private active = false;
+  private queue: (() => void)[] = [];
+  private timeoutMs: number;
+  private wait: NonNullable<TransportOptions["wait"]>;
+  private jitter: NonNullable<TransportOptions["jitter"]>;
 
   constructor(
     endpoint: string,
     secret: string,
     private fetcher: typeof fetch = fetch,
     private clock: () => number = () => Math.floor(Date.now() / 1_000),
+    options: TransportOptions = {},
   ) {
     if (
       !/^https:\/\/[a-z0-9]+\.lambda-url\.us-east-2\.on\.aws\/?$/.test(endpoint)
@@ -141,6 +182,13 @@ export class HttpAuthStore implements AuthStore {
       throw new Error("Invalid authentication storage credential");
     }
     this.endpoint = new URL(endpoint).href;
+    this.timeoutMs = options.timeoutMs ?? 10_000;
+    if (
+      !Number.isSafeInteger(this.timeoutMs) || this.timeoutMs < 1 ||
+      this.timeoutMs > 10_000
+    ) throw new Error("Invalid authentication storage timeout");
+    this.wait = options.wait ?? pause;
+    this.jitter = options.jitter ?? Math.random;
     this.key = crypto.subtle.importKey(
       "raw",
       secretBytes,
@@ -150,14 +198,44 @@ export class HttpAuthStore implements AuthStore {
     );
   }
 
-  private async call(action: string, args: unknown[]): Promise<unknown> {
-    try {
+  /** Serialize RPCs per runtime; this queues work, never authorization results. */
+  private acquire(signal: AbortSignal): Promise<() => void> {
+    if (signal.aborted || this.queue.length >= MAX_QUEUED_CALLS) {
+      return Promise.reject(new Error(unavailableMessage));
+    }
+    if (!this.active) {
+      this.active = true;
+      return Promise.resolve(() => this.release());
+    }
+    return new Promise((resolve, reject) => {
+      const ready = () => {
+        signal.removeEventListener("abort", aborted);
+        resolve(() => this.release());
+      };
+      const aborted = () => {
+        this.queue = this.queue.filter((item) => item !== ready);
+        reject(new Error(unavailableMessage));
+      };
+      signal.addEventListener("abort", aborted, { once: true });
+      this.queue.push(ready);
+    });
+  }
+
+  private release() {
+    const next = this.queue.shift();
+    if (next) next();
+    else this.active = false;
+  }
+
+  private async attempt(
+    body: string,
+    signal: AbortSignal,
+  ): Promise<unknown> {
+    for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
+      if (signal.aborted) return unavailable();
       const now = this.clock();
       if (!timestamp(now)) return unavailable();
-      const body = JSON.stringify({ action, args });
-      if (encoder.encode(body).byteLength > MAX_RESPONSE_BYTES) {
-        return unavailable();
-      }
+      // A retry must be a new signed request: a previous nonce may be consumed.
       const nonce = randomToken();
       const message = encoder.encode(`${now}\n${nonce}\n${body}`);
       const signature = base64Url(
@@ -165,11 +243,12 @@ export class HttpAuthStore implements AuthStore {
           await crypto.subtle.sign("HMAC", await this.key, message),
         ),
       );
+      if (signal.aborted) return unavailable();
       const response = await this.fetcher(this.endpoint, {
         method: "POST",
         redirect: "error",
         credentials: "omit",
-        signal: AbortSignal.timeout(10_000),
+        signal,
         headers: {
           "Content-Type": "application/json",
           "X-Auth-Timestamp": String(now),
@@ -178,9 +257,23 @@ export class HttpAuthStore implements AuthStore {
         },
         body,
       });
-      if (!response.ok) {
+      if (signal.aborted) {
         await response.body?.cancel();
         return unavailable();
+      }
+      if (!response.ok) {
+        await response.body?.cancel();
+        // Function URL 429 means Lambda rejected the invocation before running
+        // it. Do not retry network errors or ambiguous 5xx/write failures.
+        if (response.status !== 429 || attempt === MAX_ATTEMPTS - 1) {
+          return unavailable();
+        }
+        const jitter = this.jitter();
+        if (!Number.isFinite(jitter) || jitter < 0 || jitter > 1) {
+          return unavailable();
+        }
+        await this.wait(250 * 2 ** attempt * (0.75 + jitter * 0.5), signal);
+        continue;
       }
       const envelope = await responseJson(response);
       if (
@@ -188,9 +281,31 @@ export class HttpAuthStore implements AuthStore {
         Object.keys(envelope).length !== 1
       ) return unavailable();
       return envelope.result;
+    }
+    return unavailable();
+  }
+
+  private async call(action: string, args: unknown[]): Promise<unknown> {
+    const controller = new AbortController();
+    // Includes time in the queue, signing, retries, and response consumption.
+    const timer = setTimeout(() => controller.abort(), this.timeoutMs);
+    let release: (() => void) | undefined;
+    try {
+      const body = JSON.stringify({ action, args });
+      if (encoder.encode(body).byteLength > MAX_RESPONSE_BYTES) {
+        return unavailable();
+      }
+      release = await this.acquire(controller.signal);
+      return await beforeAbort(
+        this.attempt(body, controller.signal),
+        controller.signal,
+      );
     } catch {
       // Never expose response bodies, provider data, or network diagnostics to callers.
       return unavailable();
+    } finally {
+      clearTimeout(timer);
+      release?.();
     }
   }
 

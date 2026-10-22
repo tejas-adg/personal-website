@@ -191,6 +191,16 @@ accepts only the seven fixed `AuthStore` methods, never arbitrary table
 commands. The signing secret stays exclusively in Lambda and Deno server
 environments.
 
+Each private screenshot requires fresh session and user reads through two RPC
+calls. A gallery can therefore burst past the bridge's reserved concurrency of
+2. `HttpAuthStore` serializes operations within each application instance and
+uses one 10-second deadline that includes queue time, requests, and retries.
+Only explicit HTTP 429 responses are retried, with bounded jittered backoff and
+a new nonce and signature for each attempt. Ambiguous network failures and
+server errors are not retried, so a write whose outcome is unknown cannot be
+replayed automatically. This scheduling does not cache access grants or increase
+AWS capacity; exhausted deadlines still fail closed.
+
 The canonical Lambda source is
 [`infra/auth-store-handler.cjs`](../infra/auth-store-handler.cjs). Before every
 bridge deployment, regenerate the template's inline copy:
