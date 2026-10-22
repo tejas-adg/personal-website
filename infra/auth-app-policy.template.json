@@ -1,0 +1,92 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadUsersAndSessions",
+      "Effect": "Allow",
+      "Action": "dynamodb:GetItem",
+      "Resource": "${AUTH_TABLE_ARN}",
+      "Condition": {
+        "ForAllValues:StringLike": {
+          "dynamodb:LeadingKeys": ["USER#*", "SESSION#*"]
+        },
+        "Null": { "dynamodb:LeadingKeys": "false" }
+      }
+    },
+    {
+      "Sid": "UpdatePublicProfileMetadataOnly",
+      "Effect": "Allow",
+      "Action": "dynamodb:UpdateItem",
+      "Resource": "${AUTH_TABLE_ARN}",
+      "Condition": {
+        "ForAllValues:StringLike": {
+          "dynamodb:LeadingKeys": ["USER#*"]
+        },
+        "ForAllValues:StringEquals": {
+          "dynamodb:Attributes": [
+            "pk",
+            "entity",
+            "id",
+            "subject",
+            "name",
+            "email",
+            "emailVerified",
+            "picture",
+            "createdAt",
+            "updatedAt",
+            "lastSignInAt"
+          ]
+        },
+        "Null": {
+          "dynamodb:LeadingKeys": "false",
+          "dynamodb:Attributes": "false"
+        }
+      }
+    },
+    {
+      "Sid": "CreateSessionsAndOAuthTransactions",
+      "Effect": "Allow",
+      "Action": "dynamodb:PutItem",
+      "Resource": "${AUTH_TABLE_ARN}",
+      "Condition": {
+        "ForAllValues:StringLike": {
+          "dynamodb:LeadingKeys": ["SESSION#*", "OAUTH#*"]
+        },
+        "Null": { "dynamodb:LeadingKeys": "false" }
+      }
+    },
+    {
+      "Sid": "RevokeSessionsAndConsumeOAuthTransactions",
+      "Effect": "Allow",
+      "Action": "dynamodb:DeleteItem",
+      "Resource": "${AUTH_TABLE_ARN}",
+      "Condition": {
+        "ForAllValues:StringLike": {
+          "dynamodb:LeadingKeys": ["SESSION#*", "OAUTH#*"]
+        },
+        "Null": { "dynamodb:LeadingKeys": "false" }
+      }
+    },
+    {
+      "Sid": "DenyTagMutation",
+      "Effect": "Deny",
+      "Action": ["dynamodb:PutItem", "dynamodb:UpdateItem"],
+      "Resource": "${AUTH_TABLE_ARN}",
+      "Condition": {
+        "ForAnyValue:StringEquals": {
+          "dynamodb:Attributes": ["accessTags"]
+        }
+      }
+    },
+    {
+      "Sid": "DenyUserReplacementAndDeletion",
+      "Effect": "Deny",
+      "Action": ["dynamodb:PutItem", "dynamodb:DeleteItem"],
+      "Resource": "${AUTH_TABLE_ARN}",
+      "Condition": {
+        "ForAllValues:StringLike": { "dynamodb:LeadingKeys": ["USER#*"] },
+        "Null": { "dynamodb:LeadingKeys": "false" }
+      }
+    }
+  ]
+}

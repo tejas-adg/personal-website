@@ -1,0 +1,7 @@
+{
+  "nodeModulesDir": "auto",
+  "compilerOptions": {
+    "lib": ["deno.window"],
+    "types": ["npm:@types/node@22.20.5"]
+  }
+}

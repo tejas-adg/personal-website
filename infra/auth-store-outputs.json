@@ -1,0 +1,9 @@
+{
+  "stackName": "tejasam-auth-store",
+  "region": "us-east-2",
+  "status": "UPDATE_COMPLETE",
+  "FunctionName": "tejasam-auth-store-bridge",
+  "FunctionArn": "arn:aws:lambda:us-east-2:318767730079:function:tejasam-auth-store-bridge",
+  "ExecutionRoleArn": "arn:aws:iam::318767730079:role/tejasam-auth-store-AuthStoreRole-xBs2pM4JGVeC",
+  "StoreUrl": "https://z5xxheqjeradawhm3tywt6rynq0rvzzj.lambda-url.us-east-2.on.aws/"
+}

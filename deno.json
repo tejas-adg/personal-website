@@ -1,15 +1,24 @@
 {
   "nodeModulesDir": "manual",
   "tasks": {
-    "check": "deno fmt --check . && deno lint . && deno check",
+    "test": "deno test lib/auth",
+    "test:infra": "deno test --config infra/deno.json --allow-read infra/auth-store-handler_test.ts",
+    "check": "deno fmt --check . && deno lint . && deno check && deno task check:infra",
+    "check:infra": "deno fmt --check --config infra/deno.json infra && deno lint --config infra/deno.json infra && deno check --config infra/deno.json infra/auth-store-handler_test.ts",
     "dev": "vite",
     "build": "vite build",
     "start": "deno serve -A _fresh/server/server-entry.mjs",
     "update": "deno run -A -r --node-modules-dir=auto jsr:@fresh/update ."
   },
   "lint": { "rules": { "tags": ["fresh", "recommended"] } },
-  "exclude": ["**/_fresh/*"],
+  "exclude": [
+    "**/_fresh/*",
+    "infra/auth-store-handler.cjs",
+    "infra/auth-store-handler_test.ts"
+  ],
   "imports": {
+    "@aws-sdk/client-dynamodb": "npm:@aws-sdk/client-dynamodb@^3.1154.0",
+    "@aws-sdk/lib-dynamodb": "npm:@aws-sdk/lib-dynamodb@^3.1154.0",
     "@/": "./",
     "fresh": "jsr:@fresh/core@^2.3.3",
     "preact": "npm:preact@^10.29.8",
@@ -40,5 +49,9 @@
       "template"
     ],
     "types": ["vite/client"]
+  },
+  "deploy": {
+    "org": "tejas-adg",
+    "app": "personal-website"
   }
 }

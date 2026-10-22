@@ -1,0 +1,709 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >-
+  HMAC-authenticated server-to-server storage bridge for the website's existing
+  private authentication table. Does not create IAM identity providers.
+Metadata:
+  AWSToolsMetrics:
+    AWSAgentToolkit: aws-cloudformation@3
+  com.aws.cloudformation.Context:
+    must:
+      - Deploy only in the selected Region us-east-2.
+      - Keep the signing secret in server-only runtime environments.
+      - Preserve the table policy's explicit denial of private accessTags mutation.
+      - Authenticate and consume a replay nonce before performing an allowed store operation.
+    ref:
+      - at: ../docs/auth-deployment.md
+        has: Signed storage bridge, secret handling, deployment, and private user schema.
+        scope: stack
+      - at: auth-store-handler.cjs
+        has: Canonical handler source; regenerate the embedded copy before deployment.
+        scope: AuthStoreFunction
+Parameters:
+  AuthTableName:
+    Type: String
+    MinLength: 3
+    MaxLength: 255
+    AllowedPattern: "^[A-Za-z0-9_.-]+$"
+    Description: Existing authentication table name from the tejasam-auth stack.
+  AuthTableArn:
+    Type: String
+    AllowedPattern: "^arn:aws:dynamodb:us-east-2:[0-9]{12}:table/[A-Za-z0-9_.-]+$"
+    Description: Exact ARN of the existing authentication table, without indexes or wildcards.
+  AuthStoreSecret:
+    Type: String
+    NoEcho: true
+    MinLength: 43
+    MaxLength: 128
+    AllowedPattern: "^[A-Za-z0-9_-]+$"
+    Description: Random server-to-server signing secret with at least 256 bits of entropy.
+Resources:
+  AuthStoreLogGroup:
+    Type: AWS::Logs::LogGroup
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Metadata:
+      com.aws.cloudformation.Context:
+        why: Pre-creation permits a narrow execution-role log policy and bounded log retention.
+        must:
+          - Do not log request bodies, profile data, tokens, signing headers, or secrets.
+        mutable: change-with-constraints
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${AWS::StackName}-bridge"
+      RetentionInDays: 7
+  AuthStoreRole:
+    Type: AWS::IAM::Role
+    Metadata:
+      com.aws.cloudformation.Context:
+        why: Only the Lambda service assumes this role; the website never receives AWS credentials.
+        must:
+          - Scope database actions to the existing authentication table and permitted key prefixes.
+          - Keep accessTags administration outside this role.
+        mutable: change-with-constraints
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: authentication-store-items
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Sid: ReadUsersAndSessions
+                Effect: Allow
+                Action: dynamodb:GetItem
+                Resource: !Ref AuthTableArn
+                Condition:
+                  ForAllValues:StringLike:
+                    dynamodb:LeadingKeys: ["USER#*", "SESSION#*"]
+                  "Null":
+                    dynamodb:LeadingKeys: "false"
+              - Sid: UpdatePublicProfileMetadataOnly
+                Effect: Allow
+                Action: dynamodb:UpdateItem
+                Resource: !Ref AuthTableArn
+                Condition:
+                  ForAllValues:StringLike:
+                    dynamodb:LeadingKeys: ["USER#*"]
+                  ForAllValues:StringEquals:
+                    dynamodb:Attributes:
+                      - pk
+                      - entity
+                      - id
+                      - subject
+                      - name
+                      - email
+                      - emailVerified
+                      - picture
+                      - createdAt
+                      - updatedAt
+                      - lastSignInAt
+                  "Null":
+                    dynamodb:LeadingKeys: "false"
+                    dynamodb:Attributes: "false"
+              - Sid: CreateSessionsAndOAuthTransactions
+                Effect: Allow
+                Action: dynamodb:PutItem
+                Resource: !Ref AuthTableArn
+                Condition:
+                  ForAllValues:StringLike:
+                    dynamodb:LeadingKeys: ["SESSION#*", "OAUTH#*"]
+                  "Null":
+                    dynamodb:LeadingKeys: "false"
+              - Sid: RevokeSessionsAndConsumeOAuthTransactions
+                Effect: Allow
+                Action: dynamodb:DeleteItem
+                Resource: !Ref AuthTableArn
+                Condition:
+                  ForAllValues:StringLike:
+                    dynamodb:LeadingKeys: ["SESSION#*", "OAUTH#*"]
+                  "Null":
+                    dynamodb:LeadingKeys: "false"
+              - Sid: DenyTagMutation
+                Effect: Deny
+                Action: [dynamodb:PutItem, dynamodb:UpdateItem]
+                Resource: !Ref AuthTableArn
+                Condition:
+                  ForAnyValue:StringEquals:
+                    dynamodb:Attributes: [accessTags]
+              - Sid: DenyUserReplacementAndDeletion
+                Effect: Deny
+                Action: [dynamodb:PutItem, dynamodb:DeleteItem]
+                Resource: !Ref AuthTableArn
+                Condition:
+                  ForAllValues:StringLike:
+                    dynamodb:LeadingKeys: ["USER#*"]
+                  "Null":
+                    dynamodb:LeadingKeys: "false"
+        - PolicyName: authentication-store-logs
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Sid: WriteOwnLogStreams
+                Effect: Allow
+                Action: [logs:CreateLogStream, logs:PutLogEvents]
+                Resource: !Sub "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/${AWS::StackName}-bridge:log-stream:*"
+  AuthStoreFunction:
+    Type: AWS::Lambda::Function
+    DependsOn: AuthStoreLogGroup
+    Metadata:
+      com.aws.cloudformation.Context:
+        why: A signed server RPC supports the existing project experience without an IAM OIDC provider.
+        must:
+          - Require a valid timestamped HMAC and one-time nonce for every store operation.
+          - Accept only the seven fixed AuthStore operations, never arbitrary database commands.
+          - Never return signing secrets or log authenticated payloads.
+        mutable: change-with-constraints
+    Properties:
+      FunctionName: !Sub "${AWS::StackName}-bridge"
+      Description: Signed website authentication-store RPC; private role tags cannot be changed.
+      Runtime: nodejs22.x
+      Architectures: [arm64]
+      Handler: index.handler
+      Timeout: 15
+      MemorySize: 128
+      ReservedConcurrentExecutions: 2
+      Role: !GetAtt AuthStoreRole.Arn
+      Environment:
+        Variables:
+          AUTH_TABLE_NAME: !Ref AuthTableName
+          AUTH_STORE_SECRET: !Ref AuthStoreSecret
+      Code:
+        ZipFile: |
+          // BEGIN INLINE HANDLER -- generated by build-auth-store-template.py
+          // Source SHA-256: d4a92abd8fe40b0b99cc79df97d303689fd83392473f17b62435c29536d3c8bc
+          "use strict";
+
+          const { createHmac, timingSafeEqual } = require("node:crypto");
+
+          const LIMIT = 65_536;
+          const CLOCK_SKEW_SECONDS = 30;
+          const OAUTH_LIFETIME_SECONDS = 600;
+          const SESSION_MAX_LIFETIME_SECONDS = 86_400;
+          const HASH = /^[A-Za-z0-9_-]{43}$/;
+          const TAG = /^[a-z0-9][a-z0-9:_-]{0,63}$/;
+          const RESPONSE_HEADERS = {
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "private, no-store",
+            "x-content-type-options": "nosniff",
+          };
+
+          function response(statusCode, value) {
+            const body = JSON.stringify(value);
+            if (Buffer.byteLength(body, "utf8") > LIMIT) {
+              return response(503, { error: "Authentication storage is unavailable" });
+            }
+            return { statusCode, headers: RESPONSE_HEADERS, body };
+          }
+
+          function object(value) {
+            return value !== null && typeof value === "object" && !Array.isArray(value);
+          }
+
+          function fields(value, required) {
+            return object(value) && Object.keys(value).length === required.length &&
+              required.every((key) => Object.hasOwn(value, key));
+          }
+
+          function text(value, maximum, empty = false) {
+            return typeof value === "string" && value.length <= maximum &&
+              (empty || value.length > 0) &&
+              !Array.from(value).some((character) => {
+                const code = character.charCodeAt(0);
+                return code < 32 || code === 127;
+              });
+          }
+
+          function timestamp(value) {
+            return Number.isSafeInteger(value) && value >= 0;
+          }
+
+          function hash(value) {
+            return typeof value === "string" && HASH.test(value);
+          }
+
+          function url(value, callback = false) {
+            if (!text(value, 2_048)) return false;
+            try {
+              const parsed = new URL(value);
+              if (parsed.username || parsed.password) return false;
+              const secure = parsed.protocol === "https:" ||
+                (callback && parsed.protocol === "http:" &&
+                  ["localhost", "127.0.0.1", "[::1]"].includes(parsed.hostname));
+              return secure && (!callback ||
+                (parsed.pathname === "/auth/callback" && !parsed.search && !parsed.hash));
+            } catch {
+              return false;
+            }
+          }
+
+          function identity(value, now) {
+            return fields(value, [
+              "subject",
+              "name",
+              "email",
+              "emailVerified",
+              "picture",
+              "authenticatedAt",
+            ]) && text(value.subject, 128) && text(value.name, 512, true) &&
+              (value.email === null ||
+                (text(value.email, 320) &&
+                  /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.email))) &&
+              typeof value.emailVerified === "boolean" &&
+              (!value.emailVerified || value.email !== null) &&
+              (value.picture === null || url(value.picture)) &&
+              timestamp(value.authenticatedAt) && value.authenticatedAt <= now;
+          }
+
+          function transaction(value, now, requestedAt = now) {
+            return fields(value, [
+              "browserHash",
+              "verifier",
+              "nonce",
+              "returnTo",
+              "redirectUri",
+              "expiresAt",
+            ]) && hash(value.browserHash) && hash(value.verifier) && hash(value.nonce) &&
+              text(value.returnTo, 2_048) && value.returnTo.startsWith("/") &&
+              !value.returnTo.startsWith("//") && !value.returnTo.includes("\\") &&
+              url(value.redirectUri, true) && timestamp(value.expiresAt) &&
+              value.expiresAt > now &&
+              value.expiresAt <= requestedAt + OAUTH_LIFETIME_SECONDS;
+          }
+
+          function session(value, now, requestedAt = now) {
+            return fields(value, ["userId", "authenticatedAt", "expiresAt"]) &&
+              hash(value.userId) && timestamp(value.authenticatedAt) &&
+              value.authenticatedAt <= now && timestamp(value.expiresAt) &&
+              value.expiresAt > now &&
+              value.expiresAt <= requestedAt + SESSION_MAX_LIFETIME_SECONDS;
+          }
+
+          function validArguments(action, args, now, requestedAt) {
+            if (!Array.isArray(args) || !hash(args[0])) return false;
+            switch (action) {
+              case "putTransaction":
+                return args.length === 2 && transaction(args[1], now, requestedAt);
+              case "consumeTransaction":
+                return args.length === 3 && hash(args[1]) && timestamp(args[2]) &&
+                  Math.abs(args[2] - now) <= CLOCK_SKEW_SECONDS;
+              case "upsertUser":
+                return args.length === 3 && identity(args[1], now) &&
+                  timestamp(args[2]) &&
+                  Math.abs(args[2] - now) <= CLOCK_SKEW_SECONDS;
+              case "putSession":
+                return args.length === 2 && session(args[1], now, requestedAt);
+              case "getUser":
+              case "getSession":
+              case "deleteSession":
+                return args.length === 1;
+              default:
+                return false;
+            }
+          }
+
+          function header(headers, name) {
+            if (!object(headers)) return undefined;
+            const entries = Object.entries(headers).filter(([key]) =>
+              key.toLowerCase() === name
+            );
+            return entries.length === 1 && typeof entries[0][1] === "string"
+              ? entries[0][1]
+              : undefined;
+          }
+
+          /** Signed server-to-server RPC only. The factory's default replay store is for tests. */
+          exports.createHandler = function createHandler({
+            store,
+            replay,
+            secret,
+            clock = () => Math.floor(Date.now() / 1_000),
+          }) {
+            if (typeof secret !== "string" || Buffer.byteLength(secret, "utf8") < 32) {
+              throw new Error("A strong authentication storage secret is required");
+            }
+            if (!store || typeof store !== "object") {
+              throw new Error("A store is required");
+            }
+            const memory = new Map();
+            const checkNonce = replay ?? ((nonce, now) => {
+              for (const [previous, expiresAt] of memory) {
+                if (expiresAt <= now) memory.delete(previous);
+              }
+              if (memory.has(nonce)) return false;
+              memory.set(nonce, now + 90);
+              return true;
+            });
+
+            return async function handle(event) {
+              if (event?.requestContext?.http?.method !== "POST") {
+                return response(405, { error: "Method not allowed" });
+              }
+              let body = event.body;
+              if (typeof body !== "string" || body.length > LIMIT * 2) {
+                return response(413, { error: "Request is too large" });
+              }
+              if (event.isBase64Encoded === true) {
+                if (
+                  !/^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/
+                    .test(body)
+                ) {
+                  return response(400, { error: "Invalid request" });
+                }
+                const bytes = Buffer.from(body, "base64");
+                if (bytes.length > LIMIT) {
+                  return response(413, { error: "Request is too large" });
+                }
+                body = bytes.toString("utf8");
+                if (!Buffer.from(body, "utf8").equals(bytes)) {
+                  return response(400, { error: "Invalid request" });
+                }
+              }
+              if (Buffer.byteLength(body, "utf8") > LIMIT) {
+                return response(413, { error: "Request is too large" });
+              }
+              const sentAt = header(event.headers, "x-auth-timestamp");
+              const nonce = header(event.headers, "x-auth-nonce");
+              const signature = header(event.headers, "x-auth-signature");
+              const now = clock();
+              if (
+                !timestamp(now) || typeof sentAt !== "string" ||
+                !/^[1-9]\d{9,11}$/.test(sentAt) ||
+                !Number.isSafeInteger(Number(sentAt)) ||
+                Math.abs(Number(sentAt) - now) > CLOCK_SKEW_SECONDS || !hash(nonce) ||
+                !hash(signature)
+              ) {
+                return response(401, { error: "Unauthorized" });
+              }
+              const expected = createHmac("sha256", secret).update(
+                `${sentAt}\n${nonce}\n${body}`,
+              ).digest("base64url");
+              if (!timingSafeEqual(Buffer.from(signature), Buffer.from(expected))) {
+                return response(401, { error: "Unauthorized" });
+              }
+              try {
+                // Production supplies a conditional DynamoDB PutItem shared across invocations.
+                if (!await checkNonce(nonce, now)) {
+                  return response(401, { error: "Unauthorized" });
+                }
+                let request;
+                try {
+                  request = JSON.parse(body);
+                } catch {
+                  return response(400, { error: "Invalid request" });
+                }
+                if (
+                  !fields(request, ["action", "args"]) ||
+                  !validArguments(request.action, request.args, now, Number(sentAt))
+                ) {
+                  return response(400, { error: "Invalid request" });
+                }
+                const { action, args } = request;
+                // The bridge's clock, rather than a caller-supplied time, controls expiry.
+                if (action === "consumeTransaction" || action === "upsertUser") {
+                  args[2] = now;
+                }
+                // Transport clock tolerance must not extend a record's maximum lifetime.
+                if (action === "putTransaction" || action === "putSession") {
+                  const maximum = action === "putTransaction"
+                    ? OAUTH_LIFETIME_SECONDS
+                    : SESSION_MAX_LIFETIME_SECONDS;
+                  args[1] = {
+                    ...args[1],
+                    expiresAt: Math.min(args[1].expiresAt, now + maximum),
+                  };
+                }
+                const result = await store[action](...args);
+                return response(200, { result: result ?? null });
+              } catch {
+                // No provider tokens, profile records, signatures, secrets, or stack traces are logged.
+                return response(503, { error: "Authentication storage is unavailable" });
+              }
+            };
+          };
+
+          function encode(value) {
+            if (value === null) return { NULL: true };
+            if (typeof value === "string") return { S: value };
+            if (typeof value === "number" && Number.isFinite(value)) {
+              return { N: String(value) };
+            }
+            if (typeof value === "boolean") return { BOOL: value };
+            if (Array.isArray(value)) return { L: value.map(encode) };
+            if (object(value)) return { M: marshal(value) };
+            throw new Error("Unsupported attribute value");
+          }
+
+          function marshal(value) {
+            return Object.fromEntries(
+              Object.entries(value).map(([key, item]) => [key, encode(item)]),
+            );
+          }
+
+          function decode(value) {
+            if (!object(value)) return undefined;
+            if (Object.hasOwn(value, "S")) return value.S;
+            if (Object.hasOwn(value, "N")) return Number(value.N);
+            if (Object.hasOwn(value, "BOOL")) return value.BOOL;
+            if (Object.hasOwn(value, "NULL")) return null;
+            if (Array.isArray(value.L)) return value.L.map(decode);
+            if (object(value.M)) return unmarshal(value.M);
+            return undefined;
+          }
+
+          function unmarshal(value) {
+            return Object.fromEntries(
+              Object.entries(value).map(([key, item]) => [key, decode(item)]),
+            );
+          }
+
+          function publicUser(value) {
+            return {
+              id: value.id,
+              name: value.name,
+              email: value.email,
+              picture: value.picture,
+            };
+          }
+
+          function productionStore(client, commands, tableName) {
+            const key = (prefix, value) => ({ pk: { S: `${prefix}#${value}` } });
+            const conditionalFailure = (error) =>
+              error?.name === "ConditionalCheckFailedException";
+            return {
+              async replay(nonce, now) {
+                try {
+                  await client.send(
+                    new commands.PutItemCommand({
+                      TableName: tableName,
+                      Item: marshal({
+                        pk: `OAUTH#RPC:${nonce}`,
+                        entity: "rpc",
+                        expiresAt: now + 90,
+                      }),
+                      ConditionExpression: "attribute_not_exists(pk)",
+                    }),
+                  );
+                  return true;
+                } catch (error) {
+                  if (conditionalFailure(error)) return false;
+                  throw error;
+                }
+              },
+              async putTransaction(id, value) {
+                await client.send(
+                  new commands.PutItemCommand({
+                    TableName: tableName,
+                    Item: marshal({ pk: `OAUTH#${id}`, entity: "oauth", ...value }),
+                    ConditionExpression: "attribute_not_exists(pk)",
+                  }),
+                );
+              },
+              async consumeTransaction(id, browserHash, now) {
+                try {
+                  const result = await client.send(
+                    new commands.DeleteItemCommand({
+                      TableName: tableName,
+                      Key: key("OAUTH", id),
+                      ConditionExpression: "browserHash = :browser AND expiresAt > :now",
+                      ExpressionAttributeValues: marshal({
+                        ":browser": browserHash,
+                        ":now": now,
+                      }),
+                      ReturnValues: "ALL_OLD",
+                    }),
+                  );
+                  if (!result.Attributes) return null;
+                  const stored = unmarshal(result.Attributes);
+                  const value = {
+                    browserHash: stored.browserHash,
+                    verifier: stored.verifier,
+                    nonce: stored.nonce,
+                    returnTo: stored.returnTo,
+                    redirectUri: stored.redirectUri,
+                    expiresAt: stored.expiresAt,
+                  };
+                  return stored.entity === "oauth" && transaction(value, now)
+                    ? value
+                    : null;
+                } catch (error) {
+                  if (conditionalFailure(error)) return null;
+                  throw error;
+                }
+              },
+              async upsertUser(id, value, now) {
+                // accessTags is absent: the application cannot grant or replace authorization.
+                await client.send(
+                  new commands.UpdateItemCommand({
+                    TableName: tableName,
+                    Key: key("USER", id),
+                    UpdateExpression:
+                      "SET entity = :entity, id = :id, subject = :subject, #name = :name, email = :email, emailVerified = :verified, picture = :picture, updatedAt = :now, lastSignInAt = :now, createdAt = if_not_exists(createdAt, :now)",
+                    ExpressionAttributeNames: { "#name": "name" },
+                    ExpressionAttributeValues: marshal({
+                      ":entity": "user",
+                      ":id": id,
+                      ":subject": value.subject,
+                      ":name": value.name,
+                      ":email": value.email,
+                      ":verified": value.emailVerified,
+                      ":picture": value.picture,
+                      ":now": now,
+                    }),
+                  }),
+                );
+                return publicUser({
+                  id,
+                  name: value.name,
+                  email: value.email,
+                  picture: value.picture,
+                });
+              },
+              async getUser(id) {
+                const result = await client.send(
+                  new commands.GetItemCommand({
+                    TableName: tableName,
+                    Key: key("USER", id),
+                    ConsistentRead: true,
+                  }),
+                );
+                if (!result.Item) return null;
+                const item = unmarshal(result.Item);
+                if (
+                  item.entity !== "user" || item.id !== id || !text(item.subject, 128) ||
+                  !text(item.name, 512, true)
+                ) return null;
+                const accessTags =
+                  Array.isArray(item.accessTags) && item.accessTags.length <= 128 &&
+                    item.accessTags.every((tag) =>
+                      typeof tag === "string" && TAG.test(tag)
+                    )
+                    ? item.accessTags
+                    : [];
+                return {
+                  id,
+                  subject: item.subject,
+                  name: item.name,
+                  email: text(item.email, 320) ? item.email : null,
+                  emailVerified: item.emailVerified === true,
+                  picture: url(item.picture) ? item.picture : null,
+                  accessTags,
+                };
+              },
+              async putSession(id, value) {
+                await client.send(
+                  new commands.PutItemCommand({
+                    TableName: tableName,
+                    Item: marshal({ pk: `SESSION#${id}`, entity: "session", ...value }),
+                    ConditionExpression: "attribute_not_exists(pk)",
+                  }),
+                );
+              },
+              async getSession(id) {
+                const result = await client.send(
+                  new commands.GetItemCommand({
+                    TableName: tableName,
+                    Key: key("SESSION", id),
+                    ConsistentRead: true,
+                  }),
+                );
+                if (!result.Item) return null;
+                const item = unmarshal(result.Item);
+                const value = {
+                  userId: item.userId,
+                  authenticatedAt: item.authenticatedAt,
+                  expiresAt: item.expiresAt,
+                };
+                return item.entity === "session" &&
+                    session(value, Math.floor(Date.now() / 1_000))
+                  ? value
+                  : null;
+              },
+              async deleteSession(id) {
+                await client.send(
+                  new commands.DeleteItemCommand({
+                    TableName: tableName,
+                    Key: key("SESSION", id),
+                  }),
+                );
+              },
+            };
+          }
+
+          let productionHandler;
+          exports.handler = async function handler(event) {
+            try {
+              if (!productionHandler) {
+                // AWS Lambda Node.js 22 includes the first-party modular AWS SDK v3.
+                const commands = require("@aws-sdk/client-dynamodb");
+                const tableName = process.env.AUTH_TABLE_NAME;
+                if (!tableName || process.env.AWS_REGION !== "us-east-2") {
+                  throw new Error("Invalid storage configuration");
+                }
+                const client = new commands.DynamoDBClient({
+                  region: "us-east-2",
+                  maxAttempts: 3,
+                });
+                const store = productionStore(client, commands, tableName);
+                productionHandler = exports.createHandler({
+                  store,
+                  replay: store.replay,
+                  secret: process.env.AUTH_STORE_SECRET,
+                });
+              }
+              return await productionHandler(event);
+            } catch {
+              return response(503, { error: "Authentication storage is unavailable" });
+            }
+          };
+          // END INLINE HANDLER
+  AuthStoreUrl:
+    Type: AWS::Lambda::Url
+    Metadata:
+      com.aws.cloudformation.Context:
+        why: HTTPS transport authenticates requests in the handler using a server-held HMAC secret.
+        must:
+          - Keep CORS disabled and the signing secret unavailable to browser code.
+        mutable: change-with-constraints
+    Properties:
+      AuthType: NONE
+      InvokeMode: BUFFERED
+      TargetFunctionArn: !GetAtt AuthStoreFunction.Arn
+  AuthStoreUrlPermission:
+    Type: AWS::Lambda::Permission
+    Metadata:
+      com.aws.cloudformation.Context:
+        why: Function URLs with NONE auth require this public transport permission; HMAC authenticates the caller.
+        must:
+          - Restrict this permission to Function URLs configured with NONE auth.
+    Properties:
+      FunctionName: !Ref AuthStoreFunction
+      Action: lambda:InvokeFunctionUrl
+      Principal: "*"
+      FunctionUrlAuthType: NONE
+  AuthStoreUrlInvokePermission:
+    Type: AWS::Lambda::Permission
+    Metadata:
+      com.aws.cloudformation.Context:
+        why: Lambda also requires underlying InvokeFunction permission for URL requests.
+        must:
+          - Restrict this public permission to Function URL invocations only.
+    Properties:
+      FunctionName: !Ref AuthStoreFunction
+      Action: lambda:InvokeFunction
+      Principal: "*"
+      InvokedViaFunctionUrl: true
+Outputs:
+  StoreUrl:
+    Description: Server-only RPC endpoint; requests require the separate signing secret.
+    Value: !GetAtt AuthStoreUrl.FunctionUrl
+  FunctionName:
+    Value: !Ref AuthStoreFunction
+  FunctionArn:
+    Value: !GetAtt AuthStoreFunction.Arn
+  ExecutionRoleArn:
+    Description: Lambda-only service role with no ability to administer private access tags.
+    Value: !GetAtt AuthStoreRole.Arn

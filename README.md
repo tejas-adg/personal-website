@@ -1,5 +1,38 @@
 # Fresh project
 
+## User authentication
+
+The website uses Amazon Cognito's social-provider authorization-code flow with
+PKCE, a server-side callback, and opaque HttpOnly application sessions. It uses
+native `fetch` and Web Crypto for authentication and the official AWS SDK for
+DynamoDB; no third-party authentication framework is installed.
+
+Copy `.env.example` to an ignored `.env` for local development, fill in the
+values from the AWS stack and Cognito client, then run
+`deno task --env-file=.env dev`. Production secrets belong in Deno Deploy's
+environment settings. The server signs requests to the AWS storage endpoint; no
+AWS access keys are deployed to Deno. See
+[the deployment guide](docs/auth-deployment.md) for exact configuration.
+
+`accessTags` is a **private, administrator-controlled user-record field**. The
+application identity cannot assign or change it. A missing field is treated as
+an empty list until an administrator sets it. Never expose this field in HTML,
+island props, public APIs, cookies, tokens, or logs. Public user data must pass
+through the explicit `publicUser` allowlist.
+
+Before querying or rendering future protected content, call
+`requireAccess(request, ["required-tag"])` from `lib/auth/runtime.ts`. It
+returns the same 404 for absent, expired, stale, or insufficient authorization.
+The check reads current tags from DynamoDB, so removal takes effect on the next
+request. The initial recent-authentication window is 15 minutes, measured from
+Cognito's verified original `auth_time`; normal activity never extends that
+timestamp. The app does not promise a fresh password challenge from every social
+provider. Do not place protected content in `static/` or pass it into a page
+before this check has succeeded.
+
+Run `deno task test` for token-verification, OAuth, cookie, session, privacy,
+and access-control tests.
+
 This repository now uses two branch tracks:
 
 - `codex/dev2`: the vanilla Fresh v2 + Tailwind v4 initialization

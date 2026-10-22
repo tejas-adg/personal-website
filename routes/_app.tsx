@@ -1,7 +1,7 @@
 import { define } from "../utils.ts";
 import { NavBar } from "../components/NavBar.tsx";
 
-export default define.page(function App({ Component }) {
+export default define.page(function App({ Component, state }) {
   return (
     <html class="dark">
       <head>
@@ -21,7 +21,7 @@ export default define.page(function App({ Component }) {
         {/*<link rel="stylesheet" href="/styles.css" />*/}
       </head>
       <body>
-        <NavBar />
+        <NavBar user={state.user ?? null} />
         <div class="pt-25 bg-[radial-gradient(ellipse_50%_25%_at_50%_0%,#251736_0%,#180F23_100%)]" />
         <Component />
       </body>

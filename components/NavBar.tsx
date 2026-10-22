@@ -1,5 +1,7 @@
 import MobileNav from "../islands/MobileNav.tsx";
+import type { PublicUser } from "../lib/auth/types.ts";
 import { PaletteIcon } from "./icons.tsx";
+import { UserMenu } from "./UserMenu.tsx";
 
 export type NavLink = {
   label: string;
@@ -10,6 +12,7 @@ export interface NavBarProps {
   brandLabel?: string;
   brandHref?: string;
   links?: NavLink[];
+  user?: PublicUser | null;
 }
 
 const defaultLinks: NavLink[] = [
@@ -24,6 +27,7 @@ export function NavBar({
   brandLabel = "Tejas A. M.",
   brandHref = "/",
   links = defaultLinks,
+  user = null,
 }: NavBarProps) {
   return (
     <nav
@@ -56,6 +60,7 @@ export function NavBar({
           </div>
 
           <div class="flex shrink-0 items-center gap-2 sm:gap-3">
+            <UserMenu user={user} />
             <button
               type="button"
               aria-label="Change theme"

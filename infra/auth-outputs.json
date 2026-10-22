@@ -1,0 +1,15 @@
+{
+  "stackName": "tejasam-auth",
+  "region": "us-east-2",
+  "status": "UPDATE_COMPLETE",
+  "TableName": "tejasam-auth-AuthTable-1TY4MDBMBWQ8Y",
+  "UserPoolId": "us-east-2_qOeX3pMC3",
+  "GoogleRedirectUri": "https://tejasam-auth-318767730079.auth.us-east-2.amazoncognito.com/oauth2/idpresponse",
+  "TableArn": "arn:aws:dynamodb:us-east-2:318767730079:table/tejasam-auth-AuthTable-1TY4MDBMBWQ8Y",
+  "ClientId": "6r8n7fa9ihl7gnpue3ba1qdenb",
+  "UserPoolArn": "arn:aws:cognito-idp:us-east-2:318767730079:userpool/us-east-2_qOeX3pMC3",
+  "CognitoDomain": "https://tejasam-auth-318767730079.auth.us-east-2.amazoncognito.com",
+  "SupportedProviders": [
+    "Google"
+  ]
+}

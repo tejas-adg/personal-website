@@ -1,0 +1,188 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >-
+  Social authentication and a private user/session store for the website;
+  the server owns the OAuth exchange and never publishes access tags.
+Metadata:
+  AWSToolsMetrics:
+    AWSAgentToolkit: aws-cloudformation@3
+  com.aws.cloudformation.Context:
+    must:
+      - Deploy regional resources only in the selected Region us-east-2.
+      - Keep accessTags out of Cognito attributes, tokens, and public responses.
+      - Configure social providers separately without putting their secrets in this template.
+    ref:
+      - at: ../docs/auth-deployment.md
+        has: Deployment, social providers, and the signed Deno-to-Lambda storage bridge.
+        scope: stack
+Parameters:
+  SupportedProviders:
+    Type: CommaDelimitedList
+    Default: COGNITO
+    AllowedPattern: "^[A-Za-z][A-Za-z0-9_-]*$"
+    Description: Configured Cognito provider names; replace the bootstrap COGNITO entry after social setup.
+  DomainPrefix:
+    Type: String
+    Default: tejasam-auth
+    AllowedPattern: "^[a-z0-9](?:[a-z0-9-]{0,36}[a-z0-9])?$"
+    MinLength: 1
+    MaxLength: 38
+    ConstraintDescription: Use lowercase letters, numbers, and interior hyphens.
+    Description: Prefix for the Cognito hostname; the AWS project identifier is appended for uniqueness.
+Resources:
+  AuthUserPool:
+    Type: AWS::Cognito::UserPool
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Metadata:
+      com.aws.cloudformation.Context:
+        why: A managed identity directory handles federation; the website never collects passwords.
+        must:
+          - Use social federation for public sign-in; do not expose native password registration.
+          - Keep authorization tags exclusively in the server-side database.
+        mutable: change-with-constraints
+    Properties:
+      UserPoolName: !Sub "${AWS::StackName}-users"
+      UserPoolTier: LITE
+      DeletionProtection: ACTIVE
+      AdminCreateUserConfig:
+        AllowAdminCreateUserOnly: true
+      UsernameConfiguration:
+        CaseSensitive: false
+      Schema:
+        - Name: email
+          AttributeDataType: String
+          Required: true
+          Mutable: true
+        - Name: name
+          AttributeDataType: String
+          Mutable: true
+        - Name: picture
+          AttributeDataType: String
+          Mutable: true
+      MfaConfiguration: "OFF"
+      UserPoolTags:
+        Application: !Ref AWS::StackName
+        Purpose: website-social-authentication
+  AuthClient:
+    Type: AWS::Cognito::UserPoolClient
+    Metadata:
+      com.aws.cloudformation.Context:
+        why: A confidential server exchanges authorization codes using its secret and PKCE.
+        must:
+          - Never expose the generated client secret or tokens to browser JavaScript.
+          - Preserve the full configuration when updating the provider list.
+          - Replace the COGNITO bootstrap provider with configured social providers before enabling sign-in.
+        mutable: change-with-constraints
+    Properties:
+      UserPoolId: !Ref AuthUserPool
+      ClientName: !Sub "${AWS::StackName}-website"
+      GenerateSecret: true
+      AllowedOAuthFlowsUserPoolClient: true
+      AllowedOAuthFlows:
+        - code
+      AllowedOAuthScopes:
+        - openid
+        - email
+        - profile
+      CallbackURLs:
+        - https://tejasam.com/auth/callback
+        - http://localhost:5173/auth/callback
+      DefaultRedirectURI: https://tejasam.com/auth/callback
+      LogoutURLs:
+        - https://tejasam.com/
+        - http://localhost:5173/
+      # Bootstrap only: the website exposes no COGNITO sign-in button or password form.
+      # Add Google to the pool, then set SupportedProviders to Google for later stack updates.
+      SupportedIdentityProviders: !Ref SupportedProviders
+      # Disable password, SRP, custom, and admin password API authentication flows.
+      # The application discards refresh tokens and uses its own short-lived sessions.
+      ExplicitAuthFlows:
+        - ALLOW_REFRESH_TOKEN_AUTH
+      AccessTokenValidity: 15
+      IdTokenValidity: 15
+      RefreshTokenValidity: 1
+      TokenValidityUnits:
+        AccessToken: minutes
+        IdToken: minutes
+        RefreshToken: days
+      EnableTokenRevocation: true
+      PreventUserExistenceErrors: ENABLED
+      ReadAttributes:
+        - email
+        - email_verified
+        - name
+        - picture
+      WriteAttributes:
+        - email
+        - name
+        - picture
+  AuthDomain:
+    Type: AWS::Cognito::UserPoolDomain
+    Metadata:
+      com.aws.cloudformation.Context:
+        why: A Cognito hostname avoids a custom-domain certificate and remains in the selected Region.
+        must:
+          - Keep classic hosted UI while the pool uses the Lite feature plan.
+        mutable: change-with-constraints
+    Properties:
+      Domain: !Sub "${DomainPrefix}-${AWS::AccountId}"
+      UserPoolId: !Ref AuthUserPool
+      ManagedLoginVersion: 1
+  AuthTable:
+    Type: AWS::DynamoDB::Table
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Metadata:
+      com.aws.cloudformation.Context:
+        why: Direct lookups share one table without indexes or a relational database instance.
+        must:
+          - USER# records own private accessTags; an absent tag list means no access.
+          - SESSION# and OAUTH# identifiers contain hashes of unpredictable browser tokens.
+          - Reject expired records in application code; TTL is delayed cleanup only.
+          - Keep tag administration outside the application role.
+        mutable: change-with-constraints
+    Properties:
+      BillingMode: PROVISIONED
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+      AttributeDefinitions:
+        - AttributeName: pk
+          AttributeType: S
+      KeySchema:
+        - AttributeName: pk
+          KeyType: HASH
+      # False selects the AWS-owned encryption key; it does not disable encryption.
+      # DynamoDB encrypts all table data at rest. No customer KMS key is required.
+      SSESpecification:
+        SSEEnabled: false
+      TimeToLiveSpecification:
+        AttributeName: expiresAt
+        Enabled: true
+      Tags:
+        - Key: Application
+          Value: !Ref AWS::StackName
+        - Key: Purpose
+          Value: private-authentication-store
+Outputs:
+  UserPoolId:
+    Description: Cognito user pool identifier for server-side token verification.
+    Value: !Ref AuthUserPool
+  UserPoolArn:
+    Description: Cognito user pool ARN for scoped administrative operations.
+    Value: !GetAtt AuthUserPool.Arn
+  ClientId:
+    Description: Confidential OAuth client identifier; its secret is intentionally not an output.
+    Value: !Ref AuthClient
+  CognitoDomain:
+    Description: HTTPS origin for OAuth authorization, token, and logout endpoints.
+    Value: !Sub "https://${AuthDomain}.auth.${AWS::Region}.amazoncognito.com"
+  GoogleRedirectUri:
+    Description: Register this exact callback on the Google OAuth web application.
+    Value: !Sub "https://${AuthDomain}.auth.${AWS::Region}.amazoncognito.com/oauth2/idpresponse"
+  TableName:
+    Description: Server-only DynamoDB user, session, and OAuth transaction table.
+    Value: !Ref AuthTable
+  TableArn:
+    Description: Substitute this exact ARN in the application policy before attaching it.
+    Value: !GetAtt AuthTable.Arn
