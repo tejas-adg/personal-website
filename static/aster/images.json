@@ -6,10 +6,10 @@
     "method": 6,
     "cropped": false
   },
-  "imageCount": 68,
-  "fileCount": 166,
-  "totalSourceBytes": 275642157,
-  "totalGeneratedBytes": 35560204,
+  "imageCount": 109,
+  "fileCount": 288,
+  "totalSourceBytes": 499708731,
+  "totalGeneratedBytes": 70848414,
   "images": [
     {
       "slug": "aster-cliffside",
@@ -1752,6 +1752,1271 @@
           "width": 480,
           "height": 283,
           "bytes": 44182
+        }
+      ]
+    },
+    {
+      "slug": "v75-bend-before",
+      "originalFilename": "bend-before.png",
+      "sourceVersion": "aster_v75",
+      "sourceRelativePath": "aster_v75/screenshots/bend-before.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5305819,
+      "sourceSha256": "45d0cfd26eda0dee93c250e5f7a449254a9092bd0cd65f2db04d2ae995198950",
+      "generatedBytes": 960802,
+      "files": [
+        {
+          "filename": "v75-bend-before-800.webp",
+          "width": 800,
+          "height": 472,
+          "bytes": 89076
+        },
+        {
+          "filename": "v75-bend-before-1440.webp",
+          "width": 1440,
+          "height": 849,
+          "bytes": 242806
+        },
+        {
+          "filename": "v75-bend-before-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 599772
+        },
+        {
+          "filename": "v75-bend-before-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 29148
+        }
+      ]
+    },
+    {
+      "slug": "v75-bend-inspection",
+      "originalFilename": "bend-inspection.png",
+      "sourceVersion": "aster_v75",
+      "sourceRelativePath": "aster_v75/screenshots/bend-inspection.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5331361,
+      "sourceSha256": "e81e39d4b12bbe8229ce804bd0270c5edb93f1c24e9ad5395dcc2f3d088ce79d",
+      "generatedBytes": 635324,
+      "files": [
+        {
+          "filename": "v75-bend-inspection-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 29814
+        },
+        {
+          "filename": "v75-bend-inspection-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 605510
+        }
+      ]
+    },
+    {
+      "slug": "v75-bend-soil-inspection",
+      "originalFilename": "bend-soil-inspection.png",
+      "sourceVersion": "aster_v75",
+      "sourceRelativePath": "aster_v75/screenshots/bend-soil-inspection.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5355296,
+      "sourceSha256": "c6981238ec4a37160890fef00b190440da4de9e0291cf021939631580a204f1b",
+      "generatedBytes": 641742,
+      "files": [
+        {
+          "filename": "v75-bend-soil-inspection-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 30068
+        },
+        {
+          "filename": "v75-bend-soil-inspection-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 611674
+        }
+      ]
+    },
+    {
+      "slug": "v75-bend",
+      "originalFilename": "bend.png",
+      "sourceVersion": "aster_v75",
+      "sourceRelativePath": "aster_v75/screenshots/bend.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5612551,
+      "sourceSha256": "9d612140e6d0ade871fc9ef1e4083e83c7b2555d2a840cc26444b29b37e1e46b",
+      "generatedBytes": 1171318,
+      "files": [
+        {
+          "filename": "v75-bend-800.webp",
+          "width": 800,
+          "height": 472,
+          "bytes": 111590
+        },
+        {
+          "filename": "v75-bend-1440.webp",
+          "width": 1440,
+          "height": 849,
+          "bytes": 292814
+        },
+        {
+          "filename": "v75-bend-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 729174
+        },
+        {
+          "filename": "v75-bend-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 37740
+        }
+      ]
+    },
+    {
+      "slug": "v75-merge",
+      "originalFilename": "merge.png",
+      "sourceVersion": "aster_v75",
+      "sourceRelativePath": "aster_v75/screenshots/merge.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5272273,
+      "sourceSha256": "901f66730db34a30b91b056e05c9c2189493d47f13b0cd8ad133c4149dfdb8b0",
+      "generatedBytes": 902096,
+      "files": [
+        {
+          "filename": "v75-merge-800.webp",
+          "width": 800,
+          "height": 472,
+          "bytes": 93952
+        },
+        {
+          "filename": "v75-merge-1440.webp",
+          "width": 1440,
+          "height": 849,
+          "bytes": 234566
+        },
+        {
+          "filename": "v75-merge-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 538778
+        },
+        {
+          "filename": "v75-merge-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 34800
+        }
+      ]
+    },
+    {
+      "slug": "v75-overview",
+      "originalFilename": "overview.png",
+      "sourceVersion": "aster_v75",
+      "sourceRelativePath": "aster_v75/screenshots/overview.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5049848,
+      "sourceSha256": "7f1cc41e836935e7b936bbf5f03c01f9d8426708fabcb927ce79f4cf453f2860",
+      "generatedBytes": 1055826,
+      "files": [
+        {
+          "filename": "v75-overview-800.webp",
+          "width": 800,
+          "height": 472,
+          "bytes": 95822
+        },
+        {
+          "filename": "v75-overview-1440.webp",
+          "width": 1440,
+          "height": 849,
+          "bytes": 266480
+        },
+        {
+          "filename": "v75-overview-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 662092
+        },
+        {
+          "filename": "v75-overview-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 31432
+        }
+      ]
+    },
+    {
+      "slug": "v75-scar-texture-inspection",
+      "originalFilename": "scar-texture-inspection.png",
+      "sourceVersion": "aster_v75",
+      "sourceRelativePath": "aster_v75/screenshots/scar-texture-inspection.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 4923004,
+      "sourceSha256": "45c86bdc4238097559fcc7cc571bc96b21429262c949618a4c54a124801f5f8b",
+      "generatedBytes": 569230,
+      "files": [
+        {
+          "filename": "v75-scar-texture-inspection-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 27708
+        },
+        {
+          "filename": "v75-scar-texture-inspection-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 541522
+        }
+      ]
+    },
+    {
+      "slug": "v75-scar",
+      "originalFilename": "scar.png",
+      "sourceVersion": "aster_v75",
+      "sourceRelativePath": "aster_v75/screenshots/scar.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5207734,
+      "sourceSha256": "6275ede9792e245188a97980cfc0757a2fd23f9cda40f5f814ef0b9f3c1246a0",
+      "generatedBytes": 1050200,
+      "files": [
+        {
+          "filename": "v75-scar-800.webp",
+          "width": 800,
+          "height": 472,
+          "bytes": 102108
+        },
+        {
+          "filename": "v75-scar-1440.webp",
+          "width": 1440,
+          "height": 849,
+          "bytes": 267254
+        },
+        {
+          "filename": "v75-scar-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 645850
+        },
+        {
+          "filename": "v75-scar-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 34988
+        }
+      ]
+    },
+    {
+      "slug": "v75-truck",
+      "originalFilename": "truck.png",
+      "sourceVersion": "aster_v75",
+      "sourceRelativePath": "aster_v75/screenshots/truck.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5192640,
+      "sourceSha256": "b54b086c25de5801d990dc138da5772acf2d287bc06e647d48632bc0bd05434d",
+      "generatedBytes": 838174,
+      "files": [
+        {
+          "filename": "v75-truck-800.webp",
+          "width": 800,
+          "height": 472,
+          "bytes": 84852
+        },
+        {
+          "filename": "v75-truck-1440.webp",
+          "width": 1440,
+          "height": 849,
+          "bytes": 214832
+        },
+        {
+          "filename": "v75-truck-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 507570
+        },
+        {
+          "filename": "v75-truck-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 30920
+        }
+      ]
+    },
+    {
+      "slug": "v8-asphalt-first-look",
+      "originalFilename": "asphalt-first-look.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/asphalt-first-look.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5567952,
+      "sourceSha256": "5dd97b25c7ea6d895f0e6ba293d7f5d6e24efb7759fdb7fe90ce3445abfa6ee5",
+      "generatedBytes": 685172,
+      "files": [
+        {
+          "filename": "v8-asphalt-first-look-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 33934
+        },
+        {
+          "filename": "v8-asphalt-first-look-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 651238
+        }
+      ]
+    },
+    {
+      "slug": "v8-edge-after",
+      "originalFilename": "edge-after.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/edge-after.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 6178041,
+      "sourceSha256": "fa276a0ab3a370bc70ad7e4ed7a42b590dacab8e4a03422bc90f0b2b76c32c9a",
+      "generatedBytes": 773718,
+      "files": [
+        {
+          "filename": "v8-edge-after-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 32256
+        },
+        {
+          "filename": "v8-edge-after-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 741462
+        }
+      ]
+    },
+    {
+      "slug": "v8-edge-before",
+      "originalFilename": "edge-before.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/edge-before.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5999253,
+      "sourceSha256": "f0d64c8a444e054af407345d462fb787d9c76d45174f6c95f5dd242a077ecd40",
+      "generatedBytes": 737612,
+      "files": [
+        {
+          "filename": "v8-edge-before-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 30716
+        },
+        {
+          "filename": "v8-edge-before-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 706896
+        }
+      ]
+    },
+    {
+      "slug": "v8-edge-cap-final",
+      "originalFilename": "edge-cap-final.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/edge-cap-final.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5942424,
+      "sourceSha256": "686f2251e5a1e2327c15e3a0d35fd8984d78e79c652ac0e486c4c357a4cd5fdb",
+      "generatedBytes": 1051672,
+      "files": [
+        {
+          "filename": "v8-edge-cap-final-800.webp",
+          "width": 800,
+          "height": 472,
+          "bytes": 94080
+        },
+        {
+          "filename": "v8-edge-cap-final-1440.webp",
+          "width": 1440,
+          "height": 849,
+          "bytes": 267776
+        },
+        {
+          "filename": "v8-edge-cap-final-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 660286
+        },
+        {
+          "filename": "v8-edge-cap-final-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 29530
+        }
+      ]
+    },
+    {
+      "slug": "v8-edge-cap-preview",
+      "originalFilename": "edge-cap-preview.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/edge-cap-preview.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 6239117,
+      "sourceSha256": "62e2de8d836331723e1bd4e5f786fc91ffb22490a6ce1ba844962671b064d67d",
+      "generatedBytes": 785040,
+      "files": [
+        {
+          "filename": "v8-edge-cap-preview-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 33696
+        },
+        {
+          "filename": "v8-edge-cap-preview-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 751344
+        }
+      ]
+    },
+    {
+      "slug": "v8-edge-contact-final-before-reload",
+      "originalFilename": "edge-contact-final-before-reload.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/edge-contact-final-before-reload.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 6272635,
+      "sourceSha256": "0fefb7b23464a3fde82d3182dc6cc63e8d03a3684c0aefaead6446778c30a575",
+      "generatedBytes": 797078,
+      "files": [
+        {
+          "filename": "v8-edge-contact-final-before-reload-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 33350
+        },
+        {
+          "filename": "v8-edge-contact-final-before-reload-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 763728
+        }
+      ]
+    },
+    {
+      "slug": "v8-edge-exact-surface",
+      "originalFilename": "edge-exact-surface.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/edge-exact-surface.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 6190079,
+      "sourceSha256": "f24a201083334e67cd38fb4c2574494a4f0f22db1e55dcf7c635acfe50a931f1",
+      "generatedBytes": 1171796,
+      "files": [
+        {
+          "filename": "v8-edge-exact-surface-800.webp",
+          "width": 800,
+          "height": 472,
+          "bytes": 103998
+        },
+        {
+          "filename": "v8-edge-exact-surface-1440.webp",
+          "width": 1440,
+          "height": 849,
+          "bytes": 294536
+        },
+        {
+          "filename": "v8-edge-exact-surface-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 739772
+        },
+        {
+          "filename": "v8-edge-exact-surface-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 33490
+        }
+      ]
+    },
+    {
+      "slug": "v8-edge-final-reloaded",
+      "originalFilename": "edge-final-reloaded.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/edge-final-reloaded.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 6099540,
+      "sourceSha256": "c600154f55b07c51b00b1632396964abf7af4c762e648d880052836ef9ecf1de",
+      "generatedBytes": 1146058,
+      "files": [
+        {
+          "filename": "v8-edge-final-reloaded-800.webp",
+          "width": 800,
+          "height": 472,
+          "bytes": 98816
+        },
+        {
+          "filename": "v8-edge-final-reloaded-1440.webp",
+          "width": 1440,
+          "height": 849,
+          "bytes": 287208
+        },
+        {
+          "filename": "v8-edge-final-reloaded-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 728390
+        },
+        {
+          "filename": "v8-edge-final-reloaded-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 31644
+        }
+      ]
+    },
+    {
+      "slug": "v8-edge-matte-preview",
+      "originalFilename": "edge-matte-preview.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/edge-matte-preview.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5922109,
+      "sourceSha256": "5f5a2219e5a8095a99a9db442824fd928ab5cc190e6e48c0ac8ab20e7e111176",
+      "generatedBytes": 683502,
+      "files": [
+        {
+          "filename": "v8-edge-matte-preview-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 29324
+        },
+        {
+          "filename": "v8-edge-matte-preview-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 654178
+        }
+      ]
+    },
+    {
+      "slug": "v8-edge-native-pavement-test",
+      "originalFilename": "edge-native-pavement-test.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/edge-native-pavement-test.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 6246379,
+      "sourceSha256": "fa0451f933c4069759843fa5fc96496c48ef44e4a0d29bc5e446e12347a65093",
+      "generatedBytes": 787452,
+      "files": [
+        {
+          "filename": "v8-edge-native-pavement-test-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 33130
+        },
+        {
+          "filename": "v8-edge-native-pavement-test-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 754322
+        }
+      ]
+    },
+    {
+      "slug": "v8-edge-render-postapply-test",
+      "originalFilename": "edge-render-postapply-test.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/edge-render-postapply-test.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 6263992,
+      "sourceSha256": "96e77e52c3442634edaad439a40df2f4a08bb031ca10874ae9843ccfb1df1176",
+      "generatedBytes": 790718,
+      "files": [
+        {
+          "filename": "v8-edge-render-postapply-test-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 33402
+        },
+        {
+          "filename": "v8-edge-render-postapply-test-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 757316
+        }
+      ]
+    },
+    {
+      "slug": "v8-garage-cap-final",
+      "originalFilename": "garage-cap-final.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/garage-cap-final.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 3576053,
+      "sourceSha256": "5f234064820c4106e7449adcd8463072aa7fa2ca32b97a003af7afa7cd615912",
+      "generatedBytes": 639430,
+      "files": [
+        {
+          "filename": "v8-garage-cap-final-800.webp",
+          "width": 800,
+          "height": 472,
+          "bytes": 59070
+        },
+        {
+          "filename": "v8-garage-cap-final-1440.webp",
+          "width": 1440,
+          "height": 849,
+          "bytes": 162246
+        },
+        {
+          "filename": "v8-garage-cap-final-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 398718
+        },
+        {
+          "filename": "v8-garage-cap-final-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 19396
+        }
+      ]
+    },
+    {
+      "slug": "v8-garage-edge-final",
+      "originalFilename": "garage-edge-final.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/garage-edge-final.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 3653478,
+      "sourceSha256": "7b1f4d90c88253d345c5f443360111d9de02a974611e7debe95cb599351c0ad2",
+      "generatedBytes": 449026,
+      "files": [
+        {
+          "filename": "v8-garage-edge-final-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 19480
+        },
+        {
+          "filename": "v8-garage-edge-final-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 429546
+        }
+      ]
+    },
+    {
+      "slug": "v8-garage",
+      "originalFilename": "garage.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/garage.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 3596562,
+      "sourceSha256": "d6bc50d1c732ec501e129035c83d9865056a20bb278c2b5f02bbfe51945f530d",
+      "generatedBytes": 661610,
+      "files": [
+        {
+          "filename": "v8-garage-800.webp",
+          "width": 800,
+          "height": 472,
+          "bytes": 58254
+        },
+        {
+          "filename": "v8-garage-1440.webp",
+          "width": 1440,
+          "height": 849,
+          "bytes": 165212
+        },
+        {
+          "filename": "v8-garage-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 419152
+        },
+        {
+          "filename": "v8-garage-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 18992
+        }
+      ]
+    },
+    {
+      "slug": "v8-overview-cap-final",
+      "originalFilename": "overview-cap-final.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/overview-cap-final.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5651170,
+      "sourceSha256": "a75607c1bc438a8479f6724662265f2f7ad3e961aeb1d449fa261faa932edb96",
+      "generatedBytes": 1178100,
+      "files": [
+        {
+          "filename": "v8-overview-cap-final-800.webp",
+          "width": 800,
+          "height": 472,
+          "bytes": 106676
+        },
+        {
+          "filename": "v8-overview-cap-final-1440.webp",
+          "width": 1440,
+          "height": 849,
+          "bytes": 296944
+        },
+        {
+          "filename": "v8-overview-cap-final-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 738592
+        },
+        {
+          "filename": "v8-overview-cap-final-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 35888
+        }
+      ]
+    },
+    {
+      "slug": "v8-overview-edge-final",
+      "originalFilename": "overview-edge-final.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/overview-edge-final.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5647114,
+      "sourceSha256": "46236b3c54701ace743e2e478d68ca5e062cdc5bcb2dd848e7d15bef12f0acfc",
+      "generatedBytes": 772070,
+      "files": [
+        {
+          "filename": "v8-overview-edge-final-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 35804
+        },
+        {
+          "filename": "v8-overview-edge-final-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 736266
+        }
+      ]
+    },
+    {
+      "slug": "v8-overview",
+      "originalFilename": "overview.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/overview.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5626392,
+      "sourceSha256": "835801a72069755f9be5fb891ae57339d368b9e18b9f52c6e6079265b8b4548d",
+      "generatedBytes": 766696,
+      "files": [
+        {
+          "filename": "v8-overview-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 35288
+        },
+        {
+          "filename": "v8-overview-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 731408
+        }
+      ]
+    },
+    {
+      "slug": "v8-reclaimed-close-final",
+      "originalFilename": "reclaimed-close-final.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/reclaimed-close-final.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5105552,
+      "sourceSha256": "19f81e51101baa2a34ef74bf881ef057ef028b24062b2562da26db496e2dbbe6",
+      "generatedBytes": 637370,
+      "files": [
+        {
+          "filename": "v8-reclaimed-close-final-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 33512
+        },
+        {
+          "filename": "v8-reclaimed-close-final-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 603858
+        }
+      ]
+    },
+    {
+      "slug": "v8-reclaimed-close",
+      "originalFilename": "reclaimed-close.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/reclaimed-close.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5106349,
+      "sourceSha256": "e491e1351541d5c5dedf847dc7b74f50f7efca84cfee60244d08c194ee8667cf",
+      "generatedBytes": 637730,
+      "files": [
+        {
+          "filename": "v8-reclaimed-close-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 33900
+        },
+        {
+          "filename": "v8-reclaimed-close-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 603830
+        }
+      ]
+    },
+    {
+      "slug": "v8-reclaimed-final",
+      "originalFilename": "reclaimed-final.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/reclaimed-final.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 6514944,
+      "sourceSha256": "3292bf2110b2d7dcb14973f75727f15caaa711d9441b5760664b22685c38c513",
+      "generatedBytes": 1470704,
+      "files": [
+        {
+          "filename": "v8-reclaimed-final-800.webp",
+          "width": 800,
+          "height": 472,
+          "bytes": 135374
+        },
+        {
+          "filename": "v8-reclaimed-final-1440.webp",
+          "width": 1440,
+          "height": 849,
+          "bytes": 371590
+        },
+        {
+          "filename": "v8-reclaimed-final-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 919428
+        },
+        {
+          "filename": "v8-reclaimed-final-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 44312
+        }
+      ]
+    },
+    {
+      "slug": "v8-reclaimed-first-look",
+      "originalFilename": "reclaimed-first-look.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/reclaimed-first-look.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 6220946,
+      "sourceSha256": "cdb366bb248f05cb2dfaea7c27e8cf92b6d9670ca5c34ff227c6a88e1af9fa3c",
+      "generatedBytes": 1219204,
+      "files": [
+        {
+          "filename": "v8-reclaimed-first-look-800.webp",
+          "width": 800,
+          "height": 472,
+          "bytes": 113094
+        },
+        {
+          "filename": "v8-reclaimed-first-look-1440.webp",
+          "width": 1440,
+          "height": 849,
+          "bytes": 308484
+        },
+        {
+          "filename": "v8-reclaimed-first-look-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 760346
+        },
+        {
+          "filename": "v8-reclaimed-first-look-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 37280
+        }
+      ]
+    },
+    {
+      "slug": "v8-reclaimed",
+      "originalFilename": "reclaimed.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/reclaimed.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 6619342,
+      "sourceSha256": "d9092198cfc3dcd3bf57866d242e3b4418ce55e626aac2555530156046bdb203",
+      "generatedBytes": 1002790,
+      "files": [
+        {
+          "filename": "v8-reclaimed-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 46668
+        },
+        {
+          "filename": "v8-reclaimed-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 956122
+        }
+      ]
+    },
+    {
+      "slug": "v8-rolled-edge-final",
+      "originalFilename": "rolled-edge-final.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/rolled-edge-final.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5332055,
+      "sourceSha256": "d80a2c251216115a380cccd3e2f065e3fdf208f7ea2696d8c963c6bb4fd0ad7b",
+      "generatedBytes": 920956,
+      "files": [
+        {
+          "filename": "v8-rolled-edge-final-800.webp",
+          "width": 800,
+          "height": 472,
+          "bytes": 99438
+        },
+        {
+          "filename": "v8-rolled-edge-final-1440.webp",
+          "width": 1440,
+          "height": 849,
+          "bytes": 238526
+        },
+        {
+          "filename": "v8-rolled-edge-final-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 547782
+        },
+        {
+          "filename": "v8-rolled-edge-final-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 35210
+        }
+      ]
+    },
+    {
+      "slug": "v8-rolled-edge-preview",
+      "originalFilename": "rolled-edge-preview.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/rolled-edge-preview.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5378556,
+      "sourceSha256": "fcead0818b73495f44f92926e432169e2c583bb28f66b6d65f8558c64d989c47",
+      "generatedBytes": 938916,
+      "files": [
+        {
+          "filename": "v8-rolled-edge-preview-800.webp",
+          "width": 800,
+          "height": 472,
+          "bytes": 102084
+        },
+        {
+          "filename": "v8-rolled-edge-preview-1440.webp",
+          "width": 1440,
+          "height": 849,
+          "bytes": 242908
+        },
+        {
+          "filename": "v8-rolled-edge-preview-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 557410
+        },
+        {
+          "filename": "v8-rolled-edge-preview-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 36514
+        }
+      ]
+    },
+    {
+      "slug": "v8-routes-before",
+      "originalFilename": "routes-before.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/routes-before.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5490325,
+      "sourceSha256": "12d1994304c2dcbcfdcec1d2dc34d3da30e7e2d36bb7a5518beb71a4d288897a",
+      "generatedBytes": 1012198,
+      "files": [
+        {
+          "filename": "v8-routes-before-800.webp",
+          "width": 800,
+          "height": 472,
+          "bytes": 94378
+        },
+        {
+          "filename": "v8-routes-before-1440.webp",
+          "width": 1440,
+          "height": 849,
+          "bytes": 258096
+        },
+        {
+          "filename": "v8-routes-before-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 628272
+        },
+        {
+          "filename": "v8-routes-before-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 31452
+        }
+      ]
+    },
+    {
+      "slug": "v8-shortcut-before",
+      "originalFilename": "shortcut-before.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/shortcut-before.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 6198982,
+      "sourceSha256": "7ec6477c08fd068ddafc5232fe69abdef32c9fc3a52a17d72d60f0bf81634a1f",
+      "generatedBytes": 1209580,
+      "files": [
+        {
+          "filename": "v8-shortcut-before-800.webp",
+          "width": 800,
+          "height": 472,
+          "bytes": 112346
+        },
+        {
+          "filename": "v8-shortcut-before-1440.webp",
+          "width": 1440,
+          "height": 849,
+          "bytes": 306618
+        },
+        {
+          "filename": "v8-shortcut-before-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 753634
+        },
+        {
+          "filename": "v8-shortcut-before-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 36982
+        }
+      ]
+    },
+    {
+      "slug": "v8-v6-cap-final",
+      "originalFilename": "v6-cap-final.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/v6-cap-final.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 4501916,
+      "sourceSha256": "88c4dd59ac1c49e508ed80e82bf5e1ac485937e34a7ba1c09549926f0bf303fb",
+      "generatedBytes": 828726,
+      "files": [
+        {
+          "filename": "v8-v6-cap-final-800.webp",
+          "width": 800,
+          "height": 472,
+          "bytes": 78892
+        },
+        {
+          "filename": "v8-v6-cap-final-1440.webp",
+          "width": 1440,
+          "height": 849,
+          "bytes": 206140
+        },
+        {
+          "filename": "v8-v6-cap-final-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 515634
+        },
+        {
+          "filename": "v8-v6-cap-final-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 28060
+        }
+      ]
+    },
+    {
+      "slug": "v8-v6-edge-final",
+      "originalFilename": "v6-edge-final.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/v6-edge-final.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 4473743,
+      "sourceSha256": "48263bd71c1e20b57ebfa7277d2772f543d5f0f37e56a1f2dbd919da52fab2f7",
+      "generatedBytes": 538610,
+      "files": [
+        {
+          "filename": "v8-v6-edge-final-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 27984
+        },
+        {
+          "filename": "v8-v6-edge-final-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 510626
+        }
+      ]
+    },
+    {
+      "slug": "v8-v6",
+      "originalFilename": "v6.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/v6.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 4484343,
+      "sourceSha256": "a0afed0c9de02ef6501c456cbf108de057f96139feab73a023bf67c51641bc6e",
+      "generatedBytes": 546652,
+      "files": [
+        {
+          "filename": "v8-v6-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 29046
+        },
+        {
+          "filename": "v8-v6-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 517606
+        }
+      ]
+    },
+    {
+      "slug": "v8-v7-cap-final",
+      "originalFilename": "v7-cap-final.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/v7-cap-final.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5557829,
+      "sourceSha256": "f31a01dba09c760a1f3df16c9e1ef28d68409150925d7e63f4843e2f2949e82d",
+      "generatedBytes": 1127558,
+      "files": [
+        {
+          "filename": "v8-v7-cap-final-800.webp",
+          "width": 800,
+          "height": 472,
+          "bytes": 106808
+        },
+        {
+          "filename": "v8-v7-cap-final-1440.webp",
+          "width": 1440,
+          "height": 849,
+          "bytes": 281824
+        },
+        {
+          "filename": "v8-v7-cap-final-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 701910
+        },
+        {
+          "filename": "v8-v7-cap-final-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 37016
+        }
+      ]
+    },
+    {
+      "slug": "v8-v7-edge-final",
+      "originalFilename": "v7-edge-final.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/v7-edge-final.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5632160,
+      "sourceSha256": "31e597bf41e76bf24f40ddd42c6b76fd8c03aba0468baa35f6bcb4bf599d0fac",
+      "generatedBytes": 765710,
+      "files": [
+        {
+          "filename": "v8-v7-edge-final-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 37784
+        },
+        {
+          "filename": "v8-v7-edge-final-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 727926
+        }
+      ]
+    },
+    {
+      "slug": "v8-v7",
+      "originalFilename": "v7.png",
+      "sourceVersion": "aster_v8",
+      "sourceRelativePath": "aster_v8/screenshots/v7.png",
+      "width": 2528,
+      "height": 1490,
+      "sourceBytes": 5526716,
+      "sourceSha256": "857c1ef388936f7a29fcfef57419ab85bc6b8b748c775ee18c523c3a296bf3ef",
+      "generatedBytes": 730044,
+      "files": [
+        {
+          "filename": "v8-v7-480.webp",
+          "width": 480,
+          "height": 283,
+          "bytes": 36192
+        },
+        {
+          "filename": "v8-v7-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "bytes": 693852
         }
       ]
     }

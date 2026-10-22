@@ -1,5 +1,5 @@
 {
-  "imageCount": 68,
+  "imageCount": 109,
   "groups": [
     {
       "id": "early",
@@ -643,6 +643,393 @@
           "width": 2528,
           "height": 1490,
           "originalFilename": "restored_trail.png"
+        }
+      ]
+    },
+    {
+      "id": "v75",
+      "label": "Version 7.5 · Sweeping Bend",
+      "images": [
+        {
+          "title": "Before the sweeping bend",
+          "alt": "The narrow gravel bend curls tightly around the rocky hill beneath Aster before the version 7.5 road revision.",
+          "thumbnail": "/aster/v75-bend-before-480.webp",
+          "fullSrc": "/aster/v75-bend-before-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "bend-before.png"
+        },
+        {
+          "title": "Inspecting the original bend",
+          "alt": "An inspection view follows the tight dirt bend and the exposed ground beneath the central house pillar.",
+          "thumbnail": "/aster/v75-bend-inspection-480.webp",
+          "fullSrc": "/aster/v75-bend-inspection-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "bend-inspection.png"
+        },
+        {
+          "title": "Truck and soil inspection",
+          "alt": "A blue flatbed truck stands on the bend while the inner soil bank and road support are inspected.",
+          "thumbnail": "/aster/v75-bend-soil-inspection-480.webp",
+          "fullSrc": "/aster/v75-bend-soil-inspection-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "bend-soil-inspection.png"
+        },
+        {
+          "title": "The outward sweep",
+          "alt": "The revised gravel road makes a broad continuous sweep around the rock group toward the garage.",
+          "thumbnail": "/aster/v75-bend-480.webp",
+          "fullSrc": "/aster/v75-bend-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "bend.png"
+        },
+        {
+          "title": "Meeting the existing road",
+          "alt": "A close roadside view shows the gravel approach joining the existing hairpin beside the rocky slope.",
+          "thumbnail": "/aster/v75-merge-480.webp",
+          "fullSrc": "/aster/v75-merge-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "merge.png"
+        },
+        {
+          "title": "Tracing the pale road scar",
+          "alt": "A pale retired trail remains visible on the hillside during the version 7.5 terrain-texture inspection.",
+          "thumbnail": "/aster/v75-scar-texture-inspection-480.webp",
+          "fullSrc": "/aster/v75-scar-texture-inspection-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "scar-texture-inspection.png"
+        },
+        {
+          "title": "The repaired hillside scar",
+          "alt": "The old trail trace blends into the rough ground above the new gravel bend beneath Aster.",
+          "thumbnail": "/aster/v75-scar-480.webp",
+          "fullSrc": "/aster/v75-scar-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "scar.png"
+        },
+        {
+          "title": "Percheron on the bend",
+          "alt": "A long blue Percheron flatbed truck follows the outer gravel bend around the rocky hillside.",
+          "thumbnail": "/aster/v75-truck-480.webp",
+          "fullSrc": "/aster/v75-truck-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "truck.png"
+        },
+        {
+          "title": "Sweeping Bend overview",
+          "alt": "Aster rises above its rocky hill with the wider gravel approach curving around the base.",
+          "thumbnail": "/aster/v75-overview-480.webp",
+          "fullSrc": "/aster/v75-overview-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "overview.png"
+        }
+      ]
+    },
+    {
+      "id": "v8-construction",
+      "label": "Version 8 · The construction record",
+      "images": [
+        {
+          "title": "The routes before version 8",
+          "alt": "An elevated view shows Aster above its network of gravel approaches before the version 8 asphalt and reclamation work.",
+          "thumbnail": "/aster/v8-routes-before-480.webp",
+          "fullSrc": "/aster/v8-routes-before-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "routes-before.png"
+        },
+        {
+          "title": "The marked shortcut before reclamation",
+          "alt": "The old pale U-shaped alternate trail is still visible across the south-facing hillside below Aster.",
+          "thumbnail": "/aster/v8-shortcut-before-480.webp",
+          "fullSrc": "/aster/v8-shortcut-before-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "shortcut-before.png"
+        },
+        {
+          "title": "The first asphalt pass",
+          "alt": "The house is seen from above during the first asphalt pass, with multiple pale routes still visible on the surrounding hill.",
+          "thumbnail": "/aster/v8-asphalt-first-look-480.webp",
+          "fullSrc": "/aster/v8-asphalt-first-look-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "asphalt-first-look.png"
+        },
+        {
+          "title": "The original route’s first asphalt pass",
+          "alt": "The initial asphalt pass on the original uphill approach is shown with an in-game diagnostic overlay.",
+          "thumbnail": "/aster/v8-v6-480.webp",
+          "fullSrc": "/aster/v8-v6-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "v6.png"
+        },
+        {
+          "title": "The sweeping bend’s first asphalt pass",
+          "alt": "The initial dark asphalt hairpin curves around the hill below the garage and white central pillar.",
+          "thumbnail": "/aster/v8-v7-480.webp",
+          "fullSrc": "/aster/v8-v7-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "v7.png"
+        },
+        {
+          "title": "The first glossy apron",
+          "alt": "The first asphalt apron reflects a strong patch of sunlight in front of Aster’s wide garage arch.",
+          "thumbnail": "/aster/v8-garage-480.webp",
+          "fullSrc": "/aster/v8-garage-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "garage.png"
+        },
+        {
+          "title": "The asphalt routes take shape",
+          "alt": "An overhead view shows the first dark asphalt approaches beneath Aster’s white curved wings and glass crown.",
+          "thumbnail": "/aster/v8-overview-480.webp",
+          "fullSrc": "/aster/v8-overview-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "overview.png"
+        },
+        {
+          "title": "The first reclamation pass",
+          "alt": "The first reclamation pass leaves a pale old trail trace visible across the broad reshaped hillside.",
+          "thumbnail": "/aster/v8-reclaimed-first-look-480.webp",
+          "fullSrc": "/aster/v8-reclaimed-first-look-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "reclaimed-first-look.png"
+        },
+        {
+          "title": "Reclamation in progress",
+          "alt": "A wide view follows the former shortcut across the hillside during the ground and texture-repair work.",
+          "thumbnail": "/aster/v8-reclaimed-480.webp",
+          "fullSrc": "/aster/v8-reclaimed-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "reclaimed.png"
+        },
+        {
+          "title": "Studying the reconstructed slope",
+          "alt": "The reconstructed south-facing slope is inspected below Aster’s cantilevered white wings during the reclamation work.",
+          "thumbnail": "/aster/v8-reclaimed-close-480.webp",
+          "fullSrc": "/aster/v8-reclaimed-close-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "reclaimed-close.png"
+        },
+        {
+          "title": "The initial asphalt edge",
+          "alt": "A reflective asphalt hairpin meets a pale rough shoulder before the later pavement-edge refinements.",
+          "thumbnail": "/aster/v8-edge-before-480.webp",
+          "fullSrc": "/aster/v8-edge-before-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "edge-before.png"
+        },
+        {
+          "title": "An early shoulder inspection",
+          "alt": "A curved asphalt road hugs the rock group while an in-game diagnostic overlay is visible during an early shoulder inspection.",
+          "thumbnail": "/aster/v8-edge-after-480.webp",
+          "fullSrc": "/aster/v8-edge-after-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "edge-after.png"
+        },
+        {
+          "title": "Testing the native pavement surface",
+          "alt": "A native pavement material test shows the curved gray road with a dark rim and pale natural ground beyond it.",
+          "thumbnail": "/aster/v8-edge-native-pavement-test-480.webp",
+          "fullSrc": "/aster/v8-edge-native-pavement-test-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "edge-native-pavement-test.png"
+        },
+        {
+          "title": "A render test during construction",
+          "alt": "The road bend is viewed under an in-game overlay during an intermediate render test with patchy surface artifacts.",
+          "thumbnail": "/aster/v8-edge-render-postapply-test-480.webp",
+          "fullSrc": "/aster/v8-edge-render-postapply-test-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "edge-render-postapply-test.png"
+        },
+        {
+          "title": "An exact-surface experiment",
+          "alt": "An intermediate asphalt-surface experiment shows conspicuous checker-like bright patches across the outside of the bend.",
+          "thumbnail": "/aster/v8-edge-exact-surface-480.webp",
+          "fullSrc": "/aster/v8-edge-exact-surface-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "edge-exact-surface.png"
+        },
+        {
+          "title": "Contact boundary before reload",
+          "alt": "A broad matte asphalt curve meets the natural shoulder during the contact-boundary pass before reload.",
+          "thumbnail": "/aster/v8-edge-contact-final-before-reload-480.webp",
+          "fullSrc": "/aster/v8-edge-contact-final-before-reload-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "edge-contact-final-before-reload.png"
+        },
+        {
+          "title": "Earlier edge pass after reload",
+          "alt": "The earlier reloaded edge pass shows the asphalt bend with a pronounced sunlight reflection across its right-hand surface.",
+          "thumbnail": "/aster/v8-edge-final-reloaded-480.webp",
+          "fullSrc": "/aster/v8-edge-final-reloaded-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "edge-final-reloaded.png"
+        },
+        {
+          "title": "The original approach during edge work",
+          "alt": "The earlier asphalt version of the original approach curves uphill beside the exposed rock face.",
+          "thumbnail": "/aster/v8-v6-edge-final-480.webp",
+          "fullSrc": "/aster/v8-v6-edge-final-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "v6-edge-final.png"
+        },
+        {
+          "title": "The sweeping bend during edge work",
+          "alt": "The earlier asphalt hairpin wraps around the rocky hill during its pavement-edge refinement.",
+          "thumbnail": "/aster/v8-v7-edge-final-480.webp",
+          "fullSrc": "/aster/v8-v7-edge-final-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "v7-edge-final.png"
+        },
+        {
+          "title": "Garage apron before the matte finish",
+          "alt": "A bright reflection crosses the earlier asphalt apron below the circular balconies and arched garage entrance.",
+          "thumbnail": "/aster/v8-garage-edge-final-480.webp",
+          "fullSrc": "/aster/v8-garage-edge-final-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "garage-edge-final.png"
+        },
+        {
+          "title": "Overview during edge refinement",
+          "alt": "An elevated view shows the asphalt approaches circling Aster’s hill during the earlier edge-refinement pass.",
+          "thumbnail": "/aster/v8-overview-edge-final-480.webp",
+          "fullSrc": "/aster/v8-overview-edge-final-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "overview-edge-final.png"
+        },
+        {
+          "title": "Previewing the pavement cap",
+          "alt": "The raised asphalt bend is inspected with the in-game overlay visible while its pavement cap is previewed.",
+          "thumbnail": "/aster/v8-edge-cap-preview-480.webp",
+          "fullSrc": "/aster/v8-edge-cap-preview-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "edge-cap-preview.png"
+        },
+        {
+          "title": "An early rolled-edge preview",
+          "alt": "A low close-up shows a reflective road-edge preview with a conspicuous pale seam along the natural shoulder.",
+          "thumbnail": "/aster/v8-rolled-edge-preview-480.webp",
+          "fullSrc": "/aster/v8-rolled-edge-preview-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "rolled-edge-preview.png"
+        },
+        {
+          "title": "A quieter surface preview",
+          "alt": "A preview view shows a subdued asphalt curve and its thin boundary beside the rocky inner slope.",
+          "thumbnail": "/aster/v8-edge-matte-preview-480.webp",
+          "fullSrc": "/aster/v8-edge-matte-preview-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "edge-matte-preview.png"
+        }
+      ]
+    },
+    {
+      "id": "v8-final",
+      "label": "Version 8 · The final matte surface",
+      "images": [
+        {
+          "title": "Final matte pavement edge",
+          "alt": "The final matte asphalt bend ends at a continuous dark rolled edge against natural rock and soil.",
+          "thumbnail": "/aster/v8-edge-cap-final-480.webp",
+          "fullSrc": "/aster/v8-edge-cap-final-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "edge-cap-final.png"
+        },
+        {
+          "title": "The final rolled edge",
+          "alt": "A low close-up shows the matte asphalt shoulder rolling down to a narrow dark lip beside rough natural ground.",
+          "thumbnail": "/aster/v8-rolled-edge-final-480.webp",
+          "fullSrc": "/aster/v8-rolled-edge-final-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "rolled-edge-final.png"
+        },
+        {
+          "title": "The sweeping bend in matte asphalt",
+          "alt": "The final broad asphalt hairpin sweeps around the preserved rock group and climbs toward Aster’s garage.",
+          "thumbnail": "/aster/v8-v7-cap-final-480.webp",
+          "fullSrc": "/aster/v8-v7-cap-final-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "v7-cap-final.png"
+        },
+        {
+          "title": "The original approach, resurfaced",
+          "alt": "The final matte asphalt follows the original approach up the hillside beneath Aster’s cantilevered wings.",
+          "thumbnail": "/aster/v8-v6-cap-final-480.webp",
+          "fullSrc": "/aster/v8-v6-cap-final-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "v6-cap-final.png"
+        },
+        {
+          "title": "The final garage apron",
+          "alt": "A continuous matte asphalt apron reaches the wide catenary-shaped garage entrance in Aster’s cylindrical centre.",
+          "thumbnail": "/aster/v8-garage-cap-final-480.webp",
+          "fullSrc": "/aster/v8-garage-cap-final-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "garage-cap-final.png"
+        },
+        {
+          "title": "Asphalt and reclaimed slopes",
+          "alt": "The final Aster house and both matte asphalt approaches sit above a rocky coastal hillside and the sea.",
+          "thumbnail": "/aster/v8-overview-cap-final-480.webp",
+          "fullSrc": "/aster/v8-overview-cap-final-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "overview-cap-final.png"
+        },
+        {
+          "title": "The shortcut returned to hillside",
+          "alt": "The final wide view shows a continuous natural hillside beneath Aster after the U-shaped shortcut was retired.",
+          "thumbnail": "/aster/v8-reclaimed-final-480.webp",
+          "fullSrc": "/aster/v8-reclaimed-final-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "reclaimed-final.png"
+        },
+        {
+          "title": "Final reclaimed slope, close up",
+          "alt": "A close view of the final rocky hillside shows irregular soil and vegetation where the retired shortcut once crossed.",
+          "thumbnail": "/aster/v8-reclaimed-close-final-480.webp",
+          "fullSrc": "/aster/v8-reclaimed-close-final-full.webp",
+          "width": 2528,
+          "height": 1490,
+          "originalFilename": "reclaimed-close-final.png"
         }
       ]
     },

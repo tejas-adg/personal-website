@@ -32,6 +32,11 @@ export function StoryGallery({ groups }: { groups: GalleryGroup[] }) {
         views, and terrain work. Open a collection, then select any image to see
         the uncropped frame at full resolution in a new tab.
       </p>
+      <p class="story-gallery-note">
+        Native game captures, including the unfinished inspections. Generated
+        ground textures were used within the game for the landscape repairs; the
+        screenshots themselves have not been retouched.
+      </p>
       <div class="story-gallery-groups">
         {groups.map((group) => (
           <details key={group.id} open={group.id === "early"}>

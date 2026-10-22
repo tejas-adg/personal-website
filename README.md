@@ -56,8 +56,8 @@ and into shared components:
   page for the `Exhibitions` link.
 - [`routes/archives.tsx`](./routes/archives.tsx) is the renamed shared nav test
   page for `Archives`.
-- [`routes/test.tsx`](./routes/test.tsx) is the lightweight route test page for
-  `Atelier`.
+- [`routes/test.tsx`](./routes/test.tsx) is the Aster build journal linked from
+  `Atelier`, with a nested timeline and the complete screenshot gallery.
 - [`routes/contact.tsx`](./routes/contact.tsx) is the placeholder page for
   `Contact`.
 - [`routes/noir-guide.tsx`](./routes/noir-guide.tsx) is the renamed showcase
@@ -76,6 +76,13 @@ The current navbar targets are:
 - `Noir Guide` -> `/noir-guide`
 
 ### Styling notes
+
+The Aster journal keeps its chronological phases and milestones in
+[`data/aster-story.ts`](./data/aster-story.ts), with responsive layout in
+[`assets/story.css`](./assets/story.css). Optimized, uncropped screenshots and
+source hashes live in `static/aster/`; `gallery.json` records every unique game
+capture. See [the editorial source notes](docs/aster-story-sources.md) for the
+V7.5/V8 chronology and verification limits.
 
 The visual navbar styling now lives in
 [`assets/styles.css`](./assets/styles.css):
