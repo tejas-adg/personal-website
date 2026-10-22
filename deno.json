@@ -1,7 +1,7 @@
 {
   "nodeModulesDir": "manual",
   "tasks": {
-    "test": "deno test lib/auth",
+    "test": "deno test --allow-env=DENO_DEPLOYMENT_ID,GITHUB_SHA,CI_COMMIT_SHA lib/auth",
     "test:infra": "deno test --config infra/deno.json --allow-read infra/auth-store-handler_test.ts",
     "check": "deno fmt --check . && deno lint . && deno check && deno task check:infra",
     "check:infra": "deno fmt --check --config infra/deno.json infra && deno lint --config infra/deno.json infra && deno check --config infra/deno.json infra/auth-store-handler_test.ts",

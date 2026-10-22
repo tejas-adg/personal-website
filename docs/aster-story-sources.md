@@ -1,10 +1,15 @@
 # Aster journal: editorial sources
 
 The `/test` journal follows five phases from the early silhouette to V8. Its
-milestones and selected frames are defined in `data/aster-story.ts`; the gallery
-preserves all 109 unique game screenshots. `static/aster/images.json` records
-original filenames, source SHA-256 hashes, dimensions, and the uncropped WebP
-variants. New entries also record source-relative paths and versions.
+milestones and selected frames are defined in `private/aster-story.ts`; the
+gallery in `private/aster-gallery.json` preserves all 109 unique game
+screenshots. `private/aster-images.json` records original filenames, source
+SHA-256 hashes, dimensions, and the uncropped WebP variants in `private/aster/`.
+New entries also record source-relative paths and versions. These source files
+and manifests are server-only; the `/test` page and `/aster/*` image handler
+check authorization before loading them. See
+[the access-control deployment notes](auth-deployment.md#protected-aster-journal)
+for the website boundary and its historical-publication limit.
 
 The second update was reviewed from the extracted `aster_v7`, `aster_v75`, and
 `aster_v8` folders supplied on 22 October 2026. All nine V7 screenshots match

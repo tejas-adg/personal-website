@@ -22,13 +22,27 @@ through the explicit `publicUser` allowlist.
 
 Before querying or rendering future protected content, call
 `requireAccess(request, ["required-tag"])` from `lib/auth/runtime.ts`. It
-returns the same 404 for absent, expired, stale, or insufficient authorization.
-The check reads current tags from DynamoDB, so removal takes effect on the next
-request. The initial recent-authentication window is 15 minutes, measured from
-Cognito's verified original `auth_time`; normal activity never extends that
-timestamp. The app does not promise a fresh password challenge from every social
-provider. Do not place protected content in `static/` or pass it into a page
-before this check has succeeded.
+returns 404 for absent, expired, stale, or insufficient authorization. The check
+reads current tags from DynamoDB, so removal takes effect on the next request.
+The initial recent-authentication window is 15 minutes, measured from Cognito's
+verified original `auth_time`; normal activity never extends that timestamp. The
+app does not promise a fresh password challenge from every social provider. Do
+not place protected content in `static/` or pass it into a page before this
+check has succeeded.
+
+The Aster journal at `/test` uses the fixed server-side policy in
+[`lib/auth/page_access.ts`](./lib/auth/page_access.ts). It loads the journal
+only after `requireAccess` succeeds. At the user's request, its 404 response
+shows a public sign-in screen when signed out, or a gentle access-denied screen
+when a signed-in user cannot pass the guard. Both screens provide a sign-in path
+that returns to `/test`. These presentation states contain no private journal
+data or authorization fields. Protected image failures and other protected
+routes keep the generic 404 response.
+
+Permissions are assigned only through an administrator's AWS access. The website
+has no permission-editing endpoint, and an email address in a request cannot
+grant access. The page and every screenshot request check authorization
+independently and use `Cache-Control: private, no-store` with `Vary: Cookie`.
 
 Run `deno task test` for token-verification, OAuth, cookie, session, privacy,
 and access-control tests.
@@ -56,8 +70,9 @@ and into shared components:
   page for the `Exhibitions` link.
 - [`routes/archives.tsx`](./routes/archives.tsx) is the renamed shared nav test
   page for `Archives`.
-- [`routes/test.tsx`](./routes/test.tsx) is the Aster build journal linked from
-  `Atelier`, with a nested timeline and the complete screenshot gallery.
+- [`routes/test.tsx`](./routes/test.tsx) guards the Aster build journal linked
+  from `Atelier`; authorized requests load its nested timeline and complete
+  screenshot gallery from [`private/AsterStory.tsx`](./private/AsterStory.tsx).
 - [`routes/contact.tsx`](./routes/contact.tsx) is the placeholder page for
   `Contact`.
 - [`routes/noir-guide.tsx`](./routes/noir-guide.tsx) is the renamed showcase
@@ -78,11 +93,32 @@ The current navbar targets are:
 ### Styling notes
 
 The Aster journal keeps its chronological phases and milestones in
-[`data/aster-story.ts`](./data/aster-story.ts), with responsive layout in
-[`assets/story.css`](./assets/story.css). Optimized, uncropped screenshots and
-source hashes live in `static/aster/`; `gallery.json` records every unique game
-capture. See [the editorial source notes](docs/aster-story-sources.md) for the
-V7.5/V8 chronology and verification limits.
+[`private/aster-story.ts`](./private/aster-story.ts), with responsive layout in
+[`assets/story.css`](./assets/story.css). The 288 optimized, uncropped WebP
+variants live in `private/aster/`.
+[`private/aster-images.json`](./private/aster-images.json) records source hashes
+and variants; [`private/aster-gallery.json`](./private/aster-gallery.json)
+records all 109 unique game captures. See
+[the editorial source notes](docs/aster-story-sources.md) for the V7.5/V8
+chronology and verification limits.
+
+[`components/AccessGate.tsx`](./components/AccessGate.tsx) and
+[`assets/access-gate.css`](./assets/access-gate.css) provide the softly lit
+doorway for sign-in and denial screens. The artwork is decorative CSS and needs
+no private journal images.
+
+`/aster/*` is a protected server handler registered before public static-file
+serving. It checks the same fixed policy before loading the private manifest or
+reading a file, accepts only known WebP filenames, and applies the guard to GET,
+HEAD, range, and conditional requests. The build copies screenshot files beside
+the server entry point at `_fresh/server/private/aster/`; neither images nor
+manifests belong in `_fresh/client/`. Vite's development filesystem handler also
+denies `private/` paths.
+
+The GitHub repository remains public and contains the journal source and images,
+including these server-only files. Earlier deployments also published them. The
+website gate controls website requests; it does not hide repository contents or
+retract historical copies.
 
 The visual navbar styling now lives in
 [`assets/styles.css`](./assets/styles.css):

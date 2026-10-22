@@ -13,8 +13,10 @@ APIs, cookies, JWT claims, or logs. Never accept tag changes from a user-facing
 request. Use an explicit public-user field allowlist. Before loading any future
 protected content, call `requireAccess` from `lib/auth/runtime.ts` with its
 required tags; missing, expired, stale, or insufficient authorization must
-return the same 404 response. Private content must not be placed in public
-static assets.
+return 404. By the user's explicit request, `/test` may present public sign-in
+or access-denied screens within that 404 response. Protected asset failures and
+other protected routes retain the same generic 404 response. Private content
+must not be placed in public static assets.
 
 # AWS Guidance for the new AWS experience
 

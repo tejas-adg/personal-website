@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "./story.css";
+@import "./access-gate.css";
 
 :root {
   --app-color-lume: 208 188 255;

@@ -14,11 +14,11 @@ Both AWS stacks are live in `us-east-2`. The Google Cloud project and Web
 application OAuth client are configured for basic identity scopes, Google is
 enabled in Cognito, and Deno Deploy's Production runtime environment is
 configured. Real Google sign-in, public session API projection, and logout have
-been verified both locally and at `https://tejasam.com`. Deno production
-revision `n1qs88w73cpe` is routed to the public domains. Anonymous account
-access returns 404, and the `www` sign-in entry redirects to the registered
-canonical origin. Amazon and Facebook registration is deferred at the user's
-request.
+been verified both locally and at `https://tejasam.com`, including the earlier
+Deno production revision `n1qs88w73cpe`. Anonymous `/account` access returns
+404, and the `www` sign-in entry redirects to the registered canonical origin.
+The Aster journal now has a separate server-side access gate described below.
+Amazon and Facebook registration is deferred at the user's request.
 
 ## Infrastructure
 
@@ -228,8 +228,9 @@ Sources:
 
 Add these under Deno Deploy's application-level environment variables for the
 Production context. Runtime secrets do not belong in the Build context. The
-current application has these values configured for Production only; the updated
-production website revision `n1qs88w73cpe` is live. Local verification uses a
+current application has these values configured for Production only. Check the
+Deno Console for the revision currently routed to the production domains rather
+than assuming a branch preview uses this context. Local verification uses a
 separate gitignored environment file.
 
 | Variable                | Value                                                             | Secret  |
@@ -291,10 +292,13 @@ on the next authorization check.
 
 Future protected routes must call the server-side authorization guard before
 loading or rendering content. Require both a matching tag and recent
-authentication, and return the same 404 response for anonymous, expired, stale,
-or untagged access. Never include `accessTags` in page data, island props, JSON,
-cookies, provider attributes, tokens, analytics, or logs. Public profiles must
-use the explicit public-user allowlist.
+authentication, and return 404 for anonymous, expired, stale, or untagged
+access. At the user's explicit request, `/test` may show public sign-in or
+access-denied screens within that 404 response. Other protected routes and all
+protected asset failures retain the same generic 404 response. Never include
+`accessTags` in page data, island props, JSON, cookies, provider attributes,
+tokens, analytics, or logs. Public profiles must use the explicit public-user
+allowlist.
 
 DynamoDB TTL is delayed cleanup. Always compare `expiresAt` with the current
 time in code, even when the record still exists. Do not put private content
@@ -305,6 +309,60 @@ Sources:
 [TTL](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html),
 and
 [IAM condition keys](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/specifying-conditions.html).
+
+## Protected Aster journal
+
+[`routes/test.tsx`](../routes/test.tsx) calls `requireAccess` with the immutable
+server-side policy from [`lib/auth/page_access.ts`](../lib/auth/page_access.ts)
+before importing the journal. A successful guard returns the journal with status
+200. A failed guard returns status 404 with either the public sign-in screen or,
+for a recognized signed-in user, the access-denied screen. A valid public
+profile alone never grants access; it only selects the failure screen. Sign-in
+links preserve `/test` as the return destination.
+
+The content module (`private/AsterStory.tsx`), timeline
+(`private/aster-story.ts`), and manifests (`private/aster-images.json` and
+`private/aster-gallery.json`) stay in the server build. The route passes only
+the public presentation state into page data. It sets
+`Cache-Control: private, no-store`, `Vary: Cookie`, and
+`X-Robots-Tag: noindex, nofollow` for both successful and failed page requests.
+
+[`lib/auth/aster_assets.ts`](../lib/auth/aster_assets.ts) protects `/aster/*`
+before Fresh's static-file middleware. Every request calls the same guard before
+loading the manifest, checking file existence, or reading bytes. Only manifest
+WebP basenames are served; JSON metadata, traversal, encoded paths, and unknown
+files return the generic 404. HEAD, range, and conditional requests cannot
+bypass the guard. Authorized responses are private and noncacheable; range and
+conditional requests receive a full authorized response without a public
+validator. No authorization result is cached between requests.
+
+[`vite.config.ts`](../vite.config.ts) copies the 288 WebP files from
+`private/aster/` into `_fresh/server/private/aster/` after the server build. It
+does not emit them through Vite's public asset pipeline. Its filesystem deny
+list also blocks `private/` through Vite's development file-serving endpoints.
+During deployment verification, confirm `_fresh/client/` contains no journal
+images or manifests and test direct image URLs as well as the page.
+
+Only an administrator can assign or remove journal permission in the existing
+AWS user record. Preserve unrelated permissions and condition updates on the
+expected user identity and prior value to avoid replacing concurrent changes.
+Use separate administrator credentials, never a browser request or the deployed
+application role. Verify the result by checking access decisions; do not log or
+return the private authorization list.
+
+The public GitHub repository still contains the journal source and images,
+including the files now in `private/`. Earlier deployments also published them.
+This boundary protects requests to the updated website; it does not change
+repository visibility, hide source files on GitHub, or retract historical
+copies.
+
+Validate signed-out sign-in presentation, allowed-user journal and image access,
+denied-user failure presentation, and logout revocation. Both failed page states
+must remain 404 and contain no journal data or image references. Repeat image
+requests without authorization, including HEAD, Range, and conditional headers;
+each must return the generic 404 without private bytes. The automated access and
+asset tests run with `deno task test`; the full code checks and production build
+remain `deno task check` and `deno task build`.
 
 ## Validation and policy review
 
@@ -332,8 +390,11 @@ provider passed a real login against the local application. The local
 and a real logout revoked the session and returned to the website. The updated
 Deno production revision `n1qs88w73cpe` passed a real Google login/logout smoke
 test, public session field projection, anonymous account 404, and canonical
-`www` sign-in redirect checks. Website tests: 57 passing; bridge tests: 13
-passing. Formatting, lint, type checks, and the production build passed.
+`www` sign-in redirect checks. That authentication baseline had 57 website tests
+and 13 bridge tests passing, with formatting, lint, type checks, and the
+production build passing. The journal gate adds separate page and
+protected-asset coverage; report its deployment and browser results against the
+actual new revision rather than the baseline revision above.
 
 Run the handler's typed behavior tests with its isolated Node.js 22 type
 configuration:

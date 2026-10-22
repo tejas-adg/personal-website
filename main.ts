@@ -1,9 +1,14 @@
 import { App, staticFiles } from "fresh";
 import { define, type State } from "./utils.ts";
 import { authService } from "./lib/auth/runtime.ts";
+import { serveAsterAsset } from "./lib/auth/aster_assets.ts";
 
 export const app = new App<State>();
 
+// Resolve from main.ts in development and server-entry.mjs in the built server.
+const asterAssetRoot = new URL("./private/aster/", import.meta.url);
+// These files never enter staticFiles() or the public build output.
+app.all("/aster/*", (ctx) => serveAsterAsset(ctx.req, asterAssetRoot));
 app.use(staticFiles());
 
 // Pass a shared value from a middleware
